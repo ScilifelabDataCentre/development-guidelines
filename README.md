@@ -1,2 +1,1 @@
-# development-guidelines
-Guidelines for the SciLifeLab Data Centre development team.
+# Coding guidelines for the SciLifeLab Data Centre development team
