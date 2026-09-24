@@ -10,7 +10,5 @@
 #
 # One name per line, in alphabetical order.
 # ---
-Aishling
-Odén
+Dorin
 SciLifeLab
-Österbo
