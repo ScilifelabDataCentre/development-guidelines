@@ -7,7 +7,6 @@ on:
   pull_request:
     paths:
       - ".github/workflows/renovate-validate.yml"
-      - ".config/renovate/**"
       - ".github/renovate.jsonc" # Replace with your own config path, incl. in run below
 
 permissions:
@@ -37,4 +36,4 @@ jobs:
         run: |
           shopt -s globstar
           npx --yes --package renovate@43 -- renovate-config-validator --no-global --strict \
-            .github/renovate.jsonc .config/renovate/**/*.jsonc
+            .github/renovate.jsonc
