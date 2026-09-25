@@ -34,3 +34,4 @@ Clear and correct citation...
 
 - Consider using the [Open software checklist](https://doi.org/10.17044/scilifelab.29086775) in order to verify that you are following coding and Open Science best practices.
 - Code or content cannot legally be reused unless a licence is specified, even if it is publicly available.
+
