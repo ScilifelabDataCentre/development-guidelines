@@ -1,0 +1,23 @@
+# Would like to check private GitHub links, at least in this repo but, still not supported
+# see https://github.com/tcort/markdown-link-check/issues/351
+name: Markdown link check
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Runs every Monday at 9 am
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run markdown-link-check
+        uses: tcort/github-action-markdown-link-check@v1
+        with:
+          config-file: ".config/markdown-link-check/markdown-link-check-config.json"
