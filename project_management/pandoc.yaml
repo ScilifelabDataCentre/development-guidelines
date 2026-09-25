@@ -1,0 +1,32 @@
+# Config for pandoc to use while building PDF in project_management folder
+#
+# Location is project_management/ folder due to being folder specific and not common to all pandoc builds
+---
+from: gfm # To have compatibility between the compiled PDF and the GitHub rendering
+to: pdf
+metadata:
+  title: "Data Centre Project Management"
+  lang: "en"
+
+include-in-header:
+  - project_management/font-header.tex
+
+resource-path:
+  - project_management
+
+input-files:
+  - project_management/README.md
+  - project_management/raci.md
+  - project_management/proposal.md
+  - project_management/roadmap.md
+  - project_management/update_slides.md
+  - project_management/faqs.md
+  - project_management/glossary.md
+
+toc: true
+
+variables:
+  geometry: margin=1cm
+  colorlinks: true
+  documentclass: report # These 2 are used to ensure page breaks between sections
+  top-level-division: chapter
