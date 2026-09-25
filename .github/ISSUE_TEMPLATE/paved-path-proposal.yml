@@ -1,0 +1,99 @@
+# Issue template for proposing changes to a Paved Path (paved_paths directory)
+# Available as a choice when opening a new issue in the repository.
+---
+# The form's title in the template picker when someone clicks 'New issue'
+name: Paved Path proposal
+
+# Short description appearing under title in template picker
+description: Propose adding, changing or removing a default in Paved Paths
+
+# Pre-fill the issue title so that every proposal starts the same way
+title: "[Paved Path]: "
+
+# Add label automatically
+labels: ["paved-path-proposal"]
+
+# Form elements, shown in order
+body:
+  # Text intro on the form - nothing copied to issue
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose a change to a Paved Path default. See the [Paved Paths README](https://github.com/ScilifelabDataCentre/development-guidelines/tree/main/paved_paths) for how proposals are reviewed.
+
+  # What type of change is it? (drop-down list)
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Type of change
+      options:
+        - Add a new default
+        - Replace an existing default
+        - Remove a default
+        - Update guidance for an existing default
+    validations:
+      required: true
+
+  # What is the current default (if there is one)? (Single-line text box)
+  - type: input
+    id: current-default
+    attributes:
+      label: Current default
+      description: Write "None" if there is no current default.
+    validations:
+      required: true
+
+  # What is the proposed default? (Single-line text box)
+  - type: input
+    id: proposed-default
+    attributes:
+      label: Proposed default
+      description: |
+        Write "N/A" if the type of change is 'Remove a default'. 
+        Write the current default if the type of change is 'Update guidance for an existing default'.
+    validations:
+      required: true
+
+  # Why should we change this? (Multi-line text box)
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: What problem does this solve? How did you come up with this suggestion?
+    validations:
+      required: true
+
+  # How would this affect us? (Multi-line text box)
+  - type: textarea
+    id: trade-offs
+    attributes:
+      label: Trade-offs
+      description: What do we gain, and what do we lose?
+    validations:
+      required: true
+
+  # Licenses for the proposed tool (Single-line text box)
+  - type: input
+    id: licensing
+    attributes:
+      label: Licensing
+      description: The proposed tool's licence
+    validations:
+      required: false
+
+  # Would existing repositories / projects need to change anything? (Multi-line text box)
+  - type: textarea
+    id: migration-impact
+    attributes:
+      label: Migration impact
+      description: What do existing repos need to change, if anything?
+    validations:
+      required: true
+
+  # Have they considered any alternatives? (Multi-line text box)
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
