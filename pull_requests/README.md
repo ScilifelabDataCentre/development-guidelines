@@ -143,3 +143,4 @@ When delegating a review to another team member, first communicate with them via
 
 - GitLab – What is Code Review?  
   https://about.gitlab.com/topics/version-control/what-is-code-review/
+
