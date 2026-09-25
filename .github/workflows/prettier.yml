@@ -1,0 +1,46 @@
+# Prettier: Format code.
+# This workflow uses Prettier to format Markdown files.
+---
+name: Prettier
+permissions:
+  contents: read
+
+on: pull_request
+
+jobs:
+  Prettier:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+
+      - name: Install dependencies
+        # Clean install prettier from package.json
+        # to ensure consistent formatting
+        run: npm ci
+
+      - name: Run Prettier check
+        # Check formatting
+        # format:check is defined in package.json
+        run: |
+          if npm run format:check; then
+            exit 0
+          fi
+
+          echo ""
+          echo "::error:: Prettier found formatting issues."
+          echo ""
+
+          echo ""
+          echo "To fix this locally, run:"
+          echo ""
+          echo "  npm ci"
+          echo "  npm run format"
+          echo ""
+          echo "Then review the changed files, commit them, and push again."
+
+          exit 1
