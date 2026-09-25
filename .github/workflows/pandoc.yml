@@ -1,0 +1,163 @@
+# Build PDF from project management directory using Pandoc
+#
+# The workflow has 3 jobs:
+# 1. build the PDF from the project management directory
+# 2. if the event is a PR, post a comment on the PR with a link to the PDF artifact
+# 3. if the event is a push to main (merge), create a release with the PDF artifact
+---
+name: Project Management PDF Build
+
+# Trigger when there's a PR that modifies files
+# related to project management or pandoc config
+on:
+  pull_request:
+    paths: &pm_paths # Anchor for reuse
+      - "project_management/**"
+      - ".config/pandoc/**"
+      - ".github/workflows/pandoc.yml"
+
+  push:
+    branches:
+      - main
+    paths: *pm_paths
+
+permissions: {} # Permissions different in each job
+
+jobs:
+  # First job: build PDF
+  build:
+    permissions:
+      contents: read # Required for checking out
+
+    runs-on: ubuntu-24.04
+    outputs:
+      # Since the commit hash is required in the release job, we set it as an output here
+      # Accessible via 'needs.build.outputs.commit_hash' in subsequent jobs
+      commit_hash: ${{ steps.commit_hash.outputs.commit_hash }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Create output directory
+        id: output_dir
+        run: mkdir output
+
+      - name: Write commit hash to GitHub Actions output
+        # $GITHUB_OUTPUT: built-in environment variable in GitHub Actions workflows
+        # Accessed via 'steps.commit_hash.outputs.commit_hash' in subsequent steps
+        id: commit_hash
+        run: echo "commit_hash=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build Docker image with Pandoc and LaTeX
+        # -t names and tags the image with the 'commit_hash' from the previous step
+        run: |
+          docker build \
+            -f .config/pandoc/Dockerfile \
+            -t pandoc-latex-lato:${{ steps.commit_hash.outputs.commit_hash }} \
+            .
+
+      - name: Build PDF with Pandoc
+        # --rm removes the container after it exits
+        # -v mounts the current working directory to the output directory
+        # pandoc-latex-lato uses the tagged image from the previous step
+        # --output specifies the output file path
+        # --defaults specifies the pandoc configuration file to use
+        # --metadata adds the commit hash as a subtitle in the PDF
+        run: |
+          docker run --rm \
+            -v "$PWD":/output \
+            pandoc-latex-lato:${{ steps.commit_hash.outputs.commit_hash }} \
+            "pandoc \
+             --output=output/project_management.pdf \
+             --defaults=project_management/pandoc.yaml \
+             --metadata subtitle=${{ steps.commit_hash.outputs.commit_hash }}"
+
+      - name: Upload PDF as artifact
+        # Uploads the generated PDF as an artifact for later download and review
+        uses: actions/upload-artifact@v7
+        with:
+          name: project_management_pdf # Name of the artifact
+          path: output/project_management.pdf # Path to the PDF file to upload
+
+  # If PR event: post comment on PR with link to PDF artifact
+  pr-preview:
+    permissions:
+      issues: write # Required for creating/updating PR comments
+      pull-requests: write # Required for accessing PR details
+
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Get workflow run link
+        # Builds a URL to the workflow run where the PDF artifact can be downloaded
+        # Accessed via 'steps.get_workflow_run_link.outputs.run_url' in subsequent steps
+        id: get_workflow_run_link
+        run: |
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "run_url=${run_url}" >> "$GITHUB_OUTPUT"
+
+      - name: Find reminder comment
+        # Check if github actions has already posted a reminder comment about the PDF build for this PR
+        # Result accessed via 'steps.find_comment.outputs.comment-id' in subsequent steps
+        uses: peter-evans/find-comment@v4
+        id: find_comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: A new Project Management PDF preview has been built
+
+      - name: Add/Update PDF reminder
+        # Post reminder comment about a new PDF build for this PR,
+        # or update the existing comment if it already exists
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            A new Project Management PDF preview has been built for this PR:
+
+            ${{ steps.get_workflow_run_link.outputs.run_url }}
+
+            Please download the `project_management_pdf` artifact from the workflow run and check that the PDF looks correct before merging.
+          edit-mode: replace
+
+  # If push to main (merge): create a release with the PDF artifact
+  release:
+    permissions:
+      contents: write # Required for creating releases
+
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Download PDF artifact
+        # Required since the PDF is built in a separate job
+        uses: actions/download-artifact@v8
+        with:
+          name: project_management_pdf # Name of the artifact
+          path: output # Path to download the artifact to
+
+      - name: Create release tag and title
+        # Generate a unique tag and title for the release
+        id: release_version
+        run: |
+          tag="project-management-pdf-$(date +'%Y.%m.%d')-${{ github.run_number }}"
+          title="Project Management PDF $(date +'%Y.%m.%d') (${{ github.run_number }})"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release with PDF
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.release_version.outputs.tag }}" \
+            output/project_management.pdf \
+            --target "${{ github.sha }}" \
+            --title "${{ steps.release_version.outputs.title }}" \
+            --notes "Automatically generated PDF from commit ${{ needs.build.outputs.commit_hash }}"
