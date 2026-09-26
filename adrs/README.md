@@ -15,7 +15,7 @@ for decisions which are key choices for the software and which would be a signif
 _ALWAYS_
 
 - Use the [ADR template](https://github.com/ScilifelabDataCentre/data-centre-template/blob/main/docs/architecture/decisions/adr-template.md?plain=1) in the `data-centre-template` repository.
-  - The template is based on a [template/format by Michael Nygard](https://github.com/architecture-decision-record/architecture-decision-record/blob/b1de91256a57110b655ff3572ce1fc41fbc2dac6/locales/en/templates/decision-record-template-by-michael-nygard/index.md).
+  - The template is based on a [template/format by Michael Nygard](https://github.com/architecture-decision-record/architecture-decision-record/blob/464354b7d94901916542f64eb8b62dc9048a6486/locales/en/templates/decision-record-template-by-michael-nygard/index.md).
 - Use the standard file naming convention, i.e. 0001-something-architectural.md, 0002-some-other-thing.md.
 - Consider before the ADR is public whether there is some reason why this specific decision should be internal only.
 
