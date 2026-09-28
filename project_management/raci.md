@@ -58,7 +58,7 @@ _Building a magic carpet_
 | Role        | Description                                                                                              |
 | ----------- | -------------------------------------------------------------------------------------------------------- |
 | Responsible | Team Tyr - actually design and build the carpet                                                          |
-| Accountable | Firstname Lastname (Manager) - 'the buck stops with them to ensure that the work gets delivered'                 |
+| Accountable | Firstname Lastname (Manager) - 'the buck stops with them to ensure that the work gets delivered'         |
 | Consulted   | SciLifeLab Solna operations - need to collaborate them on storage and facilities                         |
 | Informed    | SciLifeLab Solna WEG - end-user representative group - want info on when something new will be available |
 
