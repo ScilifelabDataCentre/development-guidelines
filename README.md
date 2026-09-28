@@ -58,7 +58,7 @@ In some cases, the suggestions will be simple and uncomplicated enough for the [
 ## Other guidelines
 
 - [Documentation for the K1H platform ("the KTH Kubernetes clusters", DC staff only)](https://github.com/ScilifelabDataCentre/k1h-platform-docs)
-- [Licensing Guidelines: how to license your work](https://scilifelab.atlassian.net/wiki/spaces/DC/pages/3408494593/Data+Centre+License+Guidelines)
+- [Licensing Guidelines: how to license your work (DC staff only)](https://scilifelab.atlassian.net/wiki/spaces/DC/pages/3408494593/Data+Centre+License+Guidelines)
 
 ## Licensing
 
