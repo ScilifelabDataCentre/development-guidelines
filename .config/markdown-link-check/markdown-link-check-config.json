@@ -13,9 +13,6 @@
       "pattern": "^https://www.siegemedia.com/contrast-ratio"
     },
     {
-      "pattern": "^https://github.com/ScilifelabDataCentre/development-guidelines"
-    },
-    {
       "pattern": "^https://medium.com/@"
     },
     {
