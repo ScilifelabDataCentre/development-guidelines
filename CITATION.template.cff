@@ -16,25 +16,44 @@ cff-version: 1.2.0 # Latest version at the time of writing
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
-authors:
-  - given-names: <<first-author-given-names>>
-    family-names: <<first-author-family-names>>
-    orcid: '<<first-author-orcid>>'
-  - given-names: <<second-author-given-names>>
-    family-names: <<second-author-family-names>>
-    orcid: '<<second-author-orcid>>'
+authors: # Alphabetical order
+  - given-names: Jana
+    family-names: Awada
+  - given-names: Aishling
+    family-names: Cooke
+  - given-names: Paul
+    family-names: Dulaud
+    orcid: "https://orcid.org/0000-0002-7236-9355"
+  - given-names: Jonas
+    family-names: Hagberg
+  - given-names: Liane
+    family-names: Hughes
+    orcid: "https://orcid.org/0000-0002-4784-5436"
+  - given-names: Matthias
+    family-names: Hörtenhuber
+    orcid: "https://orcid.org/0000-0002-5599-5565"
+  - given-names: Andreas
+    family-names: Lindhé
+    orcid: "https://orcid.org/0000-0002-2066-7510"
+  - given-names: Alma
+    family-names: Nilsson
+    orcid: "https://orcid.org/0009-0004-8501-642X"
+  - given-names: Ina
+    family-names: Odén Österbo
+    orcid: "https://orcid.org/0009-0000-8945-8541"
+  - given-names: Erik
+    family-names: Sjölund
   - name: SciLifeLab Data Centre
-    website: 'https://ror.org/04ev03g22'
-title: <<repository-or-project-title>>
-abstract: <<short-description>> # Optional. Remove if not needed. 
+    website: "https://ror.org/04ev03g22"
+title: Development Guidelines for the SciLifeLab Data Centre
 keywords: # Optional. Remove if not needed.
-  - <<keyword-1>>
-  - <<keyword-2>>
+  - SciLifeLab Data Centre
+  - Development Guidelines
 identifiers:
-  - description: Zenodo DOI for <<repository-or-project-title>>
+  - description: Zenodo DOI for the SciLifeLab Data Centre Development Guidelines repository
     type: doi
-    value: <<zenodo-doi>>
-repository-code: "<<repository-code-url>>"
+    value: 10.5281/zenodo.23009236
+repository-code: "https://github.com/ScilifelabDataCentre/development-guidelines"
 license: 
   - MIT
   - CC-BY-4.0

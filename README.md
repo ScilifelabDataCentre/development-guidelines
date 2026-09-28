@@ -1,5 +1,6 @@
 # Development guidelines for SciLifeLab Data Centre
 
+[![DOI](https://zenodo.org/badge/1385066065.svg)](https://doi.org/10.5281/zenodo.23009236)
 [![Project Management PDF Build](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/pandoc.yml/badge.svg)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/pandoc.yml)
 [![Markdown link check](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/markdown-link-check.yml/badge.svg?branch=main)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/markdown-link-check.yml)
 [![Prettier](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml/badge.svg?branch=main)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml)
