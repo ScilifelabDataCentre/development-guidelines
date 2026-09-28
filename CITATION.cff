@@ -1,12 +1,4 @@
-# Template citation file for your repository.
-# What to do:
-# 1. Rename this file to CITATION.cff and place it in the root of your repository.
-# 2. Replace the information in this file with the information for your own repository.
-#
-# Some fields are optional and can be removed if not needed:
-# - abstract: https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md#abstract
-# - keywords: https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md#keywords
-#
+# Citation file for this repository.
 # More information:
 # - Development Guidelines: https://github.com/ScilifelabDataCentre/development-guidelines/tree/main/citing_and_citability
 # - Zenodo: https://help.zenodo.org/docs/github/describe-software/citation-file/
