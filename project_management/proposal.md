@@ -23,7 +23,7 @@ _Before_ substantial work begins on a project or new service.
 
 1. An idea (e.g. proposal from a researcher, discussed in a meeting), which is likely vague
 2. Do just enough research to write the proposal
-3. Write the proposal (using a copy of the [template](.)) and place it in the `In Review` folder
+3. Write the proposal (using a copy of the template in google drive) and place it in the `In Review` folder
 4. [DCMG](glossary.md#dcmg-) reviews it
 5. Decision: signed off or not. Place it in the `Approved` or `Will Not Proceed` folder
 
@@ -45,7 +45,7 @@ _Before_ substantial work begins on a project or new service.
 - This is not a living document (i.e. you won't go back and update this once work has begun). However,
   if the project or service changes so dramatically that the high-level document no longer describes it, maybe it
   should have a new proposal.
-- Refer to [the fictional example](.).
+- Refer to the fictional example (currently google drive, link to come).
 
 ## Further reading
 

@@ -2,8 +2,8 @@
 
 ## What are they?
 
-- A deck of [Google Slides](.) prepared at the end of every month, with a single slide for every service we develop.
-- Each slide gives the headline updates for a service from the last month - see [the example for a fictional service](.).
+- A deck of Google Slides (link to come) prepared at the end of every month, with a single slide for every service we develop.
+- Each slide gives the headline updates for a service from the last month - see the example for a fictional service (link to come).
 - The target audience for your slide(s) is everyone in DC, but especially DCMG.
 
 ## Why?
@@ -33,9 +33,9 @@
 
 #### To prepare new slides...
 
-1. At least a week before the end of the month, copy the [previous month's slide deck](.)
+1. At least a week before the end of the month, copy the previous month's slide deck (link to come)
    and rename it to this month (i.e. _YYYY MMMM cross-team update_).
-2. Move last month's slides into [Archive](.).
+2. Move last month's slides into Archive (link to come).
 3. Reset the 'Updated by' text box to 'Updated by: XXXXX' on every slide - so it's clear when a slide has not been
    updated.
 4. Link the slides in the `#datacentre_dev` Slack and provide people with a clear deadline to fill them out. Set a

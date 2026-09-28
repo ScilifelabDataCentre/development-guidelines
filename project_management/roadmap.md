@@ -1,6 +1,6 @@
 # Roadmap process
 
-This is both a process and a [document template](.).
+This is both a process and a document template.
 
 A roadmap is a high-level document (always <10 pages, usually shorter, can be 1 page) which lays out the key goals for a
 product/service over a specific time period.
@@ -29,7 +29,7 @@ On a recurring basis, typically once a year, for a service that exists or will e
 1. A service already exists or the proposal for a new service has been signed off
 2. Product/Service Owner leads the planning, with involvement from Responsible, Accountable, and ¨
    likely, Consulted
-3. Write the proposal (using a copy of the [template](.)) and place it in the `In Review` folder for the appropriate year (e.g. [2025 > In Review](.))
+3. Write the proposal (using a copy of the template in google drive, link to come) and place it in the `In Review` folder for the appropriate year (e.g. `2025 > In Review`, link to come)
 4. [DCMG](glossary.md#dcmg-) reviews it
 5. Once the roadmap is signed off, move it to the Approved folder for the appropriate year
 
