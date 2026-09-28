@@ -1,0 +1,30 @@
+{
+  "name": "development-guidelines",
+  "version": "0.0.0",
+  "description": "Development guidelines, policies, and recommended practices for software development at SciLifeLab Data Centre.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScilifelabDataCentre/development-guidelines.git"
+  },
+  "keywords": [
+    "documentation",
+    "guidelines",
+    "policies",
+    "scilifelab-data-centre"
+  ],
+  "author": "SciLifeLab Data Centre",
+  "license": "MIT AND CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/ScilifelabDataCentre/development-guidelines/issues"
+  },
+  "homepage": "https://github.com/ScilifelabDataCentre/development-guidelines#readme",
+  "devDependencies": {
+    "prettier": "^3.9.4"
+  }
+}
