@@ -13,7 +13,7 @@
 - Make repos public from the start, unless there’s a specific reason why they cannot be (e.g. deployment repos).
 - Always add a brief _About_ to any repo, even if it's a PoC (Proof of Concept) or test that you're working on alone.
 
-![Example 'About' section of a repo](images/example_github_about.png)
+![Example 'About' section of a repo](images/example_github_about.svg)
 
 - Use the [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) for new repositories (WIP).
   This contains elements all our repositories should have, including:
