@@ -38,7 +38,7 @@ authors: # Alphabetical order
   - name: SciLifeLab Data Centre
     website: "https://ror.org/04ev03g22"
 title: Development Guidelines for the SciLifeLab Data Centre
-keywords: # Optional. Remove if not needed.
+keywords:
   - SciLifeLab Data Centre
   - Development Guidelines
 identifiers:
