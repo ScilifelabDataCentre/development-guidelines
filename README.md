@@ -2,7 +2,7 @@
 
 [![Project Management PDF Build](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/pandoc.yml/badge.svg)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/pandoc.yml)
 [![Markdown link check](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/markdown-link-check.yml/badge.svg)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/markdown-link-check.yml)
-[![Prettier](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml/badge.svg)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml)
+[![Prettier](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml/badge.svg?branch=main)](https://github.com/ScilifelabDataCentre/development-guidelines/actions/workflows/prettier.yml)
 
 These are our guidelines and policies for software development practices at SciLifeLab Data Centre. They serve as a starting point for any developer working with our infrastructure and codebases, helping to maintain a common understanding and level of quality across all our projects.
 
