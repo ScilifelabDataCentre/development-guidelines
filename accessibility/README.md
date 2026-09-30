@@ -1,3 +1,6 @@
+---
+last_reviewed: 2025-07-21
+---
 # Accessibility
 
 The European Accessibility Act (EAA) came into law in 2025. In short, businesses and governmental organisations should
