@@ -1,6 +1,7 @@
 ---
 last_reviewed: 2025-09-10
 ---
+
 # Linting & static analysis
 
 The following linting tools are best used in combination with IDE plugins, git hooks, e.g. via [pre-commit](https://pre-commit.com/) or [husky](https://typicode.github.io/husky/) and with CI/CD pipelines.

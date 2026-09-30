@@ -1,6 +1,7 @@
 ---
 last_reviewed: 2025-09-10
 ---
+
 # Paved Paths
 
 This directory documents the "paved path" - the recommended, supported default technology choices and practices for new DC-managed software projects and major rewrites.

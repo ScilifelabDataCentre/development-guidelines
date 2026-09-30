@@ -1,6 +1,7 @@
 ---
 last_reviewed: 2025-09-10
 ---
+
 # Desktop application development
 
 The following tools assume the use of _Python_, in line with it being the main general purpose language. However, if you are creating a computationally intensive desktop application, you may need to reconsider this.

@@ -1,6 +1,7 @@
 ---
 last_reviewed: 2025-07-22
 ---
+
 # Commit signing
 
 ## Configuring commit signing
