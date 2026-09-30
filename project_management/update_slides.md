@@ -1,3 +1,7 @@
+---
+last_reviewed: 2025-09-05
+---
+
 # Cross-team update slides
 
 ## What are they?

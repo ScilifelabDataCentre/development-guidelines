@@ -1,3 +1,7 @@
+---
+last_reviewed: 2025-07-23
+---
+
 # RACI matrix
 
 The RACI matrix is a project management tool to clarify stakeholders' roles and responsibilities.
