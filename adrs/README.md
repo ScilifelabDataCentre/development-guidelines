@@ -1,3 +1,6 @@
+---
+last_reviewed: 2025-05-08
+---
 # Architectural Decision Records (ADRs)
 
 We use ADRs as the primary mechanism for documenting important architectural decisions. They should capture the rationale
