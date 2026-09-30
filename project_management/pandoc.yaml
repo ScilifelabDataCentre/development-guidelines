@@ -4,6 +4,7 @@
 ---
 from: gfm # To have compatibility between the compiled PDF and the GitHub rendering
 to: pdf
+file-scope: true
 metadata:
   title: "Data Centre Project Management"
   lang: "en"

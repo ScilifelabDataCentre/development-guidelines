@@ -1,3 +1,7 @@
+---
+last_reviewed: 2025-07-23
+---
+
 # Proposal process
 
 This is both a process and a document template.

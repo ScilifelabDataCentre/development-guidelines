@@ -1,3 +1,7 @@
+---
+last_reviewed: 2024-12-08
+---
+
 # Code Copyright
 
 All code we develop at DC is created as part of our duties or upon instructions from our employer, and therefore the
@@ -8,7 +12,7 @@ university approval, we do so on behalf of the university, which grants usage ri
 
 ### SciLifeLabDataCentre Organisation
 
-By default, repositories developed as part of our employment in DC live in the ScilifelabDataCentre Organisation.
+By default, repositories developed as part of our employment in DC live in the ScilifelabDataCentre GitHub Organisation. <!-- cspell:ignore Scilifelab -->
 
 ### Transferring ownership of code
 

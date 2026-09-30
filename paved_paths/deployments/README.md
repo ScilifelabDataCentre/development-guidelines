@@ -1,3 +1,7 @@
+---
+last_reviewed: 2025-07-30
+---
+
 # Deployment of server-side applications
 
 In SciLifeLab Data Centre, we use Kubernetes as the target platform for server-side applications.
