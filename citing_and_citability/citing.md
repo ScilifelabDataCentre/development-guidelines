@@ -1,3 +1,6 @@
+---
+last_reviewed: 2026-09-15
+---
 # Citing Services and Code
 
 SciLifeLab Data Centre staff should follow the citation instructions provided by the creator of the service or code. If the creator does not supply citation instructions covering the elements listed below, they should instead follow the guidance in this file.

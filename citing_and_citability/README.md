@@ -1,3 +1,6 @@
+---
+last_reviewed: 2026-09-15
+---
 # Citing and Citability
 
 This document describes the SciLifeLab Data Centre standard for ensuring citability, and for citing external code or services.

@@ -1,3 +1,6 @@
+---
+last_reviewed: 2026-09-15
+---
 # Making Services and Code Citable
 
 All services and code should include clear instructions for how they should be cited, both on the service itself and in accompanying user-facing documentation.
