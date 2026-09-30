@@ -1,3 +1,6 @@
+---
+last_reviewed: 2025-09-10
+---
 # Why is Jira the paved path tool for project management/issue tracking?
 
 ## What is a project management/issue tracking tool?

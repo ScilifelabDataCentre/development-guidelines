@@ -1,3 +1,6 @@
+---
+last_reviewed: 2025-09-10
+---
 # Productivity tools
 
 Tools often used by developers, but not strictly development tools.
