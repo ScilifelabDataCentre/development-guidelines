@@ -1,3 +1,6 @@
+---
+last_reviewed: 2025-09-01
+---
 # Why PostgreSQL should be the default database choice even for document-oriented workloads
 
 This document explains why PostgreSQL should not only be considered as _the "go-to" choice for a relational database_, but also a serious option for document-oriented workloads.
