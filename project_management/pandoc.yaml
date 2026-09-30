@@ -2,7 +2,7 @@
 #
 # Location is project_management/ folder due to being folder specific and not common to all pandoc builds
 ---
-from: gfm+yaml_metadata_block # To have compatibility between the compiled PDF and the GitHub rendering
+from: gfm # To have compatibility between the compiled PDF and the GitHub rendering
 to: pdf
 file-scope: true
 metadata:
