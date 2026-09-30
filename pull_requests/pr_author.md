@@ -1,3 +1,7 @@
+---
+last_reviewed: 2026-06-23
+---
+
 # How to Prepare a Pull Request for Review
 
 Preparing a Pull Request (PR) properly before requesting a review saves time and effort for everyone involved. A well-prepared PR reduces back-and-forth discussions, shortens review time, and increases overall code quality.

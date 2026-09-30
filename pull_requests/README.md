@@ -1,3 +1,7 @@
+---
+last_reviewed: 2026-06-23
+---
+
 # Pull Request Guidelines
 
 The goal of this guide is to establish a shared Pull Request (PR) process for the Data Centre.

@@ -1,3 +1,7 @@
+---
+last_reviewed: 2026-06-23
+---
+
 # How to Review a Pull Request
 
 It's common to dive into the details immediately when starting a Pull Request (PR) review. For example, many reviewers start by commenting on spelling mistakes, empty lines, or minor bugs. While these _are_ a part of a review, they are not the primary purpose.
