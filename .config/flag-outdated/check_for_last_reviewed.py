@@ -6,6 +6,7 @@
 # 7. om det är äldre än 12 månader, lägg i en lista som ska visas i en issue -- python
 
 import argparse
+import frontmatter
 
 from pathlib import Path
 
@@ -35,7 +36,6 @@ def main(excluded_paths: Path):
         print(file)
 
 
-    # 4. Remove excluded paths from all paths
     # 5. Parse files -- search for front matter? last_reviewed?
     # 6. Return lists of files that need to be updated
 
