@@ -14,8 +14,14 @@ def main(excluded_paths: str):
     # Print path
     print(excluded_paths, type(excluded_paths))
 
+    # 1. Check if excluded_paths exists - is this needed? 
+    # 2. Read excluded paths and get list of excluded paths
+    # 3. Get all paths in repo
+    # 4. Remove excluded paths from all paths
+    # 5. Parse files -- search for front matter? last_reviewed?
+    # 6. Return lists of files that need to be updated
     
-
+    print(PurePath(".").full)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
