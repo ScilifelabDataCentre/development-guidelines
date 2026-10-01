@@ -46,14 +46,18 @@ def main(excluded_paths: Path):
         needs_review: list[Path] = []
         with file.open() as f:
             metadata, _ = frontmatter.parse(f.read())
-            if not metadata or (metadata and "last_reviewed" not in metadata):
+            print(metadata, "\n")
+
+            if not metadata:
+                needs_metadata.append(file)
+                continue
+            
+            if "last_reviewed" not in metadata:
                 needs_metadata.append(file)
                 continue
 
-            if current_date - max_diff_before_flag <= metadata["last_reviewed"]:
-                needs_review.append(file)
-
-        print(file)
+            diff = current_date - metadata["last_reviewed"]
+            print(file, "diff: ", diff)
 
     print("needs_metadata: ", needs_metadata)
     print("needs_review:", needs_review)
