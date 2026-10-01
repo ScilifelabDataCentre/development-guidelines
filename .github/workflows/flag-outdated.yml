@@ -24,8 +24,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7            
 
-      # 2. Run python script
+      # 2. Setup Python 3.13
+      - name: Setup Python 3.13
+        uses: actions/setup-python@7
+        with:
+          python-version: "3.13"
+      
+      # 3. Run Python script
       # use excluded paths file as input variable
       # let python handle repo contents and find the correct files to check
-
+      # - name: Run python script
+      #   run: python3 
       # 3. Print output or let python do it? 
