@@ -32,7 +32,7 @@ jobs:
         run: |
           {
             echo "PATHS<<EOF"
-            cat excluded-paths.txt
+            cat .config/flag-outdated/excluded-paths.txt
             echo "EOF"
           } >> "$GITHUB_ENV"
       
