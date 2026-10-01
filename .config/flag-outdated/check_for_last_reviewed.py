@@ -20,8 +20,9 @@ def main(excluded_paths: str):
     # 4. Remove excluded paths from all paths
     # 5. Parse files -- search for front matter? last_reviewed?
     # 6. Return lists of files that need to be updated
-    
-    print(PurePath(".").full)
+
+    for file in Path(".").rglob("*"):
+        print(file)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
