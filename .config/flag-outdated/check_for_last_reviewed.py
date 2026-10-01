@@ -29,6 +29,7 @@ def main(excluded_paths: Path):
 
     # get current date
     current_date: datetime.date = datetime.now().date()
+    print("current date: ", current_date)
 
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
