@@ -25,6 +25,9 @@ def main(excluded_paths: Path):
 
     print("paths taken from the excluded paths:\n", all_excluded_paths)
 
+    # get current date
+    
+
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
@@ -34,8 +37,16 @@ def main(excluded_paths: Path):
             continue
 
         # here goes the check
+        needs_metadata: list[Path] = []
+        needs_review: list[Path] = []
         with file.open() as f:
             metadata, _ = frontmatter.parse(f.read())
+            if not metadata or (metadata and "last_reviewed" not in metadata):
+                needs_metadata.append(file)
+
+            
+            
+
             print(metadata)    
         
         print(file)
