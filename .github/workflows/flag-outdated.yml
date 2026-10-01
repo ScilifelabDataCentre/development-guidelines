@@ -20,18 +20,12 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps: 
-      # could potentially use sparse-checkout to specify files
-      # it should include but feels more reasonable to exclude files
+      # 1. Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v7            
 
-      - name: Get excluded paths from file
-        run: |
-          {
-            echo "EXCLUDED<<EOF"
-            cat .config/flag-outdated/excluded-paths.txt
-            echo "EOF"
-          } >> "$GITHUB_ENV"
-      
-      - name: Print all files except for the excluded
-        run: ls -A -I $EXCLUDED
+      # 2. Run python script
+      # use excluded paths file as input variable
+      # let python handle repo contents and find the correct files to check
+
+      # 3. Print output or let python do it? 
