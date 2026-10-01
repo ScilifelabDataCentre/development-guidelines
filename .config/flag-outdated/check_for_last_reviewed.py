@@ -35,8 +35,8 @@ def main(excluded_paths: Path):
 
         # here goes the check
         with file.open() as f:
-            fm = frontmatter.load(f)
-            print(fm)    
+            metadata, _ = frontmatter.parse(f.read())
+            print(file, metadata)    
         
         print(file)
 
