@@ -15,21 +15,6 @@ on:
 permissions:
   contents: read
 
-# env:
-#   EXCLUDED_PATHS: 
-#     - .config
-#     - .github
-#     - docs/*
-#     - images
-#     - .gitignore
-#     - CITATION.cff
-#     - LICENSE-CODE
-#     - LICENSE-CONTENT
-#     - README.md
-#     - package-lock.json
-#     - package.json 
-
-
 jobs:
   some_name:
     runs-on: ubuntu-24.04
@@ -41,4 +26,15 @@ jobs:
         uses: actions/checkout@v7            
       
       - name: Print files
-        run: ls -a
+        run: ls -A
+
+      - name: Get excluded paths from file
+        run: |
+          {
+            echo "PATHS<<EOF"
+            cat excluded-paths.txt
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+      
+      - name: Print excluded paths
+        run: echo $PATHS

@@ -1,0 +1,11 @@
+.config
+.github
+docs/*
+images
+.gitignore
+CITATION.cff
+LICENSE-CODE
+LICENSE-CONTENT
+README.md
+package-lock.json
+package.json 
