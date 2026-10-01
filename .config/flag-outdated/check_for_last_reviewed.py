@@ -32,7 +32,12 @@ def main(excluded_paths: Path):
             continue
         if any(file.full_match(Path(pattern)) for pattern in all_excluded_paths):
             continue
+
         # here goes the check
+        with file.open("") as f:
+            fm = frontmatter.load(f)
+            print(fm)    
+        
         print(file)
 
 
