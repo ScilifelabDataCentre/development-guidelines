@@ -29,7 +29,9 @@ jobs:
         run: ls -A
 
       - name: Get excluded paths from file
-        run: cat .config/flag-outdated/excluded-paths.txt
+        run: |
+          EXCLUDED=$(cat .config/flag-outdated/excluded-paths.txt)
+          echo "$EXCLUDED"
       
       # - name: Print excluded paths
       #   run: echo $PATHS
