@@ -39,4 +39,6 @@ jobs:
       # it should include but feels more reasonable to exclude files
       - name: Checkout Repository
         uses: actions/checkout@v7            
+      
+      - name: Print files
         run: ls -a
