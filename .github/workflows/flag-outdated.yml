@@ -1,0 +1,42 @@
+# 1. scanna repot -- yml
+# 2. bestämma vilka filer som ska ha en last_review date -- yml
+# 3. kolla igenom alla de filerna och se om dom har det -- python
+# 4. om dom inte har det, lägg i en lista som ska visas i en issue -- python
+# 5. om dom har det, kolla om det är i rätt format, och om inte lägg i en lista som ska visas i en issue -- python
+# 6. om formatet är rätt, jämför med dagens datum -- python
+# 7. om det är äldre än 12 månader, lägg i en lista som ska visas i en issue -- python
+---
+name: Flag outdated files
+
+on:
+  pull_request: # temporary, just to test the workflow
+  # later add schedule and manual triggers
+
+permissions:
+  contents: read
+
+env:
+  EXCLUDED_PATHS: 
+    - .config
+    - .github
+    - docs/*
+    - **/images/**
+    - .gitignore
+    - CITATION.cff
+    - LICENSE-CODE
+    - LICENSE-CONTENT
+    - README.md
+    - package-lock.json
+    - package.json 
+
+
+jobs:
+  some_name:
+    runs-on: ubuntu-latest
+
+    steps: 
+      # could potentially use sparse-checkout to specify files
+      # it should include but feels more reasonable to exclude files
+      - name: Checkout Repository
+        uses: actions/checkout@v7            
+        run: ls -a
