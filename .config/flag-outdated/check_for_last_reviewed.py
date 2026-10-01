@@ -7,25 +7,38 @@
 
 import argparse
 
-from pathlib import Path, PurePath
+from pathlib import Path
 
-def main(excluded_paths: str):
+def main(excluded_paths: Path):
     """"""
     # Print path
     print(excluded_paths, type(excluded_paths))
 
     # 1. Check if excluded_paths exists - is this needed? 
     # 2. Read excluded paths and get list of excluded paths
+    all_excluded_paths: list[Path] = []
+    if excluded_paths.exists() and excluded_paths.is_file():
+        all_excluded_paths = excluded_paths.read_text().split()
+    else:
+        return # something
+
+    print(all_excluded_paths)
+    
     # 3. Get all paths in repo
+    for file in Path(".").rglob("*"):
+        if file not in all_excluded_paths:
+            print(file)
+
     # 4. Remove excluded paths from all paths
     # 5. Parse files -- search for front matter? last_reviewed?
     # 6. Return lists of files that need to be updated
 
-    for file in Path(".").rglob("*"):
-        print(file)
+
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
-    parser.add_argument("excluded_paths", type=PurePath, help="File listing paths to exclude from the check.")
+    parser.add_argument("excluded_paths", type=Path, help="File listing paths to exclude from the check.")
     args = parser.parse_args()
+    
     main(args.excluded_paths)
