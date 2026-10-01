@@ -15,19 +15,19 @@ on:
 permissions:
   contents: read
 
-env:
-  EXCLUDED_PATHS: 
-    - .config
-    - .github
-    - docs/*
-    - images
-    - .gitignore
-    - CITATION.cff
-    - LICENSE-CODE
-    - LICENSE-CONTENT
-    - README.md
-    - package-lock.json
-    - package.json 
+# env:
+#   EXCLUDED_PATHS: 
+#     - .config
+#     - .github
+#     - docs/*
+#     - images
+#     - .gitignore
+#     - CITATION.cff
+#     - LICENSE-CODE
+#     - LICENSE-CONTENT
+#     - README.md
+#     - package-lock.json
+#     - package.json 
 
 
 jobs:
