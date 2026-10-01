@@ -47,10 +47,7 @@ def main(excluded_paths: Path):
             if not metadata or (metadata and "last_reviewed" not in metadata):
                 needs_metadata.append(file)
 
-
-            
-
-            print(metadata)    
+            print(metadata["last_reviewed"], type(metadata["last_reviewed"]))    
         
         print(file)
 
