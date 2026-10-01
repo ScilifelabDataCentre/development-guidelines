@@ -32,7 +32,9 @@ def main(excluded_paths: Path):
     print("current date: ", current_date, type(current_date))
 
     max_diff_before_flag: timedelta = timedelta(days=365)
-
+    needs_metadata: list[Path] = []
+    needs_review: list[Path] = []
+    
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
@@ -41,9 +43,6 @@ def main(excluded_paths: Path):
         if any(file.full_match(Path(pattern)) for pattern in all_excluded_paths):
             continue
 
-        # here goes the check
-        needs_metadata: list[Path] = []
-        needs_review: list[Path] = []
         with file.open() as f:
             metadata, _ = frontmatter.parse(f.read())
             print(metadata, "\n")
