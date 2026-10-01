@@ -12,7 +12,7 @@ from pathlib import Path
 def main(excluded_paths: Path):
     """"""
     # Print path
-    print(excluded_paths, type(excluded_paths))
+    print("excluded paths file:\n", excluded_paths, type(excluded_paths))
 
     # 1. Check if excluded_paths exists - is this needed? 
     # 2. Read excluded paths and get list of excluded paths
@@ -22,8 +22,9 @@ def main(excluded_paths: Path):
     else:
         return # something
 
-    print(all_excluded_paths)
+    print("paths taken from the excluded paths:\n", all_excluded_paths)
 
+    print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
         if any(file.full_match(pattern) for pattern in all_excluded_paths):
