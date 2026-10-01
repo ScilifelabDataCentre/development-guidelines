@@ -34,7 +34,7 @@ def main(excluded_paths: Path):
             continue
 
         # here goes the check
-        with file.open("") as f:
+        with file.open() as f:
             fm = frontmatter.load(f)
             print(fm)    
         
