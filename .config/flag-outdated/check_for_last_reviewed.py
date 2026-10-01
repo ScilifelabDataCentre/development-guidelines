@@ -7,7 +7,7 @@
 
 import argparse
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import frontmatter
 
@@ -31,6 +31,8 @@ def main(excluded_paths: Path):
     current_date: datetime.date = datetime.now().date()
     print("current date: ", current_date, type(current_date))
 
+    max_diff_before_flag: timedelta = timedelta(days=365)
+
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
@@ -48,9 +50,13 @@ def main(excluded_paths: Path):
                 needs_metadata.append(file)
                 continue
 
-            print(metadata["last_reviewed"], type(metadata["last_reviewed"]))    
-        
+            if current_date - max_diff_before_flag <= metadata["last_reviewed"]:
+                needs_review.append(file)
+
         print(file)
+
+    print("needs_metadata: ", needs_metadata)
+    print("needs_review:", needs_review)
 
 
     # 5. Parse files -- search for front matter? last_reviewed?
