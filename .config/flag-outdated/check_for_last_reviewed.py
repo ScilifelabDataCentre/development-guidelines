@@ -6,9 +6,11 @@
 # 7. om det är äldre än 12 månader, lägg i en lista som ska visas i en issue -- python
 
 import argparse
+from pathlib import Path
+from datetime import datetime
+
 import frontmatter
 
-from pathlib import Path
 
 def main(excluded_paths: Path):
     """"""
@@ -26,7 +28,7 @@ def main(excluded_paths: Path):
     print("paths taken from the excluded paths:\n", all_excluded_paths)
 
     # get current date
-    
+    current_date: datetime.date = datetime.now().date()
 
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
@@ -44,7 +46,7 @@ def main(excluded_paths: Path):
             if not metadata or (metadata and "last_reviewed" not in metadata):
                 needs_metadata.append(file)
 
-            
+
             
 
             print(metadata)    
