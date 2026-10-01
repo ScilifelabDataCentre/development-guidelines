@@ -51,12 +51,15 @@ def main(excluded_paths: Path):
             if not metadata:
                 needs_metadata.append(file)
                 continue
-            
+
             if "last_reviewed" not in metadata:
                 needs_metadata.append(file)
                 continue
 
             diff = current_date - metadata["last_reviewed"]
+            if diff >= max_diff_before_flag:
+                needs_review.append(file)
+
             print(file, "diff: ", diff)
 
     print("needs_metadata: ", needs_metadata)
