@@ -31,7 +31,7 @@ jobs:
       - name: Get excluded paths from file
         run: |
           EXCLUDED=$(cat .config/flag-outdated/excluded-paths.txt)
-          echo "$EXCLUDED"
+          echo "$EXCLUDED" >> "$GITHUB_ENV"
       
       # - name: Print excluded paths
       #   run: echo $PATHS
