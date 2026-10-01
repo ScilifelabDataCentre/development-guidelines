@@ -46,6 +46,7 @@ def main(excluded_paths: Path):
             metadata, _ = frontmatter.parse(f.read())
             if not metadata or (metadata and "last_reviewed" not in metadata):
                 needs_metadata.append(file)
+                continue
 
             print(metadata["last_reviewed"], type(metadata["last_reviewed"]))    
         
