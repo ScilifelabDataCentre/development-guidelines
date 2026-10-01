@@ -34,6 +34,6 @@ jobs:
       # use excluded paths file as input variable
       # let python handle repo contents and find the correct files to check
       - name: Run python script
-        run: python check_for_last_reviewed.py excluded-paths.txt
+        run: python .config/flag-outdated/check_for_last_reviewed.py .config/flag-outdated/excluded-paths.txt
       
       # 4. Print output or let python do it? 
