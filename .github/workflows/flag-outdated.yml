@@ -20,7 +20,7 @@ env:
     - .config
     - .github
     - docs/*
-    - **/images/**
+    - images
     - .gitignore
     - CITATION.cff
     - LICENSE-CODE
