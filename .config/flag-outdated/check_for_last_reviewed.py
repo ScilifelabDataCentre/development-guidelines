@@ -23,11 +23,15 @@ def main(excluded_paths: Path):
         return # something
 
     print(all_excluded_paths)
-    
+
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
-        if file not in all_excluded_paths:
-            print(file)
+        if any(file.full_match(pattern) for pattern in all_excluded_paths):
+            continue
+
+        # here goes the check
+        print(file)
+
 
     # 4. Remove excluded paths from all paths
     # 5. Parse files -- search for front matter? last_reviewed?
