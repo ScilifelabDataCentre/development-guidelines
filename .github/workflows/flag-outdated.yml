@@ -24,9 +24,6 @@ jobs:
       # it should include but feels more reasonable to exclude files
       - name: Checkout Repository
         uses: actions/checkout@v7            
-      
-      - name: Print files
-        run: ls -A
 
       - name: Get excluded paths from file
         run: |
@@ -36,5 +33,5 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_ENV"
       
-      - name: Print excluded paths
-        run: echo $EXCLUDED
+      - name: Print all files except for the excluded
+        run: ls -A -I $EXCLUDED
