@@ -33,7 +33,7 @@ jobs:
           {
             echo "EXCLUDED<<EOF"
             cat .config/flag-outdated/excluded-paths.txt
-            echo EOF
+            echo "EOF"
           } >> "$GITHUB_ENV"
       
       - name: Print excluded paths
