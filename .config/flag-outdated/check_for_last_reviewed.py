@@ -27,9 +27,10 @@ def main(excluded_paths: Path):
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
     for file in Path(".").rglob("*"):
-        if any(file.full_match(pattern) for pattern in all_excluded_paths):
+        if not file.is_file():
             continue
-
+        if any(file.full_match(Path(pattern)) for pattern in all_excluded_paths):
+            continue
         # here goes the check
         print(file)
 
