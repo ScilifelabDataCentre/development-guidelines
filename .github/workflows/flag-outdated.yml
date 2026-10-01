@@ -29,12 +29,7 @@ jobs:
         run: ls -A
 
       - name: Get excluded paths from file
-        run: |
-          {
-            echo "PATHS<<EOF"
-            cat .config/flag-outdated/excluded-paths.txt
-            echo "EOF"
-          } >> "$GITHUB_ENV"
+        run: cat .config/flag-outdated/excluded-paths.txt
       
-      - name: Print excluded paths
-        run: echo $PATHS
+      # - name: Print excluded paths
+      #   run: echo $PATHS
