@@ -35,39 +35,45 @@ def main(excluded_paths: Path):
     needs_review: list[Path] = []
 
     # Read excluded paths and get list of excluded paths
-    all_excluded_paths = excluded_paths.read_text().split()
+    all_paths_to_exclude = excluded_paths.read_text().split()
+    logger.debug(f"All paths were collected from {excluded_paths} file.")
 
     # get current date
     current_date: datetime.date = datetime.now().date()
-    print("current date: ", current_date, type(current_date))
+    logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
-
-    
-    print("paths in repo that should be checked for last reviewed:\n")
-    # 3. Get all paths in repo
-    for file in Path(".").rglob("*"):
-        if not file.is_file():
+    logger.debug("Searching for outdated files...")
+    # Iterate through all files in repo
+    for repo_path in Path(".").rglob("*"):
+        # Check that the path is a file
+        # Not sure I need this -- rglob might already handle it?
+        if not repo_path.is_file():
+            logger.debug(f"{repo_path} is not a file. Skipping.")
             continue
-        if any(file.full_match(Path(pattern)) for pattern in all_excluded_paths):
+
+        # Check if the path should be excluded
+        if any(repo_path.full_match(Path(pattern)) for pattern in all_paths_to_exclude):
+            logger.debug(f"Excluding {repo_path}.")
             continue
 
-        with file.open() as f:
+        
+        with repo_path.open() as f:
             metadata, _ = frontmatter.parse(f.read())
             print(metadata, "\n")
 
             if not metadata:
-                needs_metadata.append(file)
+                needs_metadata.append(repo_path)
                 continue
 
             if "last_reviewed" not in metadata:
-                needs_metadata.append(file)
+                needs_metadata.append(repo_path)
                 continue
 
             diff = current_date - metadata["last_reviewed"]
             if diff >= max_diff_before_flag:
-                needs_review.append(file)
+                needs_review.append(repo_path)
 
-            print(file, "diff: ", diff)
+            print(repo_path, "diff: ", diff)
 
     print("needs_metadata: ", needs_metadata)
     print("needs_review:", needs_review)
