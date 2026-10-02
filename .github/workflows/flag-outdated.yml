@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   some_name:
@@ -32,5 +33,18 @@ jobs:
       # let python handle repo contents and find the correct files to check
       - name: Run python script
         run: python .config/flag-outdated/check_for_last_reviewed.py .config/flag-outdated/excluded-paths.txt
-      
-      # 4. Print output or let python do it? 
+
+      - name: Check if there's an existing issue
+        id: last-issue
+        uses: micalevisk/last-issue-action@v2
+        with:
+          state: open
+          labels: flag-outdated
+
+      - name: Create issue from file
+        uses: peter-evans/create-issue-from-file@v6
+        with:
+          title: Testing
+          content-filepath: ./outdated-results.md
+          issue-number: ${{ steps.last-issue.outputs.issue-number }}
+          labels: flag-outdated

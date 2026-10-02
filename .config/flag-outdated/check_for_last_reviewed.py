@@ -107,11 +107,9 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
 def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: list):
     """Save the lists to a markdown file."""
 
-    # Create markdown check lists
-    invalid_md_list: str = "\n".join(f"- [] {file}" for file in invalid)
-    needs_metadata_md_list: str = "\n".join(f"- [] {file}" for file in needs_metadata)
-    needs_review_md_list: str = "\n".join(f"- [] {file}" for file in needs_review)
-        
+    markdown_file: Path = Path("outdated-results.md")
+
+    logger.debug(f"Saving results to markdown file: {markdown_file}")
     markdown_content: str = f"""# Outdated files
     
     These are the results of the 'flag-outdated.yml' workflow.
@@ -129,7 +127,7 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     {"\n".join(f"- [] {file}" for file in needs_review)}
     """
 
-    with Path("outdated-results.md").open(mode="w") as file:
+    with markdown_file.open(mode="w") as file:
         file.write(markdown_content)
 
 def main(excluded_paths: Path):
@@ -141,9 +139,10 @@ def main(excluded_paths: Path):
     logger.debug(f"All paths to exclude: {all_paths_to_exclude}")
 
     # Search for outdated files
-    get_outdated_files(all_paths_to_exclude=all_paths_to_exclude)
+    needs_metadata, invalid, needs_review = get_outdated_files(all_paths_to_exclude=all_paths_to_exclude)
 
     # Save output
+    save_results_to_markdown(needs_metadata=needs_metadata, invalid=invalid, needs_review=needs_review)
 
 if __name__ == "__main__":
     # Set logging level
