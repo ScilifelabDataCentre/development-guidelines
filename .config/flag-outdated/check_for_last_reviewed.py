@@ -110,7 +110,8 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     markdown_file: Path = Path("outdated-results.md")
 
     logger.debug(f"Saving results to markdown file: {markdown_file}")
-    markdown_content: str = f"""# Outdated files
+    markdown_content: str = f"""
+    # Outdated files
     
     These are the results of the 'flag-outdated.yml' workflow.
 
