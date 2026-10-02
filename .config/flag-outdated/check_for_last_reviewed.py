@@ -18,7 +18,7 @@ def existing_path(value: str) -> Path:
     if path.exists() and path.is_file():
         return path
     
-    raise argparse.ArgumentTypeError("The file does not exist or is not a file: %s", path)
+    raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
 def main(excluded_paths: Path):
     """"""
