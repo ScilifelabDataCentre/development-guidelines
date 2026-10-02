@@ -9,7 +9,6 @@ import argparse
 from pathlib import Path
 from datetime import datetime, timedelta
 import logging
-import sys
 
 import frontmatter
 
@@ -53,7 +52,7 @@ def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, m
     # Check if it's time for a review
     return diff >= max_diff_before_flag
 
-def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
+def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
     """Scan the repository and find files in need of review."""
     # Variables
     current_date: datetime.date = datetime.now().date()
@@ -64,6 +63,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
 
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
+    invalid: list[Path] = []
 
     # Iterate through all files in repo
     logger.debug("Searching for outdated files...")
@@ -82,7 +82,8 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
         logger.debug(f"Looking for {repo_path} metadata...")
         last_reviewed: datetime.date = check_for_metadata(repo_path=repo_path)
         if not isinstance(last_reviewed, datetime.date):
-            raise ValueError(f"'last_reviewed' contains invalid value (needs datetime.date): {repo_path} ({type(repo_path)})")
+            logger.error(f"'last_reviewed' contains invalid value (needs datetime.date): {repo_path} ({type(repo_path)})")
+            invalid.append(repo_path)
 
         if not last_reviewed:
             needs_metadata.append(repo_path)
@@ -98,9 +99,38 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
 
     logger.debug(f"Files needing metadata: {needs_metadata}")
     logger.debug(f"Files needing review: {needs_review}")
+    logger.debug(f"Files with invalid date: {invalid}")
 
-    return needs_metadata, needs_review
+    return needs_metadata, invalid, needs_review
+
+def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: list):
+    """Save the lists to a markdown file."""
+
+    # Create markdown check lists
+    invalid_md_list: str = "\n".join(f"- [] {file}" for file in invalid)
+    needs_metadata_md_list: str = "\n".join(f"- [] {file}" for file in needs_metadata)
+    needs_review_md_list: str = "\n".join(f"- [] {file}" for file in needs_review)
+        
+    markdown_content: str = f"""# Outdated files
     
+    These are the results of the 'flag-outdated.yml' workflow.
+
+    ## Invalid 'last_reviewed' values
+
+    {"\n".join(f"- [] {file}" for file in invalid)}
+
+    ## Missing metadata
+
+    {"\n".join(f"- [] {file}" for file in needs_metadata)}
+
+    ## Time for review
+    
+    {"\n".join(f"- [] {file}" for file in needs_review)}
+    """
+
+    with Path("outdated-results.md").open(mode="w") as file:
+        file.write(markdown_content)
+
 def main(excluded_paths: Path):
     """"""
 
@@ -111,6 +141,8 @@ def main(excluded_paths: Path):
 
     # Search for outdated files
     get_outdated_files(all_paths_to_exclude=all_paths_to_exclude)
+
+    # Save output
 
 if __name__ == "__main__":
     # Set logging level
