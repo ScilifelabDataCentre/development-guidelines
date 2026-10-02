@@ -14,7 +14,6 @@ import frontmatter
 
 # Set up logging
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
 
 def existing_path(value: str) -> Path:
     """Check if the string is an existing file and return a Path."""
@@ -81,6 +80,7 @@ def main(excluded_paths: Path):
         
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
     parser.add_argument("excluded_paths", type=existing_path, help="File listing paths to exclude from the check.")
     args = parser.parse_args()
