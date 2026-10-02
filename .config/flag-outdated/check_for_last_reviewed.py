@@ -85,7 +85,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
             needs_metadata.append(repo_path)
             continue
 
-        if not isinstance(last_reviewed, datetime):
+        if not isinstance(last_reviewed, datetime.date):
             logger.error(f"'last_reviewed' contains invalid value (needs datetime.date): {repo_path} ({type(repo_path)})")
             invalid.append(repo_path)
             continue
