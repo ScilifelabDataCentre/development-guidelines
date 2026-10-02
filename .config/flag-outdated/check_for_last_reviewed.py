@@ -60,11 +60,10 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
     max_diff_before_flag: timedelta = timedelta(days=365)
-    logger.debug(f"Maximum diff: {max_diff_before_flag} days")
+    logger.debug(f"Maximum diff: {max_diff_before_flag}")
 
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
-
 
     # Iterate through all files in repo
     logger.debug("Searching for outdated files...")
@@ -82,6 +81,9 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
 
         logger.debug(f"Looking for {repo_path} metadata...")
         last_reviewed: datetime.date = check_for_metadata(repo_path=repo_path)
+        if not isinstance(last_reviewed, datetime.date):
+            raise ValueError(f"'last_reviewed' contains invalid value (needs datetime.date): {repo_path} ({type(repo_path)})")
+
         if not last_reviewed:
             needs_metadata.append(repo_path)
             continue
