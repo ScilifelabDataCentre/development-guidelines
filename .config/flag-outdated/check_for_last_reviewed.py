@@ -14,11 +14,12 @@ import frontmatter
 
 # Set up logging
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 def existing_path(value: str) -> Path:
     """Check if the string is an existing file and return a Path."""
     logger.debug(f"Got file argument: {value}")
-    
+
     path = Path(value)
     if path.exists() and path.is_file():
         logger.debug(f"The path '{path}' exists and is a file.")
