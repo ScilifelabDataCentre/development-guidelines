@@ -67,7 +67,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
 
     # Iterate through all files in repo
     logger.debug("Searching for outdated files...")
-    for repo_path in Path(".").rglob("*"):
+    for repo_path in Path(".").rglob(pattern="*.md"):
         # Check that the path is a file
         # Not sure I need this -- rglob might already handle it?
         if not repo_path.is_file():
