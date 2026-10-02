@@ -8,14 +8,20 @@
 import argparse
 from pathlib import Path
 from datetime import datetime, timedelta
+import logging
 
 import frontmatter
 
+# Set up logging
+logger = logging.getLogger(__name__)
+
 def existing_path(value: str) -> Path:
     """Check if the string is an existing file and return a Path."""
-
+    logger.debug(f"Got file argument: {value}")
+    
     path = Path(value)
     if path.exists() and path.is_file():
+        logger.debug(f"The path '{path}' exists and is a file.")
         return path
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
@@ -28,11 +34,8 @@ def main(excluded_paths: Path):
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
 
-    # 1. Check if excluded_paths exists - is this needed? 
-    # 2. Read excluded paths and get list of excluded paths
+    # Read excluded paths and get list of excluded paths
     all_excluded_paths = excluded_paths.read_text().split()
-
-    print("paths taken from the excluded paths:\n", all_excluded_paths)
 
     # get current date
     current_date: datetime.date = datetime.now().date()
