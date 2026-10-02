@@ -56,24 +56,29 @@ def main(excluded_paths: Path):
             logger.debug(f"Excluding {repo_path}.")
             continue
 
-        
+        logger.debug(f"Looking for {repo_path} metadata...")
+        # Open file and check for metadata
         with repo_path.open() as f:
             metadata, _ = frontmatter.parse(f.read())
-            print(metadata, "\n")
 
             if not metadata:
+                logger.debug(f"Needs metadata: {repo_path}")
                 needs_metadata.append(repo_path)
                 continue
 
             if "last_reviewed" not in metadata:
+                logger.debug(f"No 'last_reviewed' in {repo_path}")
                 needs_metadata.append(repo_path)
                 continue
 
+            # Calculate days since last review 
             diff = current_date - metadata["last_reviewed"]
-            if diff >= max_diff_before_flag:
-                needs_review.append(repo_path)
+            logger.debug(f"Last review of {repo_path}: {diff} days ago")
 
-            print(repo_path, "diff: ", diff)
+            # Check if it's time for a review
+            if diff >= max_diff_before_flag:
+                logger.debug(f"Needs review: {repo_path}")
+                needs_review.append(repo_path)
 
     print("needs_metadata: ", needs_metadata)
     print("needs_review:", needs_review)
