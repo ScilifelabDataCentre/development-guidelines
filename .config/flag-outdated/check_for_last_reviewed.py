@@ -9,6 +9,7 @@ import argparse
 from pathlib import Path
 from datetime import datetime, timedelta
 import logging
+import sys
 
 import frontmatter
 
@@ -26,23 +27,16 @@ def existing_path(value: str) -> Path:
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
-def main(excluded_paths: Path):
-    """"""
-
+def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
+    """Scan the repository and find files in need of review."""
     # Variables 
+    current_date: datetime.date = datetime.now().date()
     max_diff_before_flag: timedelta = timedelta(days=365)
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
 
-    # Read excluded paths and get list of excluded paths
-    all_paths_to_exclude = excluded_paths.read_text().split()
-    logger.debug(f"All paths were collected from {excluded_paths} file.")
-
-    # get current date
-    current_date: datetime.date = datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
-
-    logger.debug("Searching for outdated files...")
+    
     # Iterate through all files in repo
     for repo_path in Path(".").rglob("*"):
         # Check that the path is a file
@@ -84,6 +78,16 @@ def main(excluded_paths: Path):
     logger.debug(f"Files needing review: {needs_review}")
 
     return needs_metadata, needs_review
+    
+def main(excluded_paths: Path):
+    """"""
+
+    # Read excluded paths and get list of excluded paths
+    all_paths_to_exclude = excluded_paths.read_text().split()
+    logger.debug(f"All paths were collected from {excluded_paths} file.")
+
+    logger.debug("Searching for outdated files...")
+    get_outdated_files(all_paths_to_exclude=all_paths_to_exclude)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
