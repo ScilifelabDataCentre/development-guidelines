@@ -11,11 +11,22 @@ from datetime import datetime, timedelta
 
 import frontmatter
 
+def existing_path(value: str) -> Path:
+    """Check if the string is an existing file and return a Path."""
+
+    path = Path(value)
+    if path.exists() and path.is_file():
+        return path
+    
+    raise argparse.ArgumentTypeError("The file does not exist or is not a file: %s", path)
 
 def main(excluded_paths: Path):
     """"""
-    # Print path
-    print("excluded paths file:\n", excluded_paths, type(excluded_paths))
+
+    # Variables 
+    max_diff_before_flag: timedelta = timedelta(days=365)
+    needs_metadata: list[Path] = []
+    needs_review: list[Path] = []
 
     # 1. Check if excluded_paths exists - is this needed? 
     # 2. Read excluded paths and get list of excluded paths
@@ -31,9 +42,7 @@ def main(excluded_paths: Path):
     current_date: datetime.date = datetime.now().date()
     print("current date: ", current_date, type(current_date))
 
-    max_diff_before_flag: timedelta = timedelta(days=365)
-    needs_metadata: list[Path] = []
-    needs_review: list[Path] = []
+
     
     print("paths in repo that should be checked for last reviewed:\n")
     # 3. Get all paths in repo
@@ -73,7 +82,7 @@ def main(excluded_paths: Path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
-    parser.add_argument("excluded_paths", type=Path, help="File listing paths to exclude from the check.")
+    parser.add_argument("excluded_paths", type=existing_path, help="File listing paths to exclude from the check.")
     args = parser.parse_args()
     
     main(args.excluded_paths)
