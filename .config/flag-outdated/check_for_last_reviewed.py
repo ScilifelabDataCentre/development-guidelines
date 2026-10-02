@@ -30,11 +30,7 @@ def main(excluded_paths: Path):
 
     # 1. Check if excluded_paths exists - is this needed? 
     # 2. Read excluded paths and get list of excluded paths
-    all_excluded_paths: list[Path] = []
-    if excluded_paths.exists() and excluded_paths.is_file():
-        all_excluded_paths = excluded_paths.read_text().split()
-    else:
-        return # something
+    all_excluded_paths = excluded_paths.read_text().split()
 
     print("paths taken from the excluded paths:\n", all_excluded_paths)
 
