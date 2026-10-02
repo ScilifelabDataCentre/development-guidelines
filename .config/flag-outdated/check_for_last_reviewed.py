@@ -44,28 +44,23 @@ def existing_path(value: str) -> Path:
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
-def time_for_review(last_reviewed: datetime.date) -> bool:
+def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, max_diff_before_flag: timedelta) -> bool:
     """Check if it's time for a review based on number of days since last one."""
     
+    # Calculate days since last review 
+    diff = current_date - last_reviewed
+
+    # Check if it's time for a review
+    return diff >= max_diff_before_flag
+
+def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
+    """Scan the repository and find files in need of review."""
     # Variables
     current_date: datetime.date = datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
     max_diff_before_flag: timedelta = timedelta(days=365)
     logger.debug(f"Maximum diff: {max_diff_before_flag} days")
-
-    # Calculate days since last review 
-    diff = current_date - last_reviewed
-
-    # Check if it's time for a review
-    if diff >= max_diff_before_flag:
-        return True
-
-    return False
-
-def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
-    """Scan the repository and find files in need of review."""
-    # Variables 
 
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
@@ -95,7 +90,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
 
         logger.debug("Checking if it's time for a review...")
 
-        if time_for_review(last_reviewed=last_reviewed):
+        if time_for_review(last_reviewed=last_reviewed, current_date=current_date, max_diff_before_flag=max_diff_before_flag):
             logger.debug(f"Needs review: {repo_path}")
             needs_review.append(repo_path)
 
