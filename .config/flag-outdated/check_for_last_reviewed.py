@@ -111,7 +111,7 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
 
     logger.debug(f"Saving results to markdown file: {markdown_file}")
     markdown_content: str = (
-        "# Outdated files\n"
+        "## What is this?\n"
         "These are the results of the 'flag-outdated.yml' workflow.\n"
         "## Invalid 'last_reviewed' values"
         f"{'\n'.join(f'- [ ] {file}' for file in invalid)}\n"

@@ -44,7 +44,7 @@ jobs:
       - name: Create issue from file
         uses: peter-evans/create-issue-from-file@v6
         with:
-          title: Testing
+          title: Outdated files
           content-filepath: ./outdated-results.md
           issue-number: ${{ steps.last-issue.outputs.issue-number }}
           labels: flag-outdated
