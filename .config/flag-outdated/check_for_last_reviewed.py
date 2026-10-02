@@ -110,16 +110,17 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     markdown_file: Path = Path("outdated-results.md")
 
     logger.debug(f"Saving results to markdown file: {markdown_file}")
-    markdown_content: str = (
-        "## What is this?\n"
-        "These are the results of the 'flag-outdated.yml' workflow.\n"
-        "## Invalid 'last_reviewed' values"
-        f"{'\n'.join(f'- [ ] {file}' for file in invalid)}\n"
-        "## Missing metadata\n"
-        f"{'\n'.join(f'- [ ] {file}' for file in needs_metadata)}\n"
-        "## Time for review\n"
-        f"{'\n'.join(f'- [ ] {file}' for file in needs_review)}"
-    )
+    markdown_part_list: list = [
+        "These are the results of the 'flag-outdated.yml' workflow",
+        "## Invalid 'last_review' values",
+        "\n".join(f"- [ ] {file}" for file in invalid) if invalid else "None",
+        "## Missing metadata",
+        "\n".join(f"- [ ] {file}" for file in needs_metadata) if needs_metadata else "None",
+        "## Time for review",
+        "\n".join(f"- [ ] {file}" for file in needs_review) if needs_review else "None"
+    ]
+    
+    markdown_content: str = "\n".join(markdown_part_list)
 
     with markdown_file.open(mode="w") as file:
         file.write(markdown_content)
