@@ -80,15 +80,10 @@ def main(excluded_paths: Path):
                 logger.debug(f"Needs review: {repo_path}")
                 needs_review.append(repo_path)
 
-    print("needs_metadata: ", needs_metadata)
-    print("needs_review:", needs_review)
+    logger.debug(f"Files needing metadata: {needs_metadata}")
+    logger.debug(f"Files needing review: {needs_review}")
 
-
-    # 5. Parse files -- search for front matter? last_reviewed?
-    # 6. Return lists of files that need to be updated
-
-
-        
+    return needs_metadata, needs_review
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
