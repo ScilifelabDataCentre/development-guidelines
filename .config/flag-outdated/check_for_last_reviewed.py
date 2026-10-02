@@ -116,15 +116,15 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
 
     ## Invalid 'last_reviewed' values
 
-    {"\n".join(f"- [] {file}" for file in invalid)}
+    {"\n".join(f"- [ ] {file}" for file in invalid)}
 
     ## Missing metadata
 
-    {"\n".join(f"- [] {file}" for file in needs_metadata)}
+    {"\n".join(f"- [ ] {file}" for file in needs_metadata)}
 
     ## Time for review
     
-    {"\n".join(f"- [] {file}" for file in needs_review)}
+    {"\n".join(f"- [ ] {file}" for file in needs_review)}
     """
 
     with markdown_file.open(mode="w") as file:
