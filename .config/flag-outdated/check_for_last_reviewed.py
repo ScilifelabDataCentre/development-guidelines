@@ -16,6 +16,23 @@ import frontmatter
 # Set up logging
 logger = logging.getLogger(__name__)
 
+def check_for_metadata(repo_path: Path) -> datetime.date:
+    """Check if a file contains metadata."""
+
+    # Open file and check for metadata
+    with repo_path.open() as f:
+        metadata, _ = frontmatter.parse(f.read())
+
+        if not metadata:
+            logger.debug(f"Needs metadata: {repo_path}")
+            return None
+
+        if "last_reviewed" not in metadata:
+            logger.debug(f"No 'last_reviewed' in {repo_path}")
+            return None
+        
+        return metadata["last_reviewed"]
+    
 def existing_path(value: str) -> Path:
     """Check if the string is an existing file and return a Path."""
     logger.debug(f"Got file argument: {value}")
@@ -27,17 +44,35 @@ def existing_path(value: str) -> Path:
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
+def time_for_review(last_reviewed: datetime.date) -> bool:
+    """Check if it's time for a review based on number of days since last one."""
+    
+    # Variables
+    current_date: datetime.date = datetime.now().date()
+    logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
+
+    max_diff_before_flag: timedelta = timedelta(days=365)
+    logger.debug(f"Maximum diff: {max_diff_before_flag} days")
+
+    # Calculate days since last review 
+    diff = current_date - last_reviewed
+
+    # Check if it's time for a review
+    if diff >= max_diff_before_flag:
+        return True
+
+    return False
+
 def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
     """Scan the repository and find files in need of review."""
     # Variables 
-    current_date: datetime.date = datetime.now().date()
-    max_diff_before_flag: timedelta = timedelta(days=365)
+
     needs_metadata: list[Path] = []
     needs_review: list[Path] = []
 
-    logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
-    
+
     # Iterate through all files in repo
+    logger.debug("Searching for outdated files...")
     for repo_path in Path(".").rglob("*"):
         # Check that the path is a file
         # Not sure I need this -- rglob might already handle it?
@@ -51,28 +86,18 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list, list]:
             continue
 
         logger.debug(f"Looking for {repo_path} metadata...")
-        # Open file and check for metadata
-        with repo_path.open() as f:
-            metadata, _ = frontmatter.parse(f.read())
+        last_reviewed: datetime.date = check_for_metadata(repo_path=repo_path)
+        if not last_reviewed:
+            needs_metadata.append(repo_path)
+            continue
 
-            if not metadata:
-                logger.debug(f"Needs metadata: {repo_path}")
-                needs_metadata.append(repo_path)
-                continue
+        logger.debug(f"{repo_path} last reviewed: {last_reviewed}")
 
-            if "last_reviewed" not in metadata:
-                logger.debug(f"No 'last_reviewed' in {repo_path}")
-                needs_metadata.append(repo_path)
-                continue
+        logger.debug("Checking if it's time for a review...")
 
-            # Calculate days since last review 
-            diff = current_date - metadata["last_reviewed"]
-            logger.debug(f"Last review of {repo_path}: {diff} days ago")
-
-            # Check if it's time for a review
-            if diff >= max_diff_before_flag:
-                logger.debug(f"Needs review: {repo_path}")
-                needs_review.append(repo_path)
+        if time_for_review(last_reviewed=last_reviewed):
+            logger.debug(f"Needs review: {repo_path}")
+            needs_review.append(repo_path)
 
     logger.debug(f"Files needing metadata: {needs_metadata}")
     logger.debug(f"Files needing review: {needs_review}")
@@ -85,14 +110,19 @@ def main(excluded_paths: Path):
     # Read excluded paths and get list of excluded paths
     all_paths_to_exclude = excluded_paths.read_text().split()
     logger.debug(f"All paths were collected from {excluded_paths} file.")
+    logger.debug(f"All paths to exclude: {all_paths_to_exclude}")
 
-    logger.debug("Searching for outdated files...")
+    # Search for outdated files
     get_outdated_files(all_paths_to_exclude=all_paths_to_exclude)
 
 if __name__ == "__main__":
+    # Set logging level
     logging.basicConfig(level=logging.DEBUG)
+
+    # Parse arguments passed in
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
     parser.add_argument("excluded_paths", type=existing_path, help="File listing paths to exclude from the check.")
     args = parser.parse_args()
-    
-    main(args.excluded_paths)
+
+    # Run script
+    main(excluded_paths=args.excluded_paths)
