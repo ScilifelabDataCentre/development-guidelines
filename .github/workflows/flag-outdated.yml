@@ -1,3 +1,9 @@
+# Flag outdated files
+# 
+# Scans the repository, finds files that need 1. metadata, 2. correction, 3. review, 
+# and opens/updates a GitHub issue containing the results from the latest workflow run.
+#
+# Want to exclude a file or directory from this workflow? -> Add it to ''.config/flag-outdated/excluded-paths.txt'.
 ---
 name: Flag outdated files
 
