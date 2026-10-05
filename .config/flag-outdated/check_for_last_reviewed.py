@@ -4,6 +4,7 @@
 - A file is considered outdated when the last_reviewed date is older than 12 months.
 - The script takes a file as input and excludes any files listed from the check.
 - Saves a markdown file containing the results.
+- `last_reviewed` needs to be in the format YYYY-MM-DD
 """
 
 # IMPORTS ######################################### IMPORTS #
@@ -83,7 +84,7 @@ def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, m
     # Check if it's time for a review
     return diff >= max_diff_before_flag
 
-def get_outdated_files(all_paths_to_exclude: list) -> tuple[list]:
+def get_outdated_files(all_paths_to_exclude: list) -> tuple[list, list, list]:
     """Scans the repository to find files in need of review.
     
     Args:
@@ -109,7 +110,6 @@ def get_outdated_files(all_paths_to_exclude: list) -> tuple[list]:
     logger.debug("Searching for outdated files...")
     for repo_path in pathlib.Path(".").rglob(pattern="*.md"):
         # Check that the path is a file
-        # Not sure I need this -- rglob might already handle it?
         if not repo_path.is_file():
             logger.debug(f"{repo_path} is not a file. Skipping.")
             continue
