@@ -8,7 +8,6 @@
 name: Flag outdated files
 
 on:
-  pull_request: # temporary, just to test the workflow
   workflow_dispatch:
   schedule:
     - cron: "0 0 1 * *" # Run the first day of every month, at midnight
