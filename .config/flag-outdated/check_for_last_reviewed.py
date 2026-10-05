@@ -1,24 +1,38 @@
 """Search repository for outdated markdown files.
 
+- Run by .github/workflows/flag-outdated.yml. 
 - A file is considered outdated when the last_reviewed date is older than 12 months.
 - The script takes a file as input and excludes any files listed from the check.
+- Saves a markdown file containing the results.
 """
 
 # IMPORTS ######################################### IMPORTS #
+
 # Standard library
 import argparse
 import logging
 import pathlib
 import datetime
 
+# Installed
 import frontmatter
+
+# CONFIG ######################################### CONFIG #
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
-def check_for_metadata(repo_path: pathlib.Path) -> datetime.date:
-    """Check if a file contains metadata."""
+# FUNCTIONS ######################################### FUNCTIONS #
 
+def check_for_metadata(repo_path: pathlib.Path) -> datetime.date:
+    """Opens a file and checks if it contains metadata.
+    
+    Args:
+        repo_path: A file path.
+
+    Returns:
+        A date representing when the file was last reviewed.
+    """
     # Open file and check for metadata
     with repo_path.open() as f:
         metadata, _ = frontmatter.parse(f.read())
@@ -34,7 +48,14 @@ def check_for_metadata(repo_path: pathlib.Path) -> datetime.date:
         return metadata["last_reviewed"]
     
 def existing_path(value: str) -> pathlib.Path:
-    """Check if the string is an existing file and return a Path."""
+    """Checks if a string is an existing file.
+    
+    Args: 
+        value: A string.
+        
+    Returns: 
+        A Path object of that string, if confirmed to exist and be a file.
+    """
     logger.debug(f"Got file argument: {value}")
 
     path = pathlib.Path(value)
@@ -45,16 +66,34 @@ def existing_path(value: str) -> pathlib.Path:
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
 def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, max_diff_before_flag: datetime.timedelta) -> bool:
-    """Check if it's time for a review based on number of days since last one."""
+    """Checks if it's time for a review based on number of days since last one.
     
+    Args:
+        last_reviewed: Date of the last review.
+        current_date: Current date.
+        max_diff_before_flag: Maximum time allowed since last review.
+
+    Returns:
+        True if it's time for a review.
+        False if not.
+    """
     # Calculate days since last review 
     diff = current_date - last_reviewed
 
     # Check if it's time for a review
     return diff >= max_diff_before_flag
 
-def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
-    """Scan the repository and find files in need of review."""
+def get_outdated_files(all_paths_to_exclude: list) -> tuple[list]:
+    """Scans the repository to find files in need of review.
+    
+    Args:
+        all_paths_to_exclude: List of paths to exclude from the repo scan.
+
+    Returns:
+        needs_metadata: List of files missing metadata.
+        invalid: List of files with invalid metadata.
+        needs_review: List of files needing a review.
+    """
     # Variables
     current_date: datetime.date = datetime.datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
@@ -105,8 +144,17 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
 
     return needs_metadata, invalid, needs_review
 
-def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: list):
-    """Save the lists to a markdown file."""
+def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: list) -> None:
+    """Saves the lists to a markdown file.
+    
+    Args:
+        needs_metadata: List of files missing metadata.
+        invalid: List of files with invalid metadata.
+        needs_review: List of files needing a review.
+    
+    Returns:
+        None.
+    """
 
     markdown_file: pathlib.Path = pathlib.Path("outdated-results.md")
 
@@ -126,8 +174,15 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     with markdown_file.open(mode="w") as file:
         file.write(markdown_content)
 
-def main(excluded_paths: pathlib.Path):
-    """"""
+def main(excluded_paths: pathlib.Path) -> None:
+    """Gets list of excluded paths, scans the repository and saves the files that need a look to a markdown file.
+    
+    Args:
+        excluded_paths: File containing list of paths that should be excluded from this scan.
+    
+    Returns:
+        None.
+    """
 
     # Read excluded paths and get list of excluded paths
     all_paths_to_exclude = excluded_paths.read_text().split()
