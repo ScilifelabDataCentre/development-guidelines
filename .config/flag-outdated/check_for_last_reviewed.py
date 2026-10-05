@@ -1,21 +1,23 @@
-# 2. bestämma vilka filer som ska ha en last_review date -- yml
-# 3. kolla igenom alla de filerna och se om dom har det -- python
-# 4. om dom inte har det, lägg i en lista som ska visas i en issue -- python
-# 5. om dom har det, kolla om det är i rätt format, och om inte lägg i en lista som ska visas i en issue -- python
-# 6. om formatet är rätt, jämför med dagens datum -- python
-# 7. om det är äldre än 12 månader, lägg i en lista som ska visas i en issue -- python
+"""Search repository for outdated markdown files.
 
+- A file is considered outdated when the last_reviewed date is older than 12 months.
+- The script takes a file as input and excludes any files listed from the check.
+"""
+
+# IMPORTS ######################################### IMPORTS #
+# Standard library
 import argparse
-from pathlib import Path
-from datetime import date, datetime, timedelta
 import logging
+import pathlib
+
+from datetime import date, datetime, timedelta
 
 import frontmatter
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
-def check_for_metadata(repo_path: Path) -> date:
+def check_for_metadata(repo_path: pathlib.Path) -> date:
     """Check if a file contains metadata."""
 
     # Open file and check for metadata
@@ -32,11 +34,11 @@ def check_for_metadata(repo_path: Path) -> date:
         
         return metadata["last_reviewed"]
     
-def existing_path(value: str) -> Path:
+def existing_path(value: str) -> pathlib.Path:
     """Check if the string is an existing file and return a Path."""
     logger.debug(f"Got file argument: {value}")
 
-    path = Path(value)
+    path = pathlib.Path(value)
     if path.exists() and path.is_file():
         logger.debug(f"The path '{path}' exists and is a file.")
         return path
@@ -61,13 +63,13 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
     max_diff_before_flag: timedelta = timedelta(days=365)
     logger.debug(f"Maximum diff: {max_diff_before_flag}")
 
-    needs_metadata: list[Path] = []
-    needs_review: list[Path] = []
-    invalid: list[Path] = []
+    needs_metadata: list[pathlib.Path] = []
+    needs_review: list[pathlib.Path] = []
+    invalid: list[pathlib.Path] = []
 
     # Iterate through all files in repo
     logger.debug("Searching for outdated files...")
-    for repo_path in Path(".").rglob(pattern="*.md"):
+    for repo_path in pathlib.Path(".").rglob(pattern="*.md"):
         # Check that the path is a file
         # Not sure I need this -- rglob might already handle it?
         if not repo_path.is_file():
@@ -75,7 +77,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
             continue
 
         # Check if the path should be excluded
-        if any(repo_path.full_match(Path(pattern)) for pattern in all_paths_to_exclude):
+        if any(repo_path.full_match(pathlib.Path(pattern)) for pattern in all_paths_to_exclude):
             logger.debug(f"Excluding {repo_path}.")
             continue
 
@@ -107,7 +109,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
 def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: list):
     """Save the lists to a markdown file."""
 
-    markdown_file: Path = Path("outdated-results.md")
+    markdown_file: pathlib.Path = pathlib.Path("outdated-results.md")
 
     logger.debug(f"Saving results to markdown file: {markdown_file}")
     markdown_part_list: list = [
@@ -125,7 +127,7 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     with markdown_file.open(mode="w") as file:
         file.write(markdown_content)
 
-def main(excluded_paths: Path):
+def main(excluded_paths: pathlib.Path):
     """"""
 
     # Read excluded paths and get list of excluded paths
