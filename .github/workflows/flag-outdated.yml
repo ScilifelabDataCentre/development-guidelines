@@ -1,0 +1,58 @@
+# Flag outdated files
+#
+# Scans the repository, finds files that need 1. metadata, 2. correction, 3. review,
+# and opens/updates a GitHub issue containing the results from the latest workflow run.
+#
+# Want to exclude a file or directory from this workflow? -> Add it to '.config/flag-outdated/excluded-paths.txt'.
+---
+name: Flag outdated files
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *" # Run the first day of every month, at midnight
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  flag-outdated:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      # Python 3.13 needed for Path.full_match
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install python-frontmatter
+        run: pip install python-frontmatter
+
+      # Python script takes a file containing list of files to exclude from the scan
+      # TODO: Add change of logging level
+      - name: Run python script
+        run: >
+          python .config/flag-outdated/check_for_last_reviewed.py .config/flag-outdated/excluded-paths.txt
+
+      # Find existing issue with label
+      # Outputs issue-number -> used in next step
+      - name: Check if there's an existing issue
+        id: last-issue
+        uses: micalevisk/last-issue-action@v2
+        with:
+          state: open
+          labels: flag-outdated
+
+      # Issue is created or updated with the output from the Python script: a markdown file
+      - name: Create or update issue
+        uses: peter-evans/create-issue-from-file@v6 # other actions by same author used in other workflows
+        with: # Metadata for issue
+          title: Outdated files
+          content-filepath: ./outdated-results.md
+          issue-number: ${{ steps.last-issue.outputs.issue-number }} # output from last step
+          labels: flag-outdated

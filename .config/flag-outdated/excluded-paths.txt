@@ -1,0 +1,5 @@
+.git/**
+.config/**
+.github/**
+docs/**
+README.md
