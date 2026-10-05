@@ -10,6 +10,11 @@ name: Flag outdated files
 on:
   pull_request: # temporary, just to test the workflow
   workflow_dispatch:
+    inputs:
+      # Adds checkbox labelled "Enable debug logging"
+      debug:
+        type: boolean
+        default: false
   schedule:
     - cron: "0 0 1 * *" # Run the first day of every month, at midnight
 
@@ -35,8 +40,14 @@ jobs:
         run: pip install python-frontmatter
 
       # Python script takes a file containing list of files to exclude from the scan
+      # runner.debug == '1' -> true if workflow re-run with "Enable debug logging"
+      # inputs.debug -> true if debugging checkbox ticket on manual run
+      # && '--debug' || '' -> true in one of the above gives --debug, false gives empty string
       - name: Run python script
-        run: python .config/flag-outdated/check_for_last_reviewed.py .config/flag-outdated/excluded-paths.txt
+        run: >
+          python .config/flag-outdated/check_for_last_reviewed.py 
+          .config/flag-outdated/excluded-paths.txt
+          ${{ (runner.debug == '1' || inputs.debug) && '--debug' || '' }}
 
       # Find existing issue with label
       # Outputs issue-number -> used in next step
