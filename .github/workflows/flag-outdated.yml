@@ -12,30 +12,28 @@ permissions:
   issues: write
 
 jobs:
-  some_name:
+  flag-outdated:
     runs-on: ubuntu-24.04
 
     steps:
-      # 1. Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v7
 
-      # 2. Setup Python 3.13
+      # Python 3.13 needed for python-frontmatter
       - name: Setup Python 3.13
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
 
-      # 3. Install python-frontmatter
       - name: Install python-frontmatter
         run: pip install python-frontmatter
 
-      # 3. Run Python script
-      # use excluded paths file as input variable
-      # let python handle repo contents and find the correct files to check
+      # Python script takes a file containing list of files to exclude from the scan
       - name: Run python script
         run: python .config/flag-outdated/check_for_last_reviewed.py .config/flag-outdated/excluded-paths.txt
 
+      # Find existing issue with label
+      # Outputs issue-number -> used in next step
       - name: Check if there's an existing issue
         id: last-issue
         uses: micalevisk/last-issue-action@v2
@@ -43,10 +41,11 @@ jobs:
           state: open
           labels: flag-outdated
 
-      - name: Create issue from file
-        uses: peter-evans/create-issue-from-file@v6
-        with:
+      # Issue is created or updated with the output from the Python script: a markdown file
+      - name: Create or update issue
+        uses: peter-evans/create-issue-from-file@v6 # peter-evans used in other workflows already
+        with: # Metadata for issue
           title: Outdated files
           content-filepath: ./outdated-results.md
-          issue-number: ${{ steps.last-issue.outputs.issue-number }}
+          issue-number: ${{ steps.last-issue.outputs.issue-number }} # output from last step
           labels: flag-outdated
