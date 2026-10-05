@@ -174,6 +174,8 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     with markdown_file.open(mode="w") as file:
         file.write(markdown_content)
 
+# MAIN ######################################### MAIN #
+
 def main(excluded_paths: pathlib.Path) -> None:
     """Gets list of excluded paths, scans the repository and saves the files that need a look to a markdown file.
     
@@ -194,6 +196,8 @@ def main(excluded_paths: pathlib.Path) -> None:
 
     # Save output
     save_results_to_markdown(needs_metadata=needs_metadata, invalid=invalid, needs_review=needs_review)
+
+# SCRIPT START ######################################### SCRUPT START #
 
 if __name__ == "__main__":
     # Set logging level
