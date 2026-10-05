@@ -201,7 +201,7 @@ def main(excluded_paths: pathlib.Path) -> None:
 
 if __name__ == "__main__":
     # Set logging level
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
 
     # Parse arguments passed in
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
