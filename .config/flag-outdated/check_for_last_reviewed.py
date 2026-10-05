@@ -17,7 +17,7 @@ import frontmatter
 # Set up logging
 logger = logging.getLogger(__name__)
 
-def check_for_metadata(repo_path: pathlib.Path) -> date:
+def check_for_metadata(repo_path: pathlib.Path) -> datetime.date:
     """Check if a file contains metadata."""
 
     # Open file and check for metadata
@@ -45,7 +45,7 @@ def existing_path(value: str) -> pathlib.Path:
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
-def time_for_review(last_reviewed: date, current_date: date, max_diff_before_flag: timedelta) -> bool:
+def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, max_diff_before_flag: timedelta) -> bool:
     """Check if it's time for a review based on number of days since last one."""
     
     # Calculate days since last review 
@@ -57,7 +57,7 @@ def time_for_review(last_reviewed: date, current_date: date, max_diff_before_fla
 def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
     """Scan the repository and find files in need of review."""
     # Variables
-    current_date: date = datetime.now().date()
+    current_date: datetime.date = datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
     max_diff_before_flag: timedelta = timedelta(days=365)
@@ -82,12 +82,12 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
             continue
 
         logger.debug(f"Looking for {repo_path} metadata...")
-        last_reviewed: date = check_for_metadata(repo_path=repo_path)
+        last_reviewed: datetime.date = check_for_metadata(repo_path=repo_path)
         if not last_reviewed:
             needs_metadata.append(repo_path)
             continue
 
-        if not isinstance(last_reviewed, date):
+        if not isinstance(last_reviewed, datetime.date):
             logger.error(f"'last_reviewed' contains invalid value (needs date): {repo_path} ({type(repo_path)})")
             invalid.append(repo_path)
             continue
