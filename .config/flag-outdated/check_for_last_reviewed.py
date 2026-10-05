@@ -9,8 +9,7 @@
 import argparse
 import logging
 import pathlib
-
-from datetime import timedelta
+import datetime
 
 import frontmatter
 
@@ -45,7 +44,7 @@ def existing_path(value: str) -> pathlib.Path:
     
     raise argparse.ArgumentTypeError(f"The file does not exist or is not a file: {path}")
 
-def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, max_diff_before_flag: timedelta) -> bool:
+def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, max_diff_before_flag: datetime.timedelta) -> bool:
     """Check if it's time for a review based on number of days since last one."""
     
     # Calculate days since last review 
@@ -60,7 +59,7 @@ def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
     current_date: datetime.date = datetime.datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
-    max_diff_before_flag: timedelta = timedelta(days=365)
+    max_diff_before_flag: datetime.timedelta = datetime.timedelta(days=365)
     logger.debug(f"Maximum diff: {max_diff_before_flag}")
 
     needs_metadata: list[pathlib.Path] = []
