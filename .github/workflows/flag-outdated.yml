@@ -51,7 +51,7 @@ jobs:
 
       # Issue is created or updated with the output from the Python script: a markdown file
       - name: Create or update issue
-        uses: peter-evans/create-issue-from-file@v6 # peter-evans used in other workflows already
+        uses: peter-evans/create-issue-from-file@v6 # other actions by same author used in other workflows
         with: # Metadata for issue
           title: Outdated files
           content-filepath: ./outdated-results.md
