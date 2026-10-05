@@ -196,14 +196,13 @@ def main(excluded_paths: pathlib.Path) -> None:
     save_results_to_markdown(needs_metadata=needs_metadata, invalid=invalid, needs_review=needs_review)
 
 if __name__ == "__main__":
+    # Set logging level
+    logging.basicConfig(level=logging.DEBUG)
+
     # Parse arguments passed in
     parser = argparse.ArgumentParser(description="Flag outdated files. Compares the last_reviewed information in files with the current date and flags files that have not been reviewed in at least a year.")
     parser.add_argument("excluded_paths", type=existing_path, help="File listing paths to exclude from the check.")
-    parser.add_argument("--debug", action="store_true", help="Show debug-lebel log messages.") # action --> on/off flag
     args = parser.parse_args()
-
-    # Set logging level
-    logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO)
 
     # Run script
     main(excluded_paths=args.excluded_paths)
