@@ -161,7 +161,7 @@ def save_results_to_markdown(needs_metadata: list, invalid: list, needs_review: 
     logger.debug(f"Saving results to markdown file: {markdown_file}")
     markdown_part_list: list = [
         "These are the results of the 'flag-outdated.yml' workflow",
-        "## Invalid 'last_review' values",
+        "## Invalid 'last_reviewed' values",
         "\n".join(f"- [ ] {file}" for file in invalid) if invalid else "None",
         "## Missing metadata",
         "\n".join(f"- [ ] {file}" for file in needs_metadata) if needs_metadata else "None",
