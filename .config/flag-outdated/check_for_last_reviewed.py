@@ -197,7 +197,7 @@ def main(excluded_paths: pathlib.Path) -> None:
     # Save output
     save_results_to_markdown(needs_metadata=needs_metadata, invalid=invalid, needs_review=needs_review)
 
-# SCRIPT START ######################################### SCRUPT START #
+# SCRIPT START ######################################### SCRIPT START #
 
 if __name__ == "__main__":
     # Set logging level
