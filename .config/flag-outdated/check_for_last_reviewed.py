@@ -10,7 +10,7 @@ import argparse
 import logging
 import pathlib
 
-from datetime import date, datetime, timedelta
+from datetime import timedelta
 
 import frontmatter
 
@@ -57,7 +57,7 @@ def time_for_review(last_reviewed: datetime.date, current_date: datetime.date, m
 def get_outdated_files(all_paths_to_exclude) -> tuple[list]:
     """Scan the repository and find files in need of review."""
     # Variables
-    current_date: datetime.date = datetime.now().date()
+    current_date: datetime.date = datetime.datetime.now().date()
     logger.debug(f"Todays date: {current_date} (type: {type(current_date)})")
 
     max_diff_before_flag: timedelta = timedelta(days=365)
