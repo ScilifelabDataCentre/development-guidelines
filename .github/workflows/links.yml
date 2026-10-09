@@ -4,23 +4,46 @@ name: Links
 
 on:
   pull_request:
-  # workflow_dispatch:
-  # schedule:
-  #   - cron: "00 18 * * *"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Run once a day at midnight
 
 jobs:
-  linkChecker:
-    runs-on: ubuntu-latest
+  link-checker:
+    runs-on: ubuntu-24.04
     permissions:
-      issues: write # required for peter-evans/create-issue-from-file
+      contents: read
+    outputs:
+      exit_code: ${{ steps.lychee.outputs.exit_code }}
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
-      - name: Link Checker
+      - name: Run Lychee link checker
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          fail: false
+          fail: ${{ github.event_name == 'pull_request' }}
+        
+      - name: Upload Report
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: ./lychee/out.md
+
+  update-issue:
+    if: github.event_name != 'pull_request' && needs.link-checker.outputs.exit_code != 0
+    runs-on: ubuntu-24.04
+    permissions:
+      issues: write
+    needs: link-checker
+    steps:
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: lychee-report
+          path: ./lychee
 
       - name: Check if there's an existing issue
         id: last-issue
@@ -30,7 +53,6 @@ jobs:
           labels: lychee, links
 
       - name: Create Issue From File
-        if: steps.lychee.outputs.exit_code != 0
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: Link Checker Report
