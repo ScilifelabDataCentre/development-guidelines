@@ -1,4 +1,12 @@
-# Testing that this works
+# Lychee link checker
+# Goes through all links in the repository and verifies that they work.
+#
+# On PR:
+# - Fail action, nothing else
+# On manual or scheduled run:
+# - Fail action and upload results to repo issue
+#
+# Link: https://github.com/lycheeverse/lychee-action
 ---
 name: Lychee Link Checker
 
@@ -8,7 +16,7 @@ on:
   schedule:
     - cron: "0 0 * * *" # Run once a day at midnight
 
-# Variables
+# Variables - keep them synced
 env:
   OUT_DIR: ./lychee/
   OUT_FILE: ./lychee/out.md
@@ -22,7 +30,7 @@ jobs:
     # Explicit permission to checkout repo
     permissions:
       contents: read
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -32,7 +40,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           output: ${{ env.OUT_FILE }}
-      
+
       # Report needed for next job
       # But not when run on PR
       - name: Upload Report
@@ -42,7 +50,7 @@ jobs:
         with:
           name: lychee-report
           path: ${{ env.OUT_FILE }}
-  
+
   # Job 2: Upload results to issue
   update-issue:
     # Only upload to issue if scheduled or manual run
@@ -50,10 +58,10 @@ jobs:
     if: ${{ !cancelled() && github.event_name != 'pull_request' }}
 
     runs-on: ubuntu-24.04
-    
+
     permissions:
       issues: write
-    
+
     # Needs the previous step
     needs: link-checker
 
