@@ -1,0 +1,164 @@
+#############################  Display  #############################
+
+# Output format
+# https://lychee.cli.rs/guides/cli/#-f---format
+format = "detailed"
+
+# Output display mode
+# https://lychee.cli.rs/guides/cli/#--mode
+mode = "emoji"
+
+# Don't show interactive progress bar while checking links.
+# https://lychee.cli.rs/guides/cli/#-n---no-progress
+no_progress = true
+
+#############################  Cache  ###############################
+
+# Enable link caching. This can be helpful to avoid checking the same links on
+# multiple runs.
+# https://lychee.cli.rs/guides/cli/#--cache
+cache = true
+
+# Discard all cached requests older than this duration.
+# https://lychee.cli.rs/guides/cli/#--max-cache-age
+max_cache_age = "2d"
+
+# A list of status codes that will be ignored from the cache
+# https://lychee.cli.rs/guides/cli/#--cache-exclude-status
+cache_exclude_status = "500.."
+
+#############################  Runtime  #############################
+
+# Add runtime-options here
+
+#############################  Requests  ############################
+
+# Website timeout from connect to response finished.
+# https://lychee.cli.rs/guides/cli/#-t---timeout
+timeout = 20
+
+# Minimum wait time in seconds between retries of failed requests.
+# https://lychee.cli.rs/guides/cli/#-r---retry-wait-time
+retry_wait_time = 2
+
+# Comma-separated list of accepted status codes for valid links.
+# Supported values are:
+#
+# accept = ["200..=204", "429"]
+# accept = "200..=204, 429"
+# accept = ["200", "429"]
+# accept = "200, 429"
+# https://lychee.cli.rs/guides/cli/#-a---accept
+accept = ["200", "429"]
+
+# Proceed for server connections considered insecure (invalid TLS).
+# https://lychee.cli.rs/guides/cli/#-i---insecure
+insecure = false
+
+# Base URL or website root directory to check relative URLs.
+# https://lychee.cli.rs/guides/cli/#-b---base-url
+base_url = "https://example.com"
+
+# Enable the checking of fragments in links, both anchor fragments and text fragments.
+# See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>
+# https://lychee.cli.rs/guides/cli/#--include-fragments
+include_fragments = "anchor-only"
+
+#############################  Exclusions  ##########################
+
+# Skip missing input files (default is to error if they don't exist).
+skip_missing = false
+
+# Do not skip hidden directories and files
+hidden = true
+
+# Do not skip files that are ignored
+no_ignore = true
+
+# Check links inside `<code>` and `<pre>` blocks as well as Markdown code
+# blocks.
+include_verbatim = false
+
+# Ignore case of paths when matching glob patterns.
+glob_ignore_case = false
+
+# Exclude URLs and mail addresses from checking. The values are treated as regular expressions
+exclude = [
+    '^https://example\.com/home$',                    # specific URL
+    '^https?://example\.com',                         # match both HTTP and HTTPS
+    '^https://(www\.)?linkedin\.com',                 # optional subdomains
+    '^https://(.*\.)?github(usercontent)?\.(com|io)', # exclude common GitHub URLs
+]
+
+# Exclude paths from getting checked. The values are treated as regular expressions
+exclude_path = [
+    "\\.txt$",      # skip .txt extensions
+    "(^|/)test/",   # skip directories named "test"
+    "[aeiouAEIOU]", # exclude paths containing vowels
+]
+
+# Check the specified file extensions
+extensions = ["md","txt","html"]
+
+# URLs to check (supports regex). Has preference over all excludes.
+include = ['gist\.github\.com.*']
+
+# Exclude all private IPs from checking.
+# Equivalent to setting `exclude_private`, `exclude_link_local`, and
+# `exclude_loopback` to true.
+exclude_all_private = false
+
+# Exclude private IP address ranges from checking.
+exclude_private = false
+
+# Exclude link-local IP address range from checking.
+exclude_link_local = false
+
+# Exclude loopback IP address range and localhost from checking.
+exclude_loopback = false
+
+# Check mail addresses
+include_mail = true
+
+# Check WikiLinks in Markdown files
+include_wikilinks = true
+
+# Only check local files
+offline = true
+
+# Accept timed out requests
+accept_timeouts = true
+
+#############################  Other  #############################
+
+# Read input filenames from the given file or stdin ('-')
+files_from = "fixtures/empty-file.txt"
+
+# Generate special output instead of performing link checking
+generate = "man"
+
+# Use the Wayback Machine as web archive
+archive = "wayback"
+
+# Search and suggest link replacements for all broken links
+suggest = true
+
+#############################  Hosts  #############################
+
+# Maximum simultaneous requests to the same host
+host_concurrency = 5
+
+# Minimum interval between requests to the same host
+host_request_interval = "50ms"
+
+# Customize hosts
+[hosts."blog.example.com"]
+# Overwrite `host_concurrency` for this host
+concurrency = 5
+# Overwrite `host_request_interval` for this host
+request_interval = "0" # zero disables rate limiting
+# Merge global `header` values with the following `headers` for this host
+headers = { "A" = "B" }
+# Overwrite the global `accept` status codes for this host.
+# This fully REPLACES the global `accept` set (it is not merged with it).
+accept = [200, 429]
