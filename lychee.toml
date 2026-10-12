@@ -2,7 +2,7 @@
 
 # Output format
 # https://lychee.cli.rs/guides/cli/#-f---format
-format = "detailed"
+format = "json"
 
 # Output display mode
 # https://lychee.cli.rs/guides/cli/#--mode
