@@ -2,32 +2,37 @@
 
 #############################  General config  #############################
 
-# Verbose program output
-# Accepts log level: "error", "warn", "info", "debug", "trace"
-# https://lychee.cli.rs/guides/cli/#-v---verbose
-verbose = "info"
-
-# Don't show interactive progress bar while checking links.
-# https://lychee.cli.rs/guides/cli/#-n---no-progress
-no_progress = true
-
 # Comma-separated list of accepted status codes for valid links.
 # https://lychee.cli.rs/guides/cli/#-a---accept
 accept = ["100..=103", "200..=299", "429"]
+
+# Exclude URLs and mail addresses from checking. The values are treated as regular expressions
+exclude = [
+
+]
 
 # Enable the checking of fragments in links, both anchor fragments and text fragments.
 # See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>
 # https://lychee.cli.rs/guides/cli/#--include-fragments
 include_fragments = "anchor-only"
 
+# Check mail addresses
+# https://lychee.cli.rs/guides/cli/#--include-mail
+include_mail = true
+
 # Check links inside `<code>` and `<pre>` blocks as well as Markdown code
 # blocks.
 # https://lychee.cli.rs/guides/cli/#--include-verbatim
 include_verbatim = true
 
-# Check mail addresses
-# https://lychee.cli.rs/guides/cli/#--include-mail
-include_mail = true
+# Don't show interactive progress bar while checking links.
+# https://lychee.cli.rs/guides/cli/#-n---no-progress
+no_progress = true
+
+# Verbose program output
+# Accepts log level: "error", "warn", "info", "debug", "trace"
+# https://lychee.cli.rs/guides/cli/#-v---verbose
+verbose = "info"
 
 #############################  Host specific config  #############################
 
