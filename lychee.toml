@@ -6,26 +6,26 @@ format = "detailed"
 
 # Output display mode
 # https://lychee.cli.rs/guides/cli/#--mode
-mode = "emoji"
+# mode = "emoji"
 
 # Don't show interactive progress bar while checking links.
 # https://lychee.cli.rs/guides/cli/#-n---no-progress
-no_progress = true
-
+# no_progress = true
+ 
 #############################  Cache  ###############################
 
 # Enable link caching. This can be helpful to avoid checking the same links on
 # multiple runs.
 # https://lychee.cli.rs/guides/cli/#--cache
-cache = true
+# cache = true
 
 # Discard all cached requests older than this duration.
 # https://lychee.cli.rs/guides/cli/#--max-cache-age
-max_cache_age = "2d"
+# max_cache_age = "2d"
 
 # A list of status codes that will be ignored from the cache
 # https://lychee.cli.rs/guides/cli/#--cache-exclude-status
-cache_exclude_status = "500.."
+# cache_exclude_status = "500.."
 
 #############################  Runtime  #############################
 
@@ -35,11 +35,11 @@ cache_exclude_status = "500.."
 
 # Website timeout from connect to response finished.
 # https://lychee.cli.rs/guides/cli/#-t---timeout
-timeout = 20
+# timeout = 20
 
 # Minimum wait time in seconds between retries of failed requests.
 # https://lychee.cli.rs/guides/cli/#-r---retry-wait-time
-retry_wait_time = 2
+# retry_wait_time = 2
 
 # Comma-separated list of accepted status codes for valid links.
 # Supported values are:
@@ -49,31 +49,31 @@ retry_wait_time = 2
 # accept = ["200", "429"]
 # accept = "200, 429"
 # https://lychee.cli.rs/guides/cli/#-a---accept
-accept = ["200", "429"]
+# accept = ["200", "429"]
 
 # Proceed for server connections considered insecure (invalid TLS).
 # https://lychee.cli.rs/guides/cli/#-i---insecure
-insecure = false
+# insecure = false
 
 # Base URL or website root directory to check relative URLs.
 # https://lychee.cli.rs/guides/cli/#-b---base-url
-base_url = "https://example.com"
+# base_url = "https://example.com"
 
 # Enable the checking of fragments in links, both anchor fragments and text fragments.
 # See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>
 # https://lychee.cli.rs/guides/cli/#--include-fragments
-include_fragments = "anchor-only"
+# include_fragments = "anchor-only"
 
 #############################  Exclusions  ##########################
 
 # Check links inside `<code>` and `<pre>` blocks as well as Markdown code
 # blocks.
 # https://lychee.cli.rs/guides/cli/#--include-verbatim
-include_verbatim = true
+# include_verbatim = true
 
 # Check mail addresses
 # https://lychee.cli.rs/guides/cli/#--include-mail
-include_mail = true
+# include_mail = true
 
 #############################  Hosts  #############################
 
