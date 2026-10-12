@@ -1,16 +1,13 @@
 #############################  Display  #############################
 
-# Output format
-# https://lychee.cli.rs/guides/cli/#-f---format
-format = "detailed"
-
 # Verbose program output
 # Accepts log level: "error", "warn", "info", "debug", "trace"
+# https://lychee.cli.rs/guides/cli/#-v---verbose
 verbose = "info"
 
 # Output display mode
 # https://lychee.cli.rs/guides/cli/#--mode
-# mode = "emoji"
+mode = "emoji"
 
 # Don't show interactive progress bar while checking links.
 # https://lychee.cli.rs/guides/cli/#-n---no-progress
