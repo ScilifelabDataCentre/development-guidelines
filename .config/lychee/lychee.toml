@@ -5,10 +5,6 @@
 # https://lychee.cli.rs/guides/cli/#-v---verbose
 verbose = "info"
 
-# Output display mode
-# https://lychee.cli.rs/guides/cli/#--mode
-mode = "emoji"
-
 # Don't show interactive progress bar while checking links.
 # https://lychee.cli.rs/guides/cli/#-n---no-progress
 no_progress = true
@@ -16,13 +12,9 @@ no_progress = true
 #############################  Cache  ###############################
 
 # Enable link caching. This can be helpful to avoid checking the same links on
-# multiple runs.
+# multiple runs. Max cache age is 1 day by default.
 # https://lychee.cli.rs/guides/cli/#--cache
-# cache = true
-
-# Discard all cached requests older than this duration.
-# https://lychee.cli.rs/guides/cli/#--max-cache-age
-# max_cache_age = "2d"
+cache = true
 
 # A list of status codes that will be ignored from the cache
 # https://lychee.cli.rs/guides/cli/#--cache-exclude-status
