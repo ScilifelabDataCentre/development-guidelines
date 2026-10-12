@@ -1,4 +1,4 @@
-#############################  Display  #############################
+# Configuration for the lychee-action
 
 # Verbose program output
 # Accepts log level: "error", "warn", "info", "debug", "trace"
@@ -8,7 +8,11 @@ verbose = "info"
 # Don't show interactive progress bar while checking links.
 # https://lychee.cli.rs/guides/cli/#-n---no-progress
 no_progress = true
- 
+
+# Comma-separated list of accepted status codes for valid links.
+# https://lychee.cli.rs/guides/cli/#-a---accept
+accept = ["100..=103", "200..=299", "429"]
+
 #############################  Cache  ###############################
 
 # Enable link caching. This can be helpful to avoid checking the same links on
@@ -34,15 +38,7 @@ cache = true
 # https://lychee.cli.rs/guides/cli/#-r---retry-wait-time
 # retry_wait_time = 2
 
-# Comma-separated list of accepted status codes for valid links.
-# Supported values are:
-#
-# accept = ["200..=204", "429"]
-# accept = "200..=204, 429"
-# accept = ["200", "429"]
-# accept = "200, 429"
-# https://lychee.cli.rs/guides/cli/#-a---accept
-# accept = ["200", "429"]
+
 
 # Proceed for server connections considered insecure (invalid TLS).
 # https://lychee.cli.rs/guides/cli/#-i---insecure
