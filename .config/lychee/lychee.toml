@@ -4,6 +4,7 @@
 
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
 exclude = [
+    '^https://github\.com/ScilifelabDataCentre/development-guidelines-archive/', # 404 because private
     '^https://rrid\.site/' # Goes to security verification first - 403
 ]
 
