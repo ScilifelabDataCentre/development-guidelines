@@ -1,5 +1,7 @@
 # Configuration for the lychee-action
 
+#############################  General config  #############################
+
 # Verbose program output
 # Accepts log level: "error", "warn", "info", "debug", "trace"
 # https://lychee.cli.rs/guides/cli/#-v---verbose
@@ -13,58 +15,21 @@ no_progress = true
 # https://lychee.cli.rs/guides/cli/#-a---accept
 accept = ["100..=103", "200..=299", "429"]
 
-#############################  Cache  ###############################
-
-# Enable link caching. This can be helpful to avoid checking the same links on
-# multiple runs. Max cache age is 1 day by default.
-# https://lychee.cli.rs/guides/cli/#--cache
-cache = true
-
-# A list of status codes that will be ignored from the cache
-# https://lychee.cli.rs/guides/cli/#--cache-exclude-status
-# cache_exclude_status = "500.."
-
-#############################  Runtime  #############################
-
-# Add runtime-options here
-
-#############################  Requests  ############################
-
-# Website timeout from connect to response finished.
-# https://lychee.cli.rs/guides/cli/#-t---timeout
-# timeout = 20
-
-# Minimum wait time in seconds between retries of failed requests.
-# https://lychee.cli.rs/guides/cli/#-r---retry-wait-time
-# retry_wait_time = 2
-
-
-
-# Proceed for server connections considered insecure (invalid TLS).
-# https://lychee.cli.rs/guides/cli/#-i---insecure
-# insecure = false
-
-# Base URL or website root directory to check relative URLs.
-# https://lychee.cli.rs/guides/cli/#-b---base-url
-# base_url = "https://example.com"
-
 # Enable the checking of fragments in links, both anchor fragments and text fragments.
 # See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>
 # https://lychee.cli.rs/guides/cli/#--include-fragments
-# include_fragments = "anchor-only"
-
-#############################  Exclusions  ##########################
+include_fragments = "anchor-only"
 
 # Check links inside `<code>` and `<pre>` blocks as well as Markdown code
 # blocks.
 # https://lychee.cli.rs/guides/cli/#--include-verbatim
-# include_verbatim = true
+include_verbatim = true
 
 # Check mail addresses
 # https://lychee.cli.rs/guides/cli/#--include-mail
-# include_mail = true
+include_mail = true
 
-#############################  Hosts  #############################
+#############################  Host specific config  #############################
 
 # Customize hosts here
 # See https://github.com/lycheeverse/lychee/blob/master/lychee.example.toml#L230
