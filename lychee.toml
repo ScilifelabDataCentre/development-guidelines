@@ -75,36 +75,7 @@ include_verbatim = true
 # https://lychee.cli.rs/guides/cli/#--include-mail
 include_mail = true
 
-#############################  Other  #############################
-
-# Read input filenames from the given file or stdin ('-')
-files_from = "fixtures/empty-file.txt"
-
-# Generate special output instead of performing link checking
-generate = "man"
-
-# Use the Wayback Machine as web archive
-archive = "wayback"
-
-# Search and suggest link replacements for all broken links
-suggest = true
-
 #############################  Hosts  #############################
 
-# Maximum simultaneous requests to the same host
-host_concurrency = 5
-
-# Minimum interval between requests to the same host
-host_request_interval = "50ms"
-
-# Customize hosts
-[hosts."blog.example.com"]
-# Overwrite `host_concurrency` for this host
-concurrency = 5
-# Overwrite `host_request_interval` for this host
-request_interval = "0" # zero disables rate limiting
-# Merge global `header` values with the following `headers` for this host
-headers = { "A" = "B" }
-# Overwrite the global `accept` status codes for this host.
-# This fully REPLACES the global `accept` set (it is not merged with it).
-accept = [200, 429]
+# Customize hosts here
+# See https://github.com/lycheeverse/lychee/blob/master/lychee.example.toml#L230
