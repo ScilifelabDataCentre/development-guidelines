@@ -4,7 +4,7 @@
 
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
 exclude = [
-
+    "^https://rrid.site/"
 ]
 
 # Enable the checking of fragments in links, both anchor fragments and text fragments.

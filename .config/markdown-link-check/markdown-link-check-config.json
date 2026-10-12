@@ -28,7 +28,7 @@
       "pattern": "^https://mermaid.ink/"
     },
     {
-      "pattern": "https://rrid.site/"
+      "pattern": "^https://rrid.site/"
     }
   ]
 }
