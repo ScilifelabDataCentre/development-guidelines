@@ -2,10 +2,6 @@
 
 #############################  General config  #############################
 
-# Comma-separated list of accepted status codes for valid links.
-# https://lychee.cli.rs/guides/cli/#-a---accept
-accept = ["100..=103", "200..=299", "429"]
-
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
 exclude = [
 
