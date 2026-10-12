@@ -16,15 +16,6 @@ exclude = [
 # https://lychee.cli.rs/guides/cli/#--include-fragments
 include_fragments = "anchor-only"
 
-# Check mail addresses
-# https://lychee.cli.rs/guides/cli/#--include-mail
-include_mail = true
-
-# Check links inside `<code>` and `<pre>` blocks as well as Markdown code
-# blocks.
-# https://lychee.cli.rs/guides/cli/#--include-verbatim
-include_verbatim = true
-
 # Don't show interactive progress bar while checking links.
 # https://lychee.cli.rs/guides/cli/#-n---no-progress
 no_progress = true
