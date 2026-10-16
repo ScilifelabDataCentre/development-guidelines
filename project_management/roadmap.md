@@ -34,7 +34,7 @@ On a recurring basis, typically once a year, for a service that exists or will e
 2. Product/Service Owner leads the planning, with involvement from Responsible, Accountable, and ¨
    likely, Consulted
 3. Write the proposal (using a copy of the template in google drive, link to come) and place it in the `In Review` folder for the appropriate year (e.g. `2025 > In Review`, link to come)
-4. [DCMG](glossary.md#dcmg-) reviews it
+4. [DCMG](./glossary.md#dcmg) reviews it
 5. Once the roadmap is signed off, move it to the Approved folder for the appropriate year
 
 > [!NOTE]  
