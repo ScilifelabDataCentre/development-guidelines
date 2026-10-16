@@ -4,21 +4,18 @@
 # See .config/lychee/README.md for information about
 # this workflow and the Lychee configuration
 ---
-name: Lychee Link Checker
+name: Lychee Link Checker (PR)
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *" # Run once a day at midnight UTC
+  pull_request:
 
 permissions:
   contents: read
-  issues: write
 
 # Variables
 env:
   OUT_FILE: ./lychee/out.md
-  LABELS: "lychee,links"
+  LYCHEE_CACHE_FILE: .lycheecache # lychee's fixed cache file name; don't change
 
 jobs:
   link-checker:
@@ -30,25 +27,24 @@ jobs:
         with:
           persist-credentials: false # We don't need the token in subsequent steps
 
+      - name: Restore lychee cache
+        id: restore-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ env.LYCHEE_CACHE_FILE }}
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
       - name: Run Lychee link checker
         uses: lycheeverse/lychee-action@v2
         with:
           args: --config .config/lychee/lychee-config.toml .
           output: ${{ env.OUT_FILE }}
 
-      - name: Check if there's an existing issue
+      - name: Save lychee cache
+        uses: actions/cache/save@v6
+        # Save cache even when lychee fails
         if: ${{ !cancelled() }}
-        id: last-issue
-        uses: micalevisk/last-issue-action@v2
         with:
-          state: open
-          labels: ${{ env.LABELS }}
-
-      - name: Create Issue From File
-        if: ${{ !cancelled() }}
-        uses: peter-evans/create-issue-from-file@v6
-        with:
-          title: Lychee link check results
-          content-filepath: ${{ env.OUT_FILE }}
-          issue-number: ${{ steps.last-issue.outputs.issue-number }}
-          labels: ${{ env.LABELS }}
+          path: ${{ env.LYCHEE_CACHE_FILE }}
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
