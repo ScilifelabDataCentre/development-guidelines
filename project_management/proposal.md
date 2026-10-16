@@ -10,9 +10,9 @@ This is both a process and a document template.
 
 _Before_ substantial work begins on a project or new service.
 
-| ![](images/blurry_lightbulb.png "Blurry cartoon of a lightbulb") | ![](images/clear_lightbulb.png "Clear cartoon of a lightbulb") |
-| :--------------------------------------------------------------: | :------------------------------------------------------------: |
-|                      A hazy, undefined idea                      |                  Clear description of an idea                  |
+| ["Blurry cartoon of a lightbulb"] | ["Clear cartoon of a lightbulb"] |
+| :-------------------------------: | :------------------------------: |
+|      A hazy, undefined idea       |   Clear description of an idea   |
 
 ## Why?
 
@@ -28,7 +28,7 @@ _Before_ substantial work begins on a project or new service.
 1. An idea (e.g. proposal from a researcher, discussed in a meeting), which is likely vague
 2. Do just enough research to write the proposal
 3. Write the proposal (using a copy of the template in google drive) and place it in the `In Review` folder
-4. [DCMG](glossary.md#dcmg-) reviews it
+4. [DCMG](./glossary.md#dcmg) reviews it
 5. Decision: signed off or not. Place it in the `Approved` or `Will Not Proceed` folder
 
 > [!NOTE]  
