@@ -17,8 +17,11 @@ cache_exclude_status = "400.."
 # https://lychee.cli.rs/guides/cli/#--exclude
 exclude = [
     '^https://github.com/ScilifelabDataCentre/development-guidelines-archive', # private
+    '^https://learning.oreilly.com', # oreilly often blocks link checkers - also login
+    '^https://medium.com/@Empanado/', # blog, blocks 
+    '^https://medium.com/@mikewolfson/', 
     '^https://mermaid.ink',
-    '^https://mermaid.live', # mermaid links seem to behave weirdly, should be replaced with mermaid in file
+    '^https://mermaid.live', # mermaid links seem to behave weirdly, should be replaced with mermaid in file    
     '^https://www.reddit.com', # Seems to block, and we should anyway avoid using
     '^https://rrid.site/', # "blocked" by bot checker
 ]
