@@ -28,7 +28,7 @@ might receive a monthly summary of progress.
 ## Tips
 
 > [!TIP]
-> Accountable should be 1 person. ['The buck stops'](https://en.wikipedia.org/wiki/Buck_passing#the-buck-stops-here) with them,
+> Accountable should be 1 person. ['The buck stops'](https://en.wikipedia.org/wiki/Buck_passing) with them,
 > they should have both the mandate but also are accountable when things do not go to plan. With multiple Accountable
 > people, there is a higher risk of no one actually being Accountable.
 

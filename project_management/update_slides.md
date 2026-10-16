@@ -51,9 +51,9 @@ last_reviewed: 2025-09-05
 #### Once the slides are ready...
 
 1. Read through the slides, contacting the author if you need clarity on something.
-2. For _Progress update_, _Wins_ and _Risks_, take points that need attention to [DCMG](glossary.md#dcmg-).
+2. For _Progress update_, _Wins_ and _Risks_, take points that need attention to [DCMG](./glossary.md#dcmg).
 3. For _Support needed_, follow up each item as applicable (e.g. ask one team to prioritise something for another,
-   raise the issue at the next [DCMG](glossary.md#dcmg-) meeting).
+   raise the issue at the next [DCMG](./glossary.md#dcmg) meeting).
 
 ## Tips
 
