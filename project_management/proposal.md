@@ -10,7 +10,7 @@ This is both a process and a document template.
 
 _Before_ substantial work begins on a project or new service.
 
-| ![](images/blurry_lightbulb.png "Blurry cartoon of a lightbulb") | ![](images/clear_lightbulb.png "Clear cartoon of a lightbulb") |
+| ["Blurry cartoon of a lightbulb"] | ["Clear cartoon of a lightbulb"] |
 | :--------------------------------------------------------------: | :------------------------------------------------------------: |
 |                      A hazy, undefined idea                      |                  Clear description of an idea                  |
 
