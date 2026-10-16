@@ -1,7 +1,7 @@
 # Link checking using Lychee (lychee-action)
 # Link: https://github.com/lycheeverse/lychee-action
 #
-# See .config/lychee/README.md for information about
+# See https://github.com/ScilifelabDataCentre/data-centre-template/blob/main/.config/lychee/README.md for information about
 # this workflow and the Lychee configuration
 ---
 name: Lychee Link Checker
