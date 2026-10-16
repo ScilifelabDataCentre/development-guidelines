@@ -17,7 +17,9 @@ cache_exclude_status = "400.."
 # https://lychee.cli.rs/guides/cli/#--exclude
 exclude = [
     '^https://github.com/ScilifelabDataCentre/development-guidelines-archive', # private
+    '^https://github.com/ScilifelabDataCentre/k1h-platform-docs', # private repo
     '^https://learning.oreilly.com', # oreilly often blocks link checkers - also login
+    '^https://medium.com/@dorinbaba/', 
     '^https://medium.com/@Empanado/', # blog, blocks 
     '^https://medium.com/@mikewolfson/', 
     '^https://mermaid.ink',
