@@ -17,6 +17,7 @@ cache_exclude_status = "400.."
 # https://lychee.cli.rs/guides/cli/#--exclude
 exclude = [
     '^https://github.com/ScilifelabDataCentre/development-guidelines-archive', # private
+    '^https://www.reddit.com', # Seems to block, and we should anyway avoid using
     '^https://rrid.site/', # "blocked" by bot checker
 ]
 
