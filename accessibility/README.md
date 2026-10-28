@@ -79,4 +79,4 @@ agency.
 ## Further reading
 
 - https://inclusive.microsoft.design/
-- https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility
