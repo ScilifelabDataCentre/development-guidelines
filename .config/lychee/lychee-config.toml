@@ -27,6 +27,8 @@ exclude = [
     '^https://mermaid.live', # mermaid links seem to behave weirdly, should be replaced with mermaid in file    
     '^https://www.reddit.com', # Seems to block, and we should anyway avoid using
     '^https://rrid.site/', # "blocked" by bot checker
+    # 403:s
+    'https://digital-strategy.ec.europa.eu/en/policies/web-accessibility',
 ]
 
 # Include more file types
