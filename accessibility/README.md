@@ -8,7 +8,7 @@ The European Accessibility Act (EAA) came into law in 2025. In short, businesses
 make their services accessible to all.
 
 - [EU Act](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)
-- [The European Commission's Q&A about the Act](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)
+- [The European Commission's Q&A about the Act](https://ec.europa.eu/social/main.jsp?catId=1202&intPageId=5581&langId=en)
 - [Swedish regulations](https://www.digg.se/webbriktlinjer/lagar-och-krav/dos-lagen-och-diggs-foreskrifter)
 
 ## Web Content Accessibility Guidelines (WCAG)
@@ -79,4 +79,4 @@ agency.
 ## Further reading
 
 - https://inclusive.microsoft.design/
-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility
+- https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility
