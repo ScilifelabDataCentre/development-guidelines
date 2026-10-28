@@ -54,7 +54,7 @@ _DO NOT_
 
 [Microsoft](https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record),
 [AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/introduction.html),
-[GCP](https://cloud.google.com/architecture/architecture-decision-records),
+[GCP](https://docs.cloud.google.com/architecture/architecture-decision-records),
 [RedHat](https://www.redhat.com/en/blog/architecture-decision-records) and
 [the British Government Digital Service](https://gds-way.digital.cabinet-office.gov.uk/standards/architecture-decisions.html)
 all recommend using ADRs.
