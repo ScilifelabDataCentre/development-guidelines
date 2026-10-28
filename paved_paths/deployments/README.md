@@ -30,4 +30,4 @@ In this section, we define the paved path tools for working with Kubernetes and 
 [opensearch-helm]: https://artifacthub.io/packages/helm/opensearch-project-helm-charts/opensearch
 [podman]: https://podman.io/
 [rancher-desktop]: https://rancherdesktop.io/
-[sealedsecrets]: https://github.com/bitnami-labs/sealed-secrets
+[sealedsecrets]: https://github.com/bitnami/sealed-secrets
