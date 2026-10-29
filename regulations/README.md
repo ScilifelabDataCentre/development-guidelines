@@ -7,7 +7,7 @@ last_reviewed: 2025-07-21
 This is not a comprehensive document of regulatory requirements, and further requirements might apply to specific
 applications. The following are some of the most important regulations which we need to consider when developing software:
 
-## GDPR (General Data Protection Regulation)
+## General Data Protection Regulation: GDPR
 
 [A developer's guide to GDPR (IBM)](https://developer.ibm.com/articles/s-gdpr1/) · [Processing personal data (verksamt.se)](https://verksamt.se/en/agreement-invoicing/personal-data) · [6 steps to comply with GDPR (IMY)](https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-ar-forenligt-med-gdpr/) [^1]
 
@@ -24,7 +24,7 @@ As [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data) says:
 
 [^1]: IMY stands for Integritetsskyddsmyndigheten, the Swedish authority on privacy protection
 
-## European Accessibility Act (EAA)
+## European Accessibility Act: EAA
 
 The EAA requires digital services, including university software, to be accessible; see [Accessibility docs](../accessibility/)
 for details.
