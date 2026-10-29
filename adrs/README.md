@@ -19,7 +19,7 @@ for decisions which are key choices for the software and which would be a signif
 _ALWAYS_
 
 - Use the [ADR template](https://github.com/ScilifelabDataCentre/data-centre-template/blob/main/docs/architecture/decisions/adr-template.md?plain=1) in the `data-centre-template` repository.
-  - The template is based on a [template/format by Michael Nygard](https://github.com/architecture-decision-record/architecture-decision-record/blob/e13f6c2e4ee31fb350a5aeab906ea23f9b7a99bc/locales/en-001/templates/decision-record-template-by-michael-nygard/index.md).
+  - The template is based on a [template/format by Michael Nygard](https://github.com/architecture-decision-record/architecture-decision-record/blob/74605ce30c2c87770a952c4b2bbea3b6cd1264f6/locales/en-001/templates/decision-record-template-by-michael-nygard/index.md).
 - Use the standard file naming convention, i.e. 0001-something-architectural.md, 0002-some-other-thing.md.
 - Consider before the ADR is public whether there is some reason why this specific decision should be internal only.
 
@@ -54,11 +54,11 @@ _DO NOT_
 
 [Microsoft](https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record),
 [AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/introduction.html),
-[GCP](https://cloud.google.com/architecture/architecture-decision-records),
+[GCP](https://docs.cloud.google.com/architecture/architecture-decision-records),
 [RedHat](https://www.redhat.com/en/blog/architecture-decision-records) and
 [the British Government Digital Service](https://gds-way.digital.cabinet-office.gov.uk/standards/architecture-decisions.html)
 all recommend using ADRs.
 
-[Definitions, templates and examples](https://github.com/joelparkerhenderson/architecture-decision-record)
+[Definitions, templates and examples](https://github.com/architecture-decision-record/architecture-decision-record)
 
 [Further collected resources](https://adr.github.io/)
