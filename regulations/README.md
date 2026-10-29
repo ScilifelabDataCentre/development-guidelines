@@ -9,7 +9,7 @@ applications. The following are some of the most important regulations which we 
 
 ## GDPR (General Data Protection Regulation)
 
-[A developer's guide to GDPR (IBM)](https://developer.ibm.com/articles/s-gdpr1/) · [Processing personal data (verksamt.se)](https://verksamt.se/en/agreement-invoicing/personal-data) · [6 steps to comply with GDPR (IMY) [^1]](https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-ar-forenligt-med-gdpr/)
+[A developer's guide to GDPR (IBM)](https://developer.ibm.com/articles/s-gdpr1/) · [Processing personal data (verksamt.se)](https://verksamt.se/en/agreement-invoicing/personal-data) · [6 steps to comply with GDPR (IMY)](https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-ar-forenligt-med-gdpr/) [^1]
 
 GDPR does not mean we cannot collect personal data, it means we should not collect more data than is _necessary_.
 
