@@ -53,5 +53,4 @@ _Before_ substantial work begins on a project or new service.
 
 ## Further reading
 
-- https://www.techtarget.com/whatis/definition/positioning-statement
 - https://asana.com/resources/project-proposal
