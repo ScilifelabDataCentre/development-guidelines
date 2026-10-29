@@ -16,6 +16,7 @@ cache_exclude_status = "400.."
 # Exclude URLs from check (regex)
 # https://lychee.cli.rs/guides/cli/#--exclude
 exclude = [
+    'https://ror.org/04ev03g22', # will not change
     '^https://github.com/ScilifelabDataCentre/development-guidelines-archive', # private
     '^https://github.com/ScilifelabDataCentre/k1h-platform-docs', # private repo
     '^https://learning.oreilly.com', # O'Reilly often blocks link checkers - also login
@@ -26,6 +27,8 @@ exclude = [
     '^https://mermaid.live', # mermaid links seem to behave weirdly, should be replaced with mermaid in file    
     '^https://www.reddit.com', # Seems to block, and we should anyway avoid using
     '^https://rrid.site/', # "blocked" by bot checker
+    # 403:s
+    'https://digital-strategy.ec.europa.eu/en/policies/web-accessibility',
 ]
 
 # Include more file types
