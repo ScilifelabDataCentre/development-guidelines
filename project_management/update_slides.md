@@ -15,7 +15,7 @@ last_reviewed: 2025-09-05
 - To share, in written form, the headlines about each service.
 - There are too many people and products for everyone to know the details of everything, but it's important
   to share a high-level snapshot.
-- Sharing information in a structured way is a key method to prevent [information silos](https://www.microsoft.com/en-us/microsoft-365-life-hacks/organization/understanding-information-silos) -
+- Sharing information in a structured way is a key method to prevent information silos -
   DC's development projects share many target users, overlapping or complimentary purposes and technology stacks, so a
   high-level view of other projects is key.
 

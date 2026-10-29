@@ -36,5 +36,5 @@ Clear and correct citation...
 
 ## Additional Information
 
-- Consider using the [Open software checklist](https://doi.org/10.17044/scilifelab.29086775) in order to verify that you are following coding and Open Science best practices.
+- Consider using the [Open software checklist](https://figshare.scilifelab.se/articles/educational_resource/SciLifeLab_Open_Science_Software_Checklist/29086775) in order to verify that you are following coding and Open Science best practices.
 - Code or content cannot legally be reused unless a licence is specified, even if it is publicly available.
