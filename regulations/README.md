@@ -26,6 +26,8 @@ As [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data) says:
 
 ## European Accessibility Act: EAA
 
+[European Accessibility Act (European Commission)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)
+
 The EAA requires digital services, including university software, to be accessible; see [Accessibility docs](../accessibility/)
 for details.
 
