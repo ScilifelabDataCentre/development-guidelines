@@ -4,6 +4,8 @@ last_reviewed: 2025-07-21
 
 # Accessibility
 
+[Accessibility regulations](../regulations/README.md#web-accessibility-directive-wad)
+
 ## Web Content Accessibility Guidelines (WCAG)
 
 https://www.w3.org/WAI/WCAG22/quickref/
