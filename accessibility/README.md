@@ -1,5 +1,5 @@
 ---
-last_reviewed: 2025-07-21
+last_reviewed: 2026-11-02
 ---
 
 # Accessibility
@@ -8,24 +8,11 @@ last_reviewed: 2025-07-21
 
 ## Web Content Accessibility Guidelines (WCAG)
 
-https://www.w3.org/WAI/WCAG22/quickref/
+WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned, with each version entailing stricter guidelines. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
 
-WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned, with each version
-entailing stricter guidelines. The EAA requires compliance with WCAG 2.1.
+[How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?currentsidebar=%23col_customize&versions=2.1)
 
-> WCAG 2.1 was initiated with the goal to improve accessibility guidance for three major groups: users with cognitive or
-> learning disabilities, users with low vision, and users with disabilities on mobile devices. Many ways to meet these
-> needs were proposed and evaluated, and a set of these were refined by the Working Group. Structural requirements
-> inherited from WCAG 2.0, clarity and impact of proposals, and timeline led to the final set of success criteria
-> included in this version. The Working Group considers that WCAG 2.1 incrementally advances web content accessibility
-> guidance for all these areas, but underscores that not all user needs are met by these guidelines.
-
-WCAG is meant to be backward compatible within the major version numbers, so a site compliant with 2.2 will
-automatically be compliant with 2.0 and 2.1.
-
-> WCAG 2.2 was initiated with the goal to continue the work of WCAG 2.1: Improving accessibility guidance for three major
-> groups: users with cognitive or learning disabilities, users with low vision, and users with disabilities on
-> mobile devices.
+[^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
 
 ## Setting up your services for compliance
 
