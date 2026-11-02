@@ -1,5 +1,5 @@
 ---
-last_reviewed: 2025-07-21
+last_reviewed: 2026-11-02
 ---
 
 # Regulations
