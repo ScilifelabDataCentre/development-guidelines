@@ -4,29 +4,27 @@ last_reviewed: 2025-07-21
 
 # Regulations
 
-This is not a comprehensive document of regulatory requirements, and further requirements might apply to specific
-applications. The following are some of the most important regulations which we need to consider when developing software:
+This is not a comprehensive document of regulatory requirements, and further requirements might apply to specific applications. The following are some of the most important regulations which we need to consider when developing software:
+
+- [General Data Protection Regulation (GDPR)](#general-data-protection-regulation-gdpr)
 
 ## General Data Protection Regulation: GDPR
 
-[A developer's guide to GDPR (IBM)](https://developer.ibm.com/articles/s-gdpr1/) · [Processing personal data (verksamt.se)](https://verksamt.se/en/agreement-invoicing/personal-data) · [6 steps to comply with GDPR (IMY)](https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-ar-forenligt-med-gdpr/) [^1]
+The GDPR is the EU regulation on how personal data may be collected and processed. The following links contain useful information:
 
-GDPR does not mean we cannot collect personal data, it means we should not collect more data than is _necessary_.
+- [A developer's guide to GDPR (IBM)](https://developer.ibm.com/articles/s-gdpr1/)
+- [Processing personal data (verksamt.se)](https://verksamt.se/en/agreement-invoicing/personal-data)
+- [6 steps to comply with GDPR (IMY)](https://www.imy.se/verksamhet/dataskydd/innovationsportalen/ar-det-ni-tankt-gora-ar-forenligt-med-gdpr/) [^1]
 
-As [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data) says:
+Three points to follow:
 
-> All these rules, reasons and other legal text of the regulation are based on a few basic principles and you will get
-> far by just following these three points:
->
 > - Do not collect more personal data than is necessary and only for a specific, predetermined purpose.
-> - Inform about what data you save and do not save it longer than necessary.
-> - Protect the personal data you handle in the company.
+> - Inform about what data you date and to not save it longer than necessary.
+> - Protect the personal data you handle in the company.  
+>
+> _Source: [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data)_
 
 [^1]: IMY stands for Integritetsskyddsmyndigheten, the Swedish authority on privacy protection
-
-## Web Accessibility Directive: WAD
-
-[Web Accessibility Directive (European Commision)](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)
 
 ## Web Accessibility Directive: WAD
 
