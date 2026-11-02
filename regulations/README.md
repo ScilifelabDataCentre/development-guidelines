@@ -8,7 +8,7 @@ This is not a comprehensive document of regulatory requirements, and further req
 
 - [General Data Protection Regulation (GDPR)](#general-data-protection-regulation-gdpr)
 - [Web Accessibility Directive (WAD)](#web-accessibility-directive-wad)
-
+- [Regulations for state agencies/statliga myndigheter](#regulations-for-state-agenciesstatliga-myndigheter)
 
 ## General Data Protection Regulation: GDPR
 
@@ -46,6 +46,4 @@ Universities are state agencies and thus Swedish Civil Contingencies Agency’s 
 - Security measures in information systems for governmental authorities ([MSBFS 2020:7](https://www.mcf.se/sv/regler/gallande-regler/msbfs-20207/))
 - Reporting IT incidents for governmental authorities ([MSBFS 2020:8](https://www.mcf.se/sv/regler/gallande-regler/foreskrifter-om-rapportering-av-it-incidenter-for-statliga-myndigheter-msbfs-20208/)).
 
-Each university then uses these to derive their own concrete procedures, for example [Uppsala University](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-for-systematiskt-informationssakerhetsarbete). As they
-are all derived from the same parent directives, the fundamentals should be the same. These derived university
-guidelines are more succinct and concrete than the MSB documents.
+Each university then uses these to derive their own concrete procedures, for example [Uppsala University](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-for-systematiskt-informationssakerhetsarbete). As they are all derived from the same parent directives, the fundamentals should be the same. These derived university guidelines are more succinct and concrete than the MSB documents.
