@@ -30,7 +30,7 @@ Three points to follow:
 
 ## Web Accessibility Directive: WAD
 
-The [WAD](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility) requires public-sector digital services, including university websites and apps, to be accessible.
+The [WAD](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility) requires public-sector (incl. universities) websites and mobile apps to be accessible.
 In Sweden, it is implemented through ["Lagen om tillgänglighet till digital offentlig service"](https://svenskforfattningssamling.se/sites/default/files/sfs/2018-11/SFS2018-1937.pdf) (DOS-lagen, the Act on Accessibility to Digital Public Services).
 
 The WAD complements the [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en),
