@@ -30,13 +30,11 @@ As [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data) says:
 
 ## Web Accessibility Directive: WAD
 
-[Web Accessibility Directive (European Commission)](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)
-
-The WAD requires public-sector digital services, including university websites and apps, to be accessible.
-In Sweden, it is implemented through "Lagen om tillgänglighet till digital offentlig service" (DOS-lagen, the Act on Accessibility to Digital Public Services).
+The [WAD](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility) requires public-sector digital services, including university websites and apps, to be accessible.
+In Sweden, it is implemented through ["Lagen om tillgänglighet till digital offentlig service"](https://svenskforfattningssamling.se/sites/default/files/sfs/2018-11/SFS2018-1937.pdf) (DOS-lagen, the Act on Accessibility to Digital Public Services).
 
 The WAD complements the [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en),
-which covers the private sector.
+which covers specific products and services, also in the private sector.
 
 See [Accessibility docs](../accessibility/) for details.
 
