@@ -10,7 +10,7 @@ last_reviewed: 2026-11-02
 
 WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned, with each version entailing stricter guidelines. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
 
-[How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?currentsidebar=%23col_customize&versions=2.1)
+[How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1&levels=aaa&hidesidebar=true)
 
 [^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
 
