@@ -32,7 +32,7 @@ application or going in a different direction), they can fork the repository at 
 
 ## Which university owns a repository?
 
-Every component owned by DC has a named university owner. This information can be found in the DC Service Catalogue.
+Every component owned by DC has a named university owner. This information can be found in the [DC Service Catalogue](https://scilifelab.atlassian.net/wiki/x/lgBBsQ).
 
 ## Relevant sources
 
