@@ -21,7 +21,7 @@ The GDPR is the EU regulation on how personal data may be collected and processe
 Three points to follow:
 
 > - Do not collect more personal data than is necessary and only for a specific, predetermined purpose.
-> - Inform about what data you date and to not save it longer than necessary.
+> - Inform about what data you save and to not save it longer than necessary.
 > - Protect the personal data you handle in the company.
 >
 > _Source: [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data)_
