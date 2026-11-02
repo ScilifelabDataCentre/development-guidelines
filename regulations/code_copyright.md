@@ -8,11 +8,14 @@ All code we develop at DC is created as part of our duties or upon instructions 
 copyright belongs to the host universities, not us individually [^1]. When we submit code to open-source repositories with
 university approval, we do so on behalf of the university, which grants usage rights under the open-source license ([LICENSE-CODE](../LICENSE-CODE)).
 
+> [!NOTE] 
+> Code from research or teaching may be handled differently, depending on the university.
+
 [^1]: [Upphovsrättslagen (1960:729), § 40 a (Riksdagen)](https://data.riksdagen.se/dokument/sfs-1960-729.html)
 
 ## What does this mean?
 
-### ScilifeöabDataCentre Organisation
+### ScilifelabDataCentre Organisation
 
 By default, repositories developed as part of our employment in DC live in the ScilifelabDataCentre GitHub Organisation. <!-- cspell:ignore Scilifelab -->
 
