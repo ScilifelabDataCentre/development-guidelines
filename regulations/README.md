@@ -7,6 +7,8 @@ last_reviewed: 2025-07-21
 This is not a comprehensive document of regulatory requirements, and further requirements might apply to specific applications. The following are some of the most important regulations which we need to consider when developing software:
 
 - [General Data Protection Regulation (GDPR)](#general-data-protection-regulation-gdpr)
+- [Web Accessibility Directive (WAD)](#web-accessibility-directive-wad)
+
 
 ## General Data Protection Regulation: GDPR
 
@@ -34,7 +36,7 @@ In Sweden, it is implemented through ["Lagen om tillgänglighet till digital off
 The WAD complements the [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en),
 which covers specific products and services, also in the private sector.
 
-See [Accessibility docs](../accessibility/) for details.
+See [Accessibility docs](../accessibility/) for details on how to make your service accessible.
 
 ## Regulations for state agencies/statliga myndigheter
 
