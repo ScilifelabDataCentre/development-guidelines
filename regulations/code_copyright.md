@@ -5,8 +5,10 @@ last_reviewed: 2026-11-02
 # Code Copyright
 
 All code we develop at DC is created as part of our duties or upon instructions from our employer, and therefore the
-copyright belongs to the host universities, not us individually. When we submit code to open-source repositories with
+copyright belongs to the host universities, not us individually [^1]. When we submit code to open-source repositories with
 university approval, we do so on behalf of the university, which grants usage rights under the open-source license ([LICENSE-CODE](../LICENSE-CODE)).
+
+[^1]: [Upphovsrättslagen (1960:729), § 40 a (Riksdagen)](https://data.riksdagen.se/dokument/sfs-1960-729.html)
 
 ## What does this mean?
 
@@ -31,6 +33,6 @@ Every component owned by DC has a named university owner. This information can b
 
 ## Relevant sources
 
-[Uppsala University - Swedish](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-avseende-intellektuella-tillgangar-skapade-vid-uppsala-universitet?contentId=1076734)
-[Uppsala University - English](https://www.uu.se/en/staff/organisation-and-governance/regulations/guidelines-for-intellectual-property-created-at-uppsala-university?contentId=1076734)
-[KTH](https://www.kth.se/polopoly_fs/1.904248.1600689596!/Policy%20for%20management%20of%20intellectual%20assets%20created%20at%20KTH.pdf)
+- [Uppsala University - Swedish](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-avseende-intellektuella-tillgangar-skapade-vid-uppsala-universitet?contentId=1076734)
+- [Uppsala University - English](https://www.uu.se/en/staff/organisation-and-governance/regulations/guidelines-for-intellectual-property-created-at-uppsala-university?contentId=1076734)
+- [KTH IP Policy](https://www.kth.se/polopoly_fs/1.904248.1600689596!/Policy%20for%20management%20of%20intellectual%20assets%20created%20at%20KTH.pdf)
