@@ -10,6 +10,8 @@ This is not a comprehensive document of regulatory requirements, and further req
 - [Web Accessibility Directive (WAD)](#web-accessibility-directive-wad)
 - [Regulations for state agencies/statliga myndigheter](#regulations-for-state-agenciesstatliga-myndigheter)
 
+See [Code copyright](./code_copyright.md) for information on who owns the code we develop and what that means for our repositories.
+
 ## General Data Protection Regulation: GDPR
 
 The GDPR is the EU regulation on how personal data may be collected and processed. The following links contain useful information:
@@ -40,10 +42,10 @@ See [Accessibility docs](../accessibility/) for details on how to make your serv
 
 ## Regulations for state agencies/statliga myndigheter
 
-Universities are state agencies and thus Swedish Civil Contingencies Agency’s (MCF) regulations apply by law:
+Universities are state agencies and thus the Swedish Civil Defence and Resilience Agency’s (Myndigheten för civilt försvar, MCF) regulations apply by law:
 
 - Information security in governmental authorities ([MSBFS 2020:6](https://www.mcf.se/sv/regler/gallande-regler/msbfs-20206/))
 - Security measures in information systems for governmental authorities ([MSBFS 2020:7](https://www.mcf.se/sv/regler/gallande-regler/msbfs-20207/))
 - Reporting IT incidents for governmental authorities ([MSBFS 2020:8](https://www.mcf.se/sv/regler/gallande-regler/foreskrifter-om-rapportering-av-it-incidenter-for-statliga-myndigheter-msbfs-20208/)).
 
-Each university then uses these to derive their own concrete procedures, for example [Uppsala University](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-for-systematiskt-informationssakerhetsarbete). As they are all derived from the same parent regulation, the fundamentals should be the same. These derived university guidelines are more succinct and concrete than the MCF documents.
+Each university then uses these to derive their own concrete procedures, for example [Uppsala University](https://www.uu.se/medarbetare/organisation-styrning/regler/riktlinjer-for-systematiskt-informationssakerhetsarbete). As they are all derived from the same parent regulations, the fundamentals should be the same. These derived university guidelines are more succinct and concrete than the MCF documents.
