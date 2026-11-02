@@ -27,7 +27,7 @@ explicit permission from the Head of DC.
 By default, our code is open source so if someone wants to maintain a repository (e.g. because DC is sunsetting the
 application or going in a different direction), they can fork the repository at any time.
 
-## What university owns a repository?
+## Which university owns a repository?
 
 Every component owned by DC has a named university owner. This information can be found in the DC Service Catalogue.
 
