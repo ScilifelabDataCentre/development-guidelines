@@ -24,12 +24,21 @@ As [verksamt.se](https://verksamt.se/en/agreement-invoicing/personal-data) says:
 
 [^1]: IMY stands for Integritetsskyddsmyndigheten, the Swedish authority on privacy protection
 
-## European Accessibility Act: EAA
+## Web Accessibility Directive: WAD
 
-[European Accessibility Act (European Commission)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)
+[Web Accessibility Directive (European Commision)](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)
 
-The EAA requires digital services, including university software, to be accessible; see [Accessibility docs](../accessibility/)
-for details.
+## Web Accessibility Directive: WAD
+
+[Web Accessibility Directive (European Commission)](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility)
+
+The WAD requires public-sector digital services, including university websites and apps, to be accessible.
+In Sweden, it is implemented through "Lagen om tillgänglighet till digital offentlig service" (DOS-lagen, the Act on Accessibility to Digital Public Services).
+
+The WAD complements the [European Accessibility Act (EAA)](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en),
+which covers the private sector.
+
+See [Accessibility docs](../accessibility/) for details.
 
 ## Regulations for state agencies/statliga myndigheter
 
