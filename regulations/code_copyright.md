@@ -12,7 +12,7 @@ university approval, we do so on behalf of the university, which grants usage ri
 
 ## What does this mean?
 
-### SciLifeLabDataCentre Organisation
+### ScilifeöabDataCentre Organisation
 
 By default, repositories developed as part of our employment in DC live in the ScilifelabDataCentre GitHub Organisation. <!-- cspell:ignore Scilifelab -->
 
