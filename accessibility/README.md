@@ -28,7 +28,7 @@ WCAG are a set of guidelines for making the web more accessible. The Act on Acce
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                                               |
 | Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application.                                                                                                                                                          |
-| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take physical steps away from the monitor. |
+| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number, zoom out the page as much as possible or take physical steps away from the monitor. |
 
 ## Further reading
 
