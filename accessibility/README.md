@@ -11,7 +11,7 @@ last_reviewed: 2026-11-02
 
 ## Web Content Accessibility Guidelines (WCAG)
 
-WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
+WCAG are a set of guidelines for making the web more accessible. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
 
 [How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1&levels=aaa&hidesidebar=true)
 
@@ -24,16 +24,11 @@ WCAG are a set of guidelines for making the web more accessible. The WCAG standa
 3. **Automate in CI (GitHub Actions) with [Pa11y](https://github.com/pa11y/pa11y) (once the initial issues are fixed).** Pa11y performs some automated checks against the specified website or HTML file. If improving the accessibility of an existing application, you will likely get many initial failures, which is why you should be manually testing and using the tools first. Example:
    [Pa11y workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)
 
-| Tool                                                                           | How to use                                                       |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.      |
-| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application. |
-| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio.    |
-
-## Tips
-
-- Play around with the text colour (e.g. black vs white).
-- In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take physical steps away from the monitor.
+| Tool                                                                           | How to use                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                                               |
+| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application.                                                                                                                                                          |
+| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take physical steps away from the monitor. |
 
 ## Further reading
 
