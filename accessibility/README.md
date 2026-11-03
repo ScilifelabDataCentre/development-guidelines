@@ -17,9 +17,9 @@ WCAG are a set of guidelines for making the web more accessible. The Act on Acce
 
 [^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
 
-[^2]: [EN 301 549 v3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf)
+[^2]: [EN 301 549 v3.2.1 (v4.1.1 pending)](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf)
 
-## Tools and ways to help make your service compliant with WCAG
+## How to test for accessibility
 
 1. **Manual testing (always).** No automated tool is a replacement for visual inspection. Always review new or changed UI through the lens of accessibility.
 2. **Spot-check with tools (table below).**
