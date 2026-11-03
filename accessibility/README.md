@@ -6,6 +6,9 @@ last_reviewed: 2026-11-02
 
 [Accessibility regulations](../regulations/README.md#web-accessibility-directive-wad)
 
+> [!NOTE]
+> We use the [SciLifeLab brand colours](https://www.scilifelab.se/community-pages/resources/visual-identity/) in our services, but we need to keep accessibility in mind. Other services may be bound by the design restrictions of the backing host university or funding agency.
+
 ## Web Content Accessibility Guidelines (WCAG)
 
 WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned, with each version entailing stricter guidelines. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
@@ -27,19 +30,13 @@ WCAG are a set of guidelines for making the web more accessible. The WCAG standa
 | Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application. |
 | Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colors and get the contrast ratio.    |
 
-### Data Centre/SciLifeLab-specific considerations
-
-We use the [SciLifeLab brand colours](https://www.scilifelab.se/community-pages/resources/visual-identity/) in our services, but we need to keep accessibility in mind. Other services may be bound by the design restrictions of the backing host university or funding
-agency.
-
-#### Tips
+### Tips
 
 - If links are Teal and the background is Aqua, there is insufficient contrast.
 - Play around with the text colour (e.g. black vs white).
-- In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take
-  physical steps away from the monitor.
+- In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take physical steps away from the monitor.
 
 ## Further reading
 
-- https://inclusive.microsoft.design/
-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility
+- [Inclusive Design Principles](https://inclusive.microsoft.design/)
+- [What is accessibility?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
