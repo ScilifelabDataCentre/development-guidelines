@@ -11,11 +11,13 @@ last_reviewed: 2026-11-03
 
 ## Web Content Accessibility Guidelines (WCAG)
 
-WCAG are a set of guidelines for making the web more accessible. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with WCAG 2.1 level AA [^1].
+WCAG are a set of guidelines for making the web more accessible. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires compliance with EN 301 549 [^1][^2]. EN 301 549 includes WCAG 2.1 level AA, but also has requirements beyond WCAG, e.g. for video and documents.
 
 [How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1&levels=aaa&hidesidebar=true)
 
 [^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
+
+[^2]: [EN 301 549 v3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf)
 
 ## Tools and ways to help make your service compliant with WCAG
 
