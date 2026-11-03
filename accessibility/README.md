@@ -14,37 +14,18 @@ WCAG are a set of guidelines for making the web more accessible. The WCAG standa
 
 [^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
 
-## Setting up your services for compliance
+## How to make your service compliant with WCAG
 
-### Manual testing
+1. **Manual testing (always).** No automated tool are a replacement for visual inspection. Always review new or changed UI through the lens of accessibility.
+2. **Spot-check with tools (table below).**
+3. **Automate in CI (GitHub Actions) with [Pa11y](https://github.com/pa11y/pa11y) (once the initial issues are fixed).** Pa11y performs some automated checks against the specified website or HTML file. If improving the accessibility of an existing application, you will likely get many initial failures, which is why you should be manually testing and using the tools first. Example:
+   [Pa11y workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)
 
-No automated tools are a replacement for visual inspection. Always review new or changed UI through the lens of
-accessibility.
-
-### GitHub Action for web applications: [Pa11y](https://github.com/pa11y/pa11y)
-
-This tool, which can be run in a GitHub Action (see
-[the workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)),
-performs some automated checks against the specified website or HTML file.
-
-> :warning: If improving the accessibility of an existing application, begin with manual testing and fixing, before
-> progressing to this as you will undoubtedly get many initial failures.
-
-### Other useful tools
-
-#### [WAVE](https://wave.webaim.org/)
-
-This tool complements Pa11y and can be used by submitting a URL to their website or using the browser extension.
-
-#### Screen readers
-
-Test the experience of using the application using a screen reader, e.g. [NVDA](https://www.nvaccess.org/download/).
-
-#### Contrast checker
-
-Contrast (or lack thereof) is a cause of many accessibility issues. Tools for explicitly checking this, such as
-https://www.siegemedia.com/contrast-ratio, complement WAVE and Pa11y and provide more information on a contrast
-ratio given the font size.
+| Tool                                                                           | How to use                                                       |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.      |
+| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application. |
+| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colors and get the contrast ratio.    |
 
 ### Data Centre/SciLifeLab-specific considerations
 
