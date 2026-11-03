@@ -25,6 +25,7 @@ WCAG are a set of guidelines for making the web more accessible. The Act on Acce
    [Pa11y workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)
 
 <!-- cspell:ignore siegemedia -->
+
 | Tool                                                                           | How to use                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                  |
