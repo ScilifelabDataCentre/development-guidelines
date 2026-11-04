@@ -1,5 +1,5 @@
 ---
-last_reviewed: 2026-11-03
+last_reviewed: 2026-11-04
 ---
 
 # Accessibility
@@ -28,13 +28,15 @@ WCAG are a set of guidelines for making the web more accessible. The Act on Acce
 
 <!-- cspell:ignore siegemedia -->
 
-| Tool                                                                           | How to use                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                  |
-| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application.                                                                                                                             |
-| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number, zoom out the page as much as possible or take physical steps away from the monitor. |
+| Tool / Method                                                                  | How to use                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                                                                                                                                                                                          |
+| Keyboard-only navigation                                                       | Put the mouse aside, and use only `Tab`, `Shift+Tab`, `Enter`, `Space` and the arrow keys. Check that: <br>- every link, button, form field and widget can be reached and operated<br>- you can tell which element is active<br>- the tab order follows the visual layout<br>- focus never gets stuck in an element, and menus and dialogs can be closed with `Esc`. |
+| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application.                                                                                                                                                                                                                                                                                                     |
+| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number, zoom out the page as much as possible or take physical steps away from the monitor.                                                                                                                                                                         |
 
 ## Further reading
 
 - [Inclusive Design Principles](https://inclusive.microsoft.design/)
 - [What is accessibility?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
+- [Testa tillgängligheten (in Swedish)](https://www.digg.se/webbriktlinjer/tillganglighet/testa-tillgangligheten)
