@@ -4,7 +4,10 @@ last_reviewed: 2026-11-04
 
 # Commit signing
 
-## Configuring commit signing
+- Recommended
+- Why
+
+## How to configure commit signing
 
 > [!NOTE]
 > These instructions assume that you have already installed git.
@@ -12,9 +15,11 @@ last_reviewed: 2026-11-04
 Git commits can be signed using e.g. GPG or SSH keys. All software required for SSH keys is installed by default on
 most computers, while GPG may require some software to be installed. Use an SSH key by default.
 
-1. [Follow the instructions for your operating system in the GitHub Docs](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
-   - Use an informative name when generating the SSH key (e.g. `id_github_sign`)
-   - When adding the generated key to your GitHub account via the GitHub interface, change the key type to be _Signing_.
+1. Follow the instructions in the GitHub Docs:
+   - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
+   - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
+2. 
+
 2. To sign your commits automatically with `git commit` (rather than using `git commit -S`):
 
 ```
