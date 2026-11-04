@@ -40,15 +40,6 @@ After this, you should be able to make a change, run `git commit` (no `-S`) and 
 > git config --global tag.gpgsign true
 > ```
 
-### Optional settings
-
-To set up key verification locally, which is not required by GitHub:
-
-```bash
-git config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
-echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.ssh/allowed_signers
-```
-
 ## Forgot to sign your commits?
 
 > [!WARNING]
@@ -63,8 +54,8 @@ echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.
    git rebase --exec 'git commit --amend --no-edit -S' main
    ```
 
-2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your localm branch is up-to-date with the remote.
+2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your the remote hasn't changed since your last fetch.
 
-   ```Bash
+   ```bash
    git push --force-with-lease
    ```
