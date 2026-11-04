@@ -1,77 +1,42 @@
 ---
-last_reviewed: 2025-07-21
+last_reviewed: 2026-11-04
 ---
 
 # Accessibility
 
 [Accessibility regulations](../regulations/README.md#web-accessibility-directive-wad)
 
+> [!NOTE]
+> We use the [SciLifeLab brand colours](https://www.scilifelab.se/community-pages/resources/visual-identity/) in our services, but we need to keep accessibility in mind. Other services may be bound by the design restrictions of the backing host university or funding agency.
+
 ## Web Content Accessibility Guidelines (WCAG)
 
-https://www.w3.org/WAI/WCAG22/quickref/
+WCAG are a set of guidelines for making the web more accessible. The Act on Accessibility to Digital Public Services ("DOS-lagen", see [regulations/README.md](../regulations/README.md#web-accessibility-directive-wad)) requires public digital services to be accessible. Conforming to EN 301 549 v3.2.1 is the recognised way to meet this [^1][^2]. EN 301 549 includes WCAG 2.1 level AA, but also has requirements beyond WCAG, e.g. for video and documents.
 
-WCAG are a set of guidelines for making the web more accessible. The WCAG standards are versioned, with each version
-entailing stricter guidelines. The EAA requires compliance with WCAG 2.1.
+[How to meet WCAG](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1&levels=aaa&hidesidebar=true)
 
-> WCAG 2.1 was initiated with the goal to improve accessibility guidance for three major groups: users with cognitive or
-> learning disabilities, users with low vision, and users with disabilities on mobile devices. Many ways to meet these
-> needs were proposed and evaluated, and a set of these were refined by the Working Group. Structural requirements
-> inherited from WCAG 2.0, clarity and impact of proposals, and timeline led to the final set of success criteria
-> included in this version. The Working Group considers that WCAG 2.1 incrementally advances web content accessibility
-> guidance for all these areas, but underscores that not all user needs are met by these guidelines.
+[^1]: [Myndigheten för digital förvaltning](https://www.digg.se/webbriktlinjer/lagar-och-krav/det-har-ar-en-301-549-och-wcag). English page (less information): [Agency for Digital Government](https://www.digg.se/webbriktlinjer/about-webbriktlinjer).
 
-WCAG is meant to be backward compatible within the major version numbers, so a site compliant with 2.2 will
-automatically be compliant with 2.0 and 2.1.
+[^2]: [EN 301 549 v3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf)
 
-> WCAG 2.2 was initiated with the goal to continue the work of WCAG 2.1: Improving accessibility guidance for three major
-> groups: users with cognitive or learning disabilities, users with low vision, and users with disabilities on
-> mobile devices.
+## How to test for accessibility
 
-## Setting up your services for compliance
+1. **Manual testing (always).** No automated tool is a replacement for visual inspection. Always review new or changed UI through the lens of accessibility.
+2. **Spot-check with tools (table below).**
+3. **Automate in CI (GitHub Actions) with [Pa11y](https://github.com/pa11y/pa11y) (once the initial issues are fixed).** Pa11y performs some automated checks against the specified website or HTML file. If improving the accessibility of an existing application, you will likely get many initial failures, which is why you should be manually testing and using the tools first. Example:
+   [Pa11y workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)
 
-### Manual testing
+<!-- cspell:ignore siegemedia -->
 
-No automated tools are a replacement for visual inspection. Always review new or changed UI through the lens of
-accessibility.
-
-### GitHub Action for web applications: [Pa11y](https://github.com/pa11y/pa11y)
-
-This tool, which can be run in a GitHub Action (see
-[the workflow in Pathogens Portal](https://github.com/ScilifelabDataCentre/pathogens-portal/blob/develop/.github/workflows/pa11y_test.yaml)),
-performs some automated checks against the specified website or HTML file.
-
-> :warning: If improving the accessibility of an existing application, begin with manual testing and fixing, before
-> progressing to this as you will undoubtedly get many initial failures.
-
-### Other useful tools
-
-#### [WAVE](https://wave.webaim.org/)
-
-This tool complements Pa11y and can be used by submitting a URL to their website or using the browser extension.
-
-#### Screen readers
-
-Test the experience of using the application using a screen reader, e.g. [NVDA](https://www.nvaccess.org/download/).
-
-#### Contrast checker
-
-Contrast (or lack thereof) is a cause of many accessibility issues. Tools for explicitly checking this, such as
-https://www.siegemedia.com/contrast-ratio, complement WAVE and Pa11y and provide more information on a contrast
-ratio given the font size.
-
-### Data Centre/SciLifeLab-specific considerations
-
-We use the [SciLifeLab brand colours](https://www.scilifelab.se/community-pages/resources/visual-identity/) in our services, but we need to keep accessibility in mind. Other services may be bound by the design restrictions of the backing host university or funding
-agency.
-
-#### Tips
-
-- If links are Teal and the background is Aqua, there is insufficient contrast.
-- Play around with the text colour (e.g. black vs white).
-- In addition to checking the ratio number using the tools listed above, zoom out the page as much as possible or take
-  physical steps away from the monitor.
+| Tool / Method                                                                  | How to use                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [WAVE](https://wave.webaim.org/)                                               | Submit a URL to their website or use the browser extension.                                                                                                                                  |
+| [Keyboard-only navigation](https://webaim.org/techniques/keyboard/)            | Put the mouse aside and use only the keyboard to test the accessibility.                                                                                                                     |
+| Screen reader, e.g. [NVDA](https://www.nvaccess.org/download/)                 | Install locally to test the experience of using the application.                                                                                                                             |
+| Contrast checker, e.g. [siegemedia](https://www.siegemedia.com/contrast-ratio) | Choose background and text colours and get the contrast ratio. In addition to checking the ratio number, zoom out the page as much as possible or take physical steps away from the monitor. |
 
 ## Further reading
 
-- https://inclusive.microsoft.design/
-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility
+- [Inclusive Design Principles](https://inclusive.microsoft.design/)
+- [What is accessibility?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
+- [Testa tillgängligheten (in Swedish)](https://www.digg.se/webbriktlinjer/tillganglighet/testa-tillgangligheten)
