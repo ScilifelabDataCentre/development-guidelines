@@ -7,25 +7,37 @@ last_reviewed: 2026-11-04
 - Recommended
 - Why
 
+Git commits can be signed using e.g. GPG or SSH keys. All software required for SSH keys is installed by default on
+most computers, while GPG may require some software to be installed. Use an SSH key by default.
+
 ## How to configure commit signing
 
 > [!NOTE]
 > These instructions assume that you have already installed git.
 
-Git commits can be signed using e.g. GPG or SSH keys. All software required for SSH keys is installed by default on
-most computers, while GPG may require some software to be installed. Use an SSH key by default.
+To set up commit signing, follow the instructions in the GitHub Docs:
 
-1. Follow the instructions in the GitHub Docs:
-   - [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
-   - [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
-2. 
+- [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)
+- [GPG commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification)
 
-2. To sign your commits automatically with `git commit` (rather than using `git commit -S`):
+### How to enable automatic signing of commits
 
-```
+To sign new changes, you could use the command `git commit -S`. However, this requires you to remember the `-S` option.
+
+To configure automatic signing of commits, run the following command:
+
+```bash
 git config --global commit.gpgsign true
-git config --global tag.gpgsign true
 ```
+
+After this, you should be able to make a change, run `git commit` (no `-S`) and be automatically prompted for your passphrase.
+
+> [!NOTE]
+> You can also configure git to automatically sign tags:
+>
+> ```bash
+> git config --global tag.gpgsign true
+> ```
 
 #### Optional settings
 
