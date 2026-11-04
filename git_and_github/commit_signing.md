@@ -39,50 +39,31 @@ After this, you should be able to make a change, run `git commit` (no `-S`) and 
 > git config --global tag.gpgsign true
 > ```
 
-#### Optional settings
+### Optional settings
 
 To set up key verification locally, which is not required by GitHub:
 
-```
+```bash
 git config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
 echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.ssh/allowed_signers
 ```
 
 ## Forgot to sign your commits?
 
-Follow the steps below to sign old unsigned commits.
+1. To sign unsigned commits in your current branch, run the following command, replacing `<base>` with your base branch.
 
-```Bash
-# Show commit signature in log
-git log --show-signature
-```
+   > [!IMPORTANT]
+   > You are about to rewrite your Git history. The commit hashes will change.
 
-Identify the unsigned commit and rebase to the commit before it i.e. older than it.
+   ```bash
+   git rebase --exec 'git commit --amend --no-edit -S' <base>
 
-```Bash
-# Show commit condensed format
-git log --oneline
-```
+   # Example: You've created your branch from `main` / signing commits in a PR to `main`.
+   git rebase --exec 'git commit --amend --no-edit -S' main
+   ```
 
-In our case, we will rebase to the commit before our target commit `a27a0fe` which is `906e966`.
+2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your localm branch is up-to-date with the remote.
 
-```Bash
-git rebase -i 906e966^
-```
-
-An interactive window will open in your default editor. Replace `pick` with `edit` for the commit(s) in question. Save and close the editor.
-
-You need to do the block of code below n number of times depending on the number n of commits that are unsigned. In our case, we do that twice.
-
-```Bash
-git commit --amend --no-edit --gpg-sign
-git rebase --continue
-```
-
-It is important to note here that you are about to rewrite your Git history 😱. The commit hash of the commits you have amended will literally change.
-
-The `--force-with-lease` flag will allow a force push given your local branch is up-to-date with the remote i.e. no new changes by someone else have been pushed that you have not pulled locally.
-
-```Bash
-git push --force-with-lease origin main
-```
+   ```Bash
+   git push --force-with-lease origin main
+   ```
