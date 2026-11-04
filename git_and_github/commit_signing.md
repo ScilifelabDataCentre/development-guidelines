@@ -66,5 +66,5 @@ echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.
 2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your localm branch is up-to-date with the remote.
 
    ```Bash
-   git push --force-with-lease origin main
+   git push --force-with-lease
    ```
