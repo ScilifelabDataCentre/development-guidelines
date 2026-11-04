@@ -4,11 +4,12 @@ last_reviewed: 2026-11-04
 
 # Commit signing
 
-- Recommended
-- Why
-
 Git commits can be signed using e.g. GPG or SSH keys. All software required for SSH keys is installed by default on
 most computers, while GPG may require some software to be installed. Use an SSH key by default.
+
+- [How to configure commit signing](#how-to-configure-commit-signing)
+- [How to enable automatic signing of commits](#how-to-enable-automatic-signing-of-commits)
+- [Forgot to sign your commits?](#forgot-to-sign-your-commits)
 
 ## How to configure commit signing
 
