@@ -50,10 +50,10 @@ echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.
 
 ## Forgot to sign your commits?
 
-1. To sign unsigned commits in your current branch, run the following command, replacing `<base>` with your base branch.
+> [!WARNING]
+> You are about to rewrite your Git history. The commit hashes will change.
 
-   > [!WARNING]
-   > You are about to rewrite your Git history. The commit hashes will change.
+1. To sign unsigned commits in your current branch, run the following command, replacing `<base>` with your base branch.
 
    ```bash
    git rebase --exec 'git commit --amend --no-edit -S' <base>
