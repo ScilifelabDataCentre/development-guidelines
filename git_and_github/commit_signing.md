@@ -54,7 +54,7 @@ After this, you should be able to make a change, run `git commit` (no `-S`) and 
    git rebase --exec 'git commit --amend --no-edit -S' main
    ```
 
-2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your the remote hasn't changed since your last fetch.
+2. Push to your remote branch with the `--force-with-lease` flag. It will allow a force push given that your remote branch hasn't changed since your last fetch.
 
    ```bash
    git push --force-with-lease
