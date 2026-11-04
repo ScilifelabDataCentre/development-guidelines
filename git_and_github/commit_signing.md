@@ -52,7 +52,7 @@ echo  "$(git config --global user.email) $(cat ~/.ssh/id_github_sign.pub)" > ~/.
 
 1. To sign unsigned commits in your current branch, run the following command, replacing `<base>` with your base branch.
 
-   > [!IMPORTANT]
+   > [!WARNING]
    > You are about to rewrite your Git history. The commit hashes will change.
 
    ```bash
