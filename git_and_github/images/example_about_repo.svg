@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="931" height="272" viewBox="0 0 931 272" role="img" aria-label="GitHub repository header for development-guidelines: This repository contains development guidelines for the SciLifeLab Data Centre.">
+  <style>
+    :root {
+      --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --border: #d1d9e0;
+      --btn: #f6f8fa; --green: #1f883d; --green-fg: #ffffff; --ok: #1a7f37; --badge: #eff2f5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117; --fg: #f0f6fc; --muted: #9198a1; --border: #3d444d;
+        --btn: #212830; --green: #238636; --green-fg: #ffffff; --ok: #3fb950; --badge: #2f3742;
+      }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; fill: var(--fg); }
+    .bg { fill: var(--bg); }
+    .muted { fill: var(--muted); }
+    .btn { fill: var(--btn); stroke: var(--border); }
+    .line { stroke: var(--border); fill: none; }
+    .ico { stroke: var(--fg); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .ico-m { stroke: var(--muted); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .caret { fill: var(--fg); }
+    .count { fill: var(--badge); }
+    .b { font-weight: 600; }
+  </style>
+
+  <rect class="bg" width="100%" height="100%"/>
+
+  <!-- Logo placeholder: replace with the official logo -->
+  <rect x="14" y="12" width="28" height="28" rx="6" class="btn"/>
+
+  <!-- Title + badge -->
+  <text x="52" y="34" font-size="24" class="b">development-guidelines</text>
+  <rect x="352" y="14" width="57" height="23" rx="11.5" class="line"/>
+  <text x="380.5" y="30" font-size="12" text-anchor="middle" class="muted b">Public</text>
+
+  <!-- Action buttons -->
+  <g font-size="14">
+    <!-- Edit Pins -->
+    <rect x="14.5" y="53.5" width="122" height="32" rx="6" class="btn"/>
+    <path class="ico" d="M28 76 l5-5 M31 62 l7 7 M30 68 l6-6 l5 5 l-6 6 z"/>
+    <text x="48" y="74" class="b">Edit Pins</text>
+    <path class="caret" d="M114 67 h8 l-4 4 z"/>
+
+    <!-- Watch -->
+    <rect x="146.5" y="53.5" width="137" height="32" rx="6" class="btn"/>
+    <path class="ico" d="M157 70 q9-9 18 0 q-9 9-18 0 z"/><circle class="ico" cx="166" cy="70" r="2.5"/>
+    <text x="181" y="74" class="b">Watch</text>
+    <rect class="count" x="228" y="60" width="22" height="20" rx="10"/>
+    <text x="239" y="74" font-size="12" text-anchor="middle" class="b">0</text>
+    <path class="caret" d="M261 67 h8 l-4 4 z"/>
+
+    <!-- Fork -->
+    <rect x="292.5" y="53.5" width="136" height="32" rx="6" class="btn"/>
+    <line class="line" x1="397.5" y1="54" x2="397.5" y2="85"/>
+    <g class="ico"><circle cx="305" cy="63" r="2"/><circle cx="315" cy="63" r="2"/><circle cx="310" cy="77" r="2"/><path d="M305 65 v2 q0 3 5 3 q5 0 5-3 v-2 M310 70 v5"/></g>
+    <text x="326" y="74" class="b">Fork</text>
+    <rect class="count" x="361" y="60" width="22" height="20" rx="10"/>
+    <text x="372" y="74" font-size="12" text-anchor="middle" class="b">0</text>
+    <path class="caret" d="M409 67 h8 l-4 4 z"/>
+
+    <!-- Star -->
+    <rect x="437.5" y="53.5" width="134" height="32" rx="6" class="btn"/>
+    <line class="line" x1="538.5" y1="54" x2="538.5" y2="85"/>
+    <path class="ico" d="M456 61.5 l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8 z"/>
+    <text x="471" y="74" class="b">Star</text>
+    <rect class="count" x="502" y="60" width="22" height="20" rx="10"/>
+    <text x="513" y="74" font-size="12" text-anchor="middle" class="b">0</text>
+    <path class="caret" d="M551 67 h8 l-4 4 z"/>
+  </g>
+
+  <!-- Divider -->
+  <line class="line" x1="14" y1="110.5" x2="920" y2="110.5"/>
+
+  <!-- Branch / tags / file buttons -->
+  <g font-size="16">
+    <rect x="14.5" y="140.5" width="127" height="37" rx="6" class="btn"/>
+    <g class="ico"><circle cx="35" cy="152" r="2"/><circle cx="35" cy="167" r="2"/><circle cx="45" cy="155" r="2"/><path d="M35 154 v11 M45 157 q0 5-10 6"/></g>
+    <text x="59" y="165" class="b">main</text>
+    <path class="caret" d="M113 157 h9 l-4.5 4.5 z"/>
+
+    <g class="ico"><circle cx="171" cy="152" r="2"/><circle cx="171" cy="167" r="2"/><circle cx="181" cy="155" r="2"/><path d="M171 154 v11 M181 157 q0 5-10 6"/></g>
+    <path class="ico" d="M220 152 h7 l8 8 -7 7 -8-8 z"/><circle class="caret" cx="224" cy="156" r="1.2"/>
+
+    <rect x="313.5" y="140.5" width="101" height="37" rx="6" class="btn"/>
+    <text x="364" y="165" text-anchor="middle" class="b">Go to file</text>
+
+    <rect x="425.5" y="140.5" width="39" height="37" rx="6" class="btn"/>
+    <path class="ico" d="M445 152 v14 M438 159 h14"/>
+
+    <rect x="475.5" y="140.5" width="128" height="37" rx="6" fill="var(--green)" stroke="var(--green)"/>
+    <path d="M497 153 l-6 6 6 6 M505 153 l6 6-6 6" fill="none" stroke="var(--green-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="520" y="165" class="b" style="fill: var(--green-fg)">Code</text>
+    <path d="M574 157 h9 l-4.5 4.5 z" fill="var(--green-fg)"/>
+  </g>
+
+  <!-- Latest commit row -->
+  <path class="line" d="M14.5 280 V204.5 a6 6 0 0 1 6-6 H597.5 a6 6 0 0 1 6 6 V280"/>
+  <rect x="14.5" y="198.5" width="589" height="62" rx="6" fill="var(--btn)" opacity="0"/>
+  <path d="M15 260.5 H603" class="line"/>
+  <!-- Avatar placeholder -->
+  <circle cx="43" cy="230" r="12" class="btn"/>
+  <g font-size="16">
+    <text x="64" y="236" class="b">i-oden</text>
+    <text x="127" y="236" class="muted">Update guide on …</text>
+    <text x="385" y="236" font-size="14" class="muted">96c65cc · 18 hours ago</text>
+  </g>
+  <rect x="294" y="221" width="24" height="18" rx="4" class="count"/>
+  <g class="caret" style="fill: var(--muted)"><circle cx="300" cy="230" r="1.5"/><circle cx="306" cy="230" r="1.5"/><circle cx="312" cy="230" r="1.5"/></g>
+  <path d="M342 230 l4 4 8-8" fill="none" stroke="var(--ok)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g class="ico-m"><path d="M561 230 a8 8 0 1 0 2.5-5.8 M561 222 v3 h3"/><path d="M569 225 v5 l3 2"/></g>
+
+  <!-- About -->
+  <text x="642" y="153" font-size="18" class="b">About</text>
+  <g class="ico" transform="translate(896 145)">
+    <circle r="6.5" stroke-width="3" stroke-dasharray="3 2.1" stroke-linecap="butt"/>
+    <circle r="4.8"/>
+    <circle r="1.9"/>
+  </g>
+  <text font-size="18">
+    <tspan x="642" y="195">This repository contains</tspan>
+    <tspan x="642" y="222">development guidelines for</tspan>
+    <tspan x="642" y="250">the SciLifeLab Data Centre.</tspan>
+  </text>
+</svg>
