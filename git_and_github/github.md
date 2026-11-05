@@ -14,9 +14,11 @@ All members of the ScilifelabDataCentre GitHub Organisation or contributors to r
 
 ## Repositories
 
-- All repositories for DC services and components belong in our [organisation](https://github.com/ScilifelabDataCentre). If you are unsure, or if the repository is a colaborative work, contact the [SciLifeLab Architecture Board](https://github.com/orgs/SciLifeLab/teams/architecture-board).
-- Unless there's a specific reason why a repository should be private (e.g. deployment repositories), make it public.
-- Always add a brief _About_ to any repo, even if it's a PoC (Proof of Concept) or test that you're working on alone.
+All repositories for DC services and components:
+
+- Belong in our [organisation](https://github.com/ScilifelabDataCentre). If you are unsure, or if the repository is a colaborative work, contact the [SciLifeLab Architecture Board](https://github.com/orgs/SciLifeLab/teams/architecture-board).
+- Should be public, unless there's a specific reason why it should be private (e.g. deployment repositories).
+- Should have a brief description in the _About_ section, even if it's a Proof of Concept (PoC) or test that you're working on alone. See the example below.
 
 ![Example 'About' section of a repo](images/example_about_repo.svg)
 
