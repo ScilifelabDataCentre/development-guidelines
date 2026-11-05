@@ -18,10 +18,6 @@ All members of the ScilifelabDataCentre GitHub Organisation or contributors to r
 - Unless there's a specific reason why a repository should be private (e.g. deployment repositories), make it public.
 - Always add a brief _About_ to any repo, even if it's a PoC (Proof of Concept) or test that you're working on alone.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="about-dark.svg">
-  <img src="about-light.svg" alt="About">
-</picture>
 ![Example 'About' section of a repo](images/example_about_repo.svg)
 
 - Use the [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) for new repositories (WIP).
