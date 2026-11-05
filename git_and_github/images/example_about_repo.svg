@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="305" height="120" viewBox="0 0 305 120" role="img" aria-label="About: This repository contains development guidelines for the SciLifeLab Data Centre.">
+  <style>
+    .bg   { fill: #ffffff; }
+    .fg   { fill: #000000; }
+    .icon { stroke: #000000; fill: none; }
+    text  { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #000000; }
+      .fg   { fill: #ffffff; }
+      .icon { stroke: #ffffff; }
+    }
+  </style>
+  <rect class="bg" width="100%" height="100%"/>
+  <text class="fg" x="10" y="28" font-size="16" font-weight="600">About</text>
+  <!-- gear icon -->
+  <g class="icon" transform="translate(284 22)">
+    <circle r="5.5" stroke-width="3" stroke-dasharray="2.6 1.72"/>
+    <circle r="4" stroke-width="1.5"/>
+    <circle r="1.6" stroke-width="1.5"/>
+  </g>
+  <text class="fg" font-size="16">
+    <tspan x="10" y="62">This repository contains</tspan>
+    <tspan x="10" y="84">development guidelines for</tspan>
+    <tspan x="10" y="106">the SciLifeLab Data Centre.</tspan>
+  </text>
+</svg>
