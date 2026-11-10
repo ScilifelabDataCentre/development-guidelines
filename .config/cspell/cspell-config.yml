@@ -180,6 +180,9 @@ ignoreRegExpList:
   # DOI identifiers.
   - "/DOI:.*/g" # Ignore text containing a labelled DOI reference.
 
+  # Names
+  - "ScilifelabDataCentre GitHub Organisation"
+
 # ---------------------------------------------------------------------------
 # 8. File- and directory-specific settings
 # ---------------------------------------------------------------------------
