@@ -12,7 +12,7 @@ last_reviewed: 2026-11-10
 
 All members of the ScilifelabDataCentre GitHub Organisation or contributors to repositories maintained by the organisation must have the following configured:
 
-1. Two Factor Authentication (2FA). This is enforced by the organisation settings. Two configure 2FA, [follow GitHub's instructions](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Two Factor Authentication (2FA). This is enforced by the organisation settings. To configure 2FA, [follow GitHub's instructions](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
    - Make sure that you keep the backup codes and/or set up multiple ways to login in case you e.g. lose your phone
 2. Commit signing. Follow [these instructions](./commit_signing.md).
 
@@ -30,8 +30,7 @@ All repositories for DC services and components:
 > **Use the repository template [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) when creating a new repository** instead of creating your own completely from scratch.
 >
 > This contains elements all our repositories should have (WIP).
-
-> [!TIP]
+>
 > We also recommend copy-pasting individual files and directories from the `data-centre-template` repository and adapting them to your needs.
 
 ## Members, roles & teams
@@ -42,4 +41,4 @@ All repositories for DC services and components:
     description.
 - **Add people to teams**, rather than individually to repos or higher-level groups (e.g. developers). This helps keep
   permissions consistent and tidy.
-- **Add non-DC staff collaborators as External Collaborators**, not as organisation members.
+- **Add non-DC staff collaborators as Outside Collaborators**, not as organisation members.
