@@ -30,8 +30,9 @@ All repositories for DC services and components:
 > **Use the repository template [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) when creating a new repository** instead of creating your own completely from scratch.
 >
 > This contains elements all our repositories should have (WIP).
->
-> We also recommend copy-pasting individual files and directories from the `data-centre-template` repository and adapting them to your needs.
+
+> [!TIP]
+> **For existing repositories**, we recommend copy-pasting individual files and directories from the `data-centre-template` repository and adapting them to your needs.
 
 ## Members, roles & teams
 
@@ -39,6 +40,5 @@ All repositories for DC services and components:
   - The naming convention is 'TeamXxxx', e.g. TeamHermes, TeamFreya.
   - _Create additional sub- or cross-cutting teams as necessary._ Prefer CamelCase with no spaces and populate the team
     description.
-- **Add people to teams**, rather than individually to repos or higher-level groups (e.g. developers). This helps keep
-  permissions consistent and tidy.
+- **Add people to teams**, rather than individually to repos or higher-level groups (e.g. developers). This helps keep permissions consistent and tidy.
 - **Add non-DC staff collaborators as Outside Collaborators**, not as organisation members.
