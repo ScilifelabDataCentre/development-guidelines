@@ -27,7 +27,7 @@ All repositories for DC services and components:
 ![Example 'About' section of a repo](images/example_about_repo.svg)
 
 > [!NOTE]
-> **Use the repository temmplate [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) when creating a new repository** instead of creating your own completely from scratch.
+> **Use the repository template [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) when creating a new repository** instead of creating your own completely from scratch.
 >
 > This contains elements all our repositories should have (WIP).
 
