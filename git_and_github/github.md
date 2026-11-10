@@ -1,5 +1,5 @@
 ---
-last_reviewed: 2026-11-05
+last_reviewed: 2026-11-10
 ---
 
 # GitHub
@@ -8,7 +8,7 @@ last_reviewed: 2026-11-05
 
 All members of the ScilifelabDataCentre GitHub Organisation or contributors to repositories maintained by the organisation must have the following configured:
 
-1. Two Factor Authentication (2FA) configured. This is enforced by the organisation settings. Two configure 2FA, [follow GitHub's instructions](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Two Factor Authentication (2FA). This is enforced by the organisation settings. Two configure 2FA, [follow GitHub's instructions](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
    - Make sure that you keep the backup codes and/or set up multiple ways to login in case you e.g. lose your phone
 2. Commit signing. Follow [these instructions](./commit_signing.md).
 
@@ -22,11 +22,13 @@ All repositories for DC services and components:
 
 ![Example 'About' section of a repo](images/example_about_repo.svg)
 
-- Use the [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) for new repositories (WIP).
-  This contains elements all our repositories should have, including:
-  - 1 or 2 LICENSE files at the top-level
-  - CODEOWNERS file
-  - Code signing required for `main`
+> [!NOTE]
+> **Use the repository temmplate [data-centre-template](https://github.com/ScilifelabDataCentre/data-centre-template) when creating a new repository** instead of creating your own completely from scratch.
+>
+> This contains elements all our repositories should have (WIP).
+
+> [!TIP]
+> We also recommend copy-pasting individual files and directories from the `data-centre-template` repository and adapting them to your needs.
 
 ## Members, roles & teams
 
