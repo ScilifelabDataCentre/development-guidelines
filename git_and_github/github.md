@@ -9,7 +9,7 @@ last_reviewed: 2026-11-05
 All members of the ScilifelabDataCentre GitHub Organisation or contributors to repositories maintained by the organisation must have the following configured:
 
 1. Two Factor Authentication (2FA) configured. This is enforced by the organisation settings. Two configure 2FA, [follow GitHub's instructions](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
-    - Make sure that you keep the backup codes and/or set up multiple ways to login in case you e.g. lose your phone
+   - Make sure that you keep the backup codes and/or set up multiple ways to login in case you e.g. lose your phone
 2. Commit signing. Follow [these instructions](./commit_signing.md).
 
 ## Repositories
