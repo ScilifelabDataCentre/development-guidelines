@@ -4,6 +4,10 @@ last_reviewed: 2026-11-10
 
 # GitHub
 
+- [Authentication](#authentication)
+- [Repositories](#repositories)
+- [Members, roles & teams](#members-roles--teams)
+
 ## Authentication
 
 All members of the ScilifelabDataCentre GitHub Organisation or contributors to repositories maintained by the organisation must have the following configured:
@@ -32,11 +36,10 @@ All repositories for DC services and components:
 
 ## Members, roles & teams
 
-- Add collaborators (i.e. non-DC staff) who need additional privileges to repositories as External Collaborators, rather
-  than organisation members.
-- Add people to teams, rather than individually to repos or higher-level groups (e.g. developers). This helps keep
-  permissions consistent and tidy.
-- Teams in the organisation that contribute to development in GitHub have a corresponding GitHub Team.
+- **Teams in the organisation that contribute to development in GitHub have a corresponding GitHub Team.**
   - The naming convention is 'TeamXxxx', e.g. TeamHermes, TeamFreya.
-  - Create additional sub- or cross-cutting teams as necessary. Prefer CamelCase with no spaces and populate the team
+  - _Create additional sub- or cross-cutting teams as necessary._ Prefer CamelCase with no spaces and populate the team
     description.
+- **Add people to teams**, rather than individually to repos or higher-level groups (e.g. developers). This helps keep
+  permissions consistent and tidy.
+- **Add non-DC staff collaborators as External Collaborators**, not as organisation members.
