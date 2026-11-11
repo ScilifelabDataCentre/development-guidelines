@@ -2,6 +2,8 @@
 
 # Python packages
 
+-- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1.
+
 ## `cryptography`
 
 https://cryptography.io/en/latest/
@@ -32,9 +34,22 @@ https://cryptography.io/en/latest/
 https://www.pycryptodome.org/
 
 - "Self-contained Python package of low-level cryptographic primitives"
-    - Expects users to have a solid understanding of cryptography and security engineering
+    - Expects users to have a more solid understanding of cryptography and security engineering than with the others
     - Easier to misuse
-    - Requires you to handle some tasks by yourselves (e.g. nonce generation and algorithm choice)
+    - Requires you to handle some tasks by yourselves
+    - nonce is randomly generated if you want it to be, 
+
+```python
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+
+key = get_random_bytes(32)
+cipher = AES.new(key, AES.MODE_GCM)         # a random nonce is generated
+ciphertext, tag = cipher.encrypt_and_digest(b"attack at dawn")
+
+receiver = AES.new(key, AES.MODE_GCM, nonce=cipher.nonce)
+plaintext = receiver.decrypt_and_verify(ciphertext, tag)  # raises ValueError if tampered
+```
 
 ## `PyNaCl`
 
