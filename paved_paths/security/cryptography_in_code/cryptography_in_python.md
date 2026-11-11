@@ -13,16 +13,20 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 
 | Criterion | `cryptography` | PyCryptodome | PyNaCl | Tink |
 | --- | --- | --- | --- | --- |
-| First on PyPI | 2014-01-08 [^1] | 2014-06-14 [^2][^3] | 2013-04-14 [^4] | 2020-07-14 [^5][^6] |
+| First on PyPI | 2014-01-08 [^1][^2] | 2014-06-14 [^3][^4] | 2013-04-14 [^5] | 2020-07-14 [^6][^7] |
+| High-level, hard-to-misuse API | ✅ "Recipes" layer: Fernet and Cobblestone [^8] | ❌ | ✅ `SecretBox` and `Aead` [^9] | ✅ Primitives used through keysets [^10] |
 
 
-[^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1), [PyPI](https://pypi.org/project/cryptography/#history)
-[^2]: [PyPI](https://pypi.org/project/pycryptodome/#history)
-[^3]: Fork of PyCrypto
-[^4]: [PyPI](https://pypi.org/project/PyNaCl/#history)
-[^5]: [Project public since 2018](https://security.googleblog.com/2018/08/introducing-tink-cryptographic-software.html?m=1)
-[^6]: [PyPI](https://pypi.org/project/tink/#history)
-
+[^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1)
+[^2]: [PyPI](https://pypi.org/project/cryptography/#history)
+[^3]: [PyPI](https://pypi.org/project/pycryptodome/#history)
+[^4]: Fork of PyCrypto
+[^5]: [PyPI](https://pypi.org/project/PyNaCl/#history)
+[^6]: [Project public since 2018](https://security.googleblog.com/2018/08/introducing-tink-cryptographic-software.html?m=1)
+[^7]: [PyPI](https://pypi.org/project/tink/#history)
+[^8]: [Docs: Layout](https://cryptography.io/en/latest/#layout)
+[^9]: [Docs](https://pynacl.readthedocs.io/en/latest/secret/)
+[^10]: [Understand Key Concepts in Tink](https://developers.google.com/tink/get-started)
 
 ## `cryptography`
 
