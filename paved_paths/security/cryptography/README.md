@@ -10,24 +10,66 @@ https://cryptography.io/en/latest/
 
 - DDS uses (for key encryption)
     - AEAD -- AES-GCM 
-- Fernet https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
-    - high level functionality
-    - easier to use
-    - complete message contents must be available in memory -- quote-ish: not suitable for very large files, but good for encrypting data that easily fits in memory https://cryptography.io/en/latest/fernet/#limitations
-    - AES CBC with 128 bit key using PKCS7 padding https://cryptography.io/en/latest/fernet/#implementation 
-    - "also has support for implementing key rotation via MultiFernet" https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
-- used by (for some features)
-    - flask
-    - django-allauth
-    - celery
-- used by
-    - pyopenssl (same author)
-    - ansible
-    - authlib
-    - oauthlib
-    - google-auth (https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
-    - jwcrypto
+- Has 2 levels: https://cryptography.io/en/latest/#layout
+    - Recipes: "One with safe cryptographic recipes that require little to no configuration choices. These are safe and easy to use and don’t require developers to make many decisions." 
+    - "Hazmat": 
+        - "The other level is low-level cryptographic primitives. These are often dangerous and can be used incorrectly. They require making decisions and having an in-depth knowledge of the cryptographic concepts at work."
+        - "We recommend using the recipes layer whenever possible, and falling back to the hazmat layer only when necessary."
+- In recipes layer
+    - Fernet https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
+        - high level functionality
+        - easier to use
+        - complete message contents must be available in memory
+            - "Fernet is ideal for encrypting data that easily fits in memory. As a design feature it does not expose unauthenticated bytes. This means that the complete message contents must be available in memory, making Fernet generally unsuitable for very large files at this time." https://cryptography.io/en/latest/fernet/#limitations
+        - AES CBC with 128 bit key using PKCS7 padding https://cryptography.io/en/latest/fernet/#implementation 
+        - "also has support for implementing key rotation via MultiFernet" https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
+    - Cobbelstone now also avaialble
+        - applicable for e.g. file encryption
+        - possible to stream authenticated encryption
+        - up to 4 PiB -- not in memory
+        - AES-128-GCM or AES-256-GCM -- advanced encrption standard with galois counter mode
+            - AES is approved in FIPS 197 https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
+            - GCM is a NIST-recommended mode https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf
+            - it's a standard default choice https://www.rfc-editor.org/info/rfc5116/
+        - no rotation helper for cobbelstone is documented 
+- In hazmat layer: A range of different algorithms https://cryptography.io/en/latest/hazmat/primitives/#primitives
+- used by 
+    - (for some features)
+        - flask
+        - django-allauth
+        - celery
+    - (required)
+        - pyopenssl (same author)
+        - ansible
+        - authlib
+        - oauthlib
+        - google-auth (https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
+        - jwcrypto
+- The project states it has not had an external audit of its code or documentation. https://cryptography.io/en/latest/
 
+```python
+# Example with fernet -- high level recipe 
+>>> from cryptography.fernet import Fernet
+>>> key = Fernet.generate_key()
+>>> f = Fernet(key)
+>>> token = f.encrypt(b"my deep dark secret")
+>>> token
+b'...'
+>>> f.decrypt(token)
+b'my deep dark secret'
+
+# Example with hazmat
+>>> import os
+>>> from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+>>> data = b"a secret message"
+>>> aad = b"authenticated but unencrypted data"
+>>> key = AESGCM.generate_key(bit_length=128)
+>>> aesgcm = AESGCM(key)
+>>> nonce = os.urandom(12)
+>>> ct = aesgcm.encrypt(nonce, data, aad)
+>>> aesgcm.decrypt(nonce, ct, aad)
+b'a secret message'
+```
 
 ## `Pycryptodome`
 
@@ -38,6 +80,10 @@ https://www.pycryptodome.org/
     - Easier to misuse
     - Requires you to handle some tasks by yourselves
     - nonce is randomly generated if you want it to be, 
+- very broad algorithm set 
+- no "high level" recipe
+- decrypt() returns plaintext before the tag is checked -- must verify() before using output  https://www.pycryptodome.org/src/guides/symmetric#encrypt-a-large-file
+- no rotation helper 
 
 ```python
 from Crypto.Cipher import AES
@@ -55,6 +101,42 @@ plaintext = receiver.decrypt_and_verify(ciphertext, tag)  # raises ValueError if
 
 https://pynacl.readthedocs.io/en/latest/
 
+- python binding to libsodium https://github.com/jedisct1/libsodium
 - maintained by the same org as cryptography
+- cryptography FAQ recommends it if you prefer this design
 - doesn't have key-rotation support
 - also high-level and low-level, so not as much crypto knowledge needed
+    - nonces are handled for you -- risk of random nonce reuse is negligable
+- Secret box available https://pynacl.readthedocs.io/en/latest/secret/#secret-key-encryption
+- few choices to get wrong 
+- only a few algorithms -- usability, security and speed
+- no streaming or key rotation -- would have to build this yourself
+
+```python
+import nacl.secret
+import nacl.utils
+
+# This must be kept secret, this is the combination to your safe
+key = nacl.utils.random(nacl.secret.SecretBox.KEY_SIZE)
+
+# This is your safe, you can use it to encrypt or decrypt messages
+box = nacl.secret.SecretBox(key)
+
+# This is our message to send, it must be a bytestring as SecretBox will
+#   treat it as just a binary blob of data.
+message = b"The president will be exiting through the lower levels"
+
+# Encrypt our message, it will be exactly 40 bytes longer than the
+#   original message as it stores authentication information and the
+#   nonce alongside it.
+encrypted = box.encrypt(message)
+
+assert len(encrypted) == len(message) + box.NONCE_SIZE + box.MACBYTES
+
+# This is a nonce, it *MUST* only be used once, but it is not considered
+#   secret and can be transmitted or stored alongside the ciphertext. A
+#   good source of nonces are just sequences of 24 random bytes.
+nonce = nacl.utils.random(nacl.secret.SecretBox.NONCE_SIZE)
+
+encrypted = box.encrypt(message, nonce)
+```
