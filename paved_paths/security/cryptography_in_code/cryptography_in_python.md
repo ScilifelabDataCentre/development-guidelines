@@ -29,13 +29,13 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^7]: [PyPI](https://pypi.org/project/tink/#history)
 [^8]: [Docs: Layout](https://cryptography.io/en/latest/#layout)
 [^9]: [Docs](https://pynacl.readthedocs.io/en/latest/secret/)
-[^10]: Not raw primitives; always through keysets. Requires you to choose algorithm, from vetted list, with a recommended default.[Understand Key Concepts in Tink](https://developers.google.com/tink/get-started).
+[^10]: Not raw primitives; mainly through keysets. Requires you to choose algorithm, from vetted list, with a recommended default.[Understand Key Concepts in Tink](https://developers.google.com/tink/get-started).
 [^11]: [The hazardous materials layer](https://cryptography.io/en/latest/hazmat/primitives/)
 [^12]: ["Self-contained Python package of low-level cryptographic primitives"](https://www.pycryptodome.org/#pycryptodome). No high-level, hard-to-misuse API.
 [^13]: Small hand-picked set only. Undocumented, but available via `nacl.bindings`.
 [^14]: [You can choose whether or not you want to generate and provide it yourself, or let PyCryptodome handle it](https://www.pycryptodome.org/src/cipher/aes#Crypto.Cipher.AES.new)
 [^15]: [Encrypting large files through streaming possible via Cobblestone](https://cryptography.io/en/latest/cobblestone/), but [not Fernet](https://cryptography.io/en/latest/fernet/#limitations).
-[^16]: Key rotation functionality via [`MultiFernet`](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). No key rotation functionality documented for Cobbelstone or hazmat-layer.
+[^16]: Key rotation functionality via [`MultiFernet`](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). No key rotation functionality documented for Cobblestone or hazmat-layer.
 
 ## `cryptography`
 
