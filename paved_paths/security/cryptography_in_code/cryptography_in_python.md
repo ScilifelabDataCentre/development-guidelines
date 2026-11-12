@@ -14,8 +14,8 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 | Criterion | `cryptography` | PyCryptodome | PyNaCl | Tink |
 | --- | --- | --- | --- | --- |
 | First on PyPI | 2014-01-08 [^1][^2] | 2014-06-14 [^3][^4] | 2013-04-14 [^5] | 2020-07-14 [^6][^7] |
-| High-level, hard-to-misuse API | ✅ "Recipes" layer: Fernet and Cobblestone [^8] | ❌ | ✅ `SecretBox` and `Aead` [^9] | ✅ Primitives used through keysets [^10] |
-
+| High-level, hard-to-misuse API | ✅ "Recipes" layer: Fernet and Cobblestone [^8] | ❌ [^12] | ✅ `SecretBox` and `Aead` [^9] | ✅ Primitives used through keysets [^10] |
+| Low-level primitives | ✅ "Hazmat" layer [^11] | ✅ [^12] | ✅ [^13] | ❌ [^10] |
 
 [^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1)
 [^2]: [PyPI](https://pypi.org/project/cryptography/#history)
@@ -26,7 +26,10 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^7]: [PyPI](https://pypi.org/project/tink/#history)
 [^8]: [Docs: Layout](https://cryptography.io/en/latest/#layout)
 [^9]: [Docs](https://pynacl.readthedocs.io/en/latest/secret/)
-[^10]: [Understand Key Concepts in Tink](https://developers.google.com/tink/get-started)
+[^10]: Not raw primitives; always through keysets. Requires you to choose algorithm, from vetted list, with a recommended default.[Understand Key Concepts in Tink](https://developers.google.com/tink/get-started).
+[^11]: [The hazardous materials layer](https://cryptography.io/en/latest/hazmat/primitives/)
+[^12]: ["Self-contained Python package of low-level cryptographic primitives"](https://www.pycryptodome.org/#pycryptodome). No high-level, hard-to-misuse API.
+[^13]: Small hand-picked set only. Undocumented, but available via `nacl.bindings`.
 
 ## `cryptography`
 
