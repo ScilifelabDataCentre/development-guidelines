@@ -18,6 +18,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 | Low-level primitives | ✅ "Hazmat" layer [^11] | ✅ [^12] | ✅ [^13] | ❌ [^10] |
 | Nonce generated for you | ✅ High-level </br> ❌ Low-level | ✅ [^14] | ✅ | ✅ |
 | Streaming functionality provided | ✅ [^15] | ❌ | ❌ | ✅ |
+| Key rotation | ✅ [^16] | ❌ | ❌ | ✅ |
 
 [^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1)
 [^2]: [PyPI](https://pypi.org/project/cryptography/#history)
@@ -34,6 +35,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^13]: Small hand-picked set only. Undocumented, but available via `nacl.bindings`.
 [^14]: [You can choose whether or not you want to generate and provide it yourself, or let PyCryptodome handle it](https://www.pycryptodome.org/src/cipher/aes#Crypto.Cipher.AES.new)
 [^15]: [Encrypting large files through streaming possible via Cobblestone](https://cryptography.io/en/latest/cobblestone/), but [not Fernet](https://cryptography.io/en/latest/fernet/#limitations).
+[^16]: Key rotation functionality via [`MultiFernet`](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). No key rotation functionality documented for Cobbelstone or hazmat-layer.
 
 ## `cryptography`
 
