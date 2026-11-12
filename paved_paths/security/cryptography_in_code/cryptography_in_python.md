@@ -17,6 +17,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 | High-level, hard-to-misuse API | ✅ "Recipes" layer: Fernet and Cobblestone [^8] | ❌ [^12] | ✅ `SecretBox` and `Aead` [^9] | ✅ Primitives used through keysets [^10] |
 | Low-level primitives | ✅ "Hazmat" layer [^11] | ✅ [^12] | ✅ [^13] | ❌ [^10] |
 | Nonce generated for you | ✅ High-level </br> ❌ Low-level | ✅ [^14] | ✅ | ✅ |
+| Streaming functionality provided | ✅ [^15] | ❌ | ❌ | ✅ |
 
 [^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1)
 [^2]: [PyPI](https://pypi.org/project/cryptography/#history)
@@ -32,6 +33,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^12]: ["Self-contained Python package of low-level cryptographic primitives"](https://www.pycryptodome.org/#pycryptodome). No high-level, hard-to-misuse API.
 [^13]: Small hand-picked set only. Undocumented, but available via `nacl.bindings`.
 [^14]: [You can choose whether or not you want to generate and provide it yourself, or let PyCryptodome handle it](https://www.pycryptodome.org/src/cipher/aes#Crypto.Cipher.AES.new)
+[^15]: [Encrypting large files through streaming possible via Cobblestone](https://cryptography.io/en/latest/cobblestone/), but [not Fernet](https://cryptography.io/en/latest/fernet/#limitations).
 
 ## `cryptography`
 
