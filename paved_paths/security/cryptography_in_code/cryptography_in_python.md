@@ -78,7 +78,7 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 `cryptography` [has two levels](https://cryptography.io/en/latest/#layout) with different requirements on cryptographic knowledge and configuration choices:
 
 - The high-level "Recipes" layer contains two methods of implementing symmetric encryption. They "require little to no configuration choices" and "are safe and easy to use and don't require developers to make many decisions" [^28].
-- The low-level "Hazmat" layer provides a range of different algorithms via low-level primitives [^27]. It "requires making decisions and having an in-depth knowledge of the cryptographic concepts at work" and "can be used incorrectly" [^28].
+- The low-level "Hazmat" layer provides a range of different algorithms via low-level primitives [^27]. It requires "making decisions and having an in-depth knowledge of the cryptographic concepts at work" and "can be used incorrectly" [^28].
 
 [^27]: [Low-level primitives in `cryptography`](https://cryptography.io/en/latest/hazmat/primitives/#primitives)
 
@@ -108,32 +108,6 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 ### Additional information
 
 `cryptography`'s own documentation states that is has not had an external audit of its code or documentation.
-
-<!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
-
-```python
-# Example with fernet -- high level recipe
->>> from cryptography.fernet import Fernet
->>> key = Fernet.generate_key()
->>> f = Fernet(key)
->>> token = f.encrypt(b"my deep dark secret")
->>> token
-b'...'
->>> f.decrypt(token)
-b'my deep dark secret'
-
-# Example with hazmat
->>> import os
->>> from cryptography.hazmat.primitives.ciphers.aead import AESGCM
->>> data = b"a secret message"
->>> aad = b"authenticated but unencrypted data"
->>> key = AESGCM.generate_key(bit_length=128)
->>> aesgcm = AESGCM(key)
->>> nonce = os.urandom(12)
->>> ct = aesgcm.encrypt(nonce, data, aad)
->>> aesgcm.decrypt(nonce, ct, aad)
-b'a secret message'
-```
 
 ## `Pycryptodome`
 
