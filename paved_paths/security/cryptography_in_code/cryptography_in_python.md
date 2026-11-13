@@ -120,7 +120,7 @@ b'a secret message'
 [![Docs](https://img.shields.io/badge/Docs-blue)](https://www.pycryptodome.org/) ·
 [![Source](https://img.shields.io/badge/Source-black)](https://github.com/Legrandin/pycryptodome) ·
 [![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/pycryptodome/) ·
-[![Why `cryptography`](https://img.shields.io/badge/Why_PyCryptodome-green)](https://github.com/Legrandin/pycryptodome#why-pycryptodome)
+[![Why PyCryptodome](https://img.shields.io/badge/Why_PyCryptodome-green)](https://github.com/Legrandin/pycryptodome#why-pycryptodome)
 
 
 - "Self-contained Python package of low-level cryptographic primitives"
@@ -147,7 +147,9 @@ plaintext = receiver.decrypt_and_verify(ciphertext, tag)  # raises ValueError if
 
 ## `PyNaCl`
 
-https://pynacl.readthedocs.io/en/latest/
+[![Docs](https://img.shields.io/badge/Docs-blue)](hhttps://pynacl.readthedocs.io/en/latest/) ·
+[![Source](https://img.shields.io/badge/Source-black)](https://github.com/pyca/pynacl) ·
+[![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/PyNaCl/)
 
 - python binding to libsodium https://github.com/jedisct1/libsodium
 - maintained by the same org as cryptography
@@ -188,3 +190,10 @@ nonce = nacl.utils.random(nacl.secret.SecretBox.NONCE_SIZE)
 
 encrypted = box.encrypt(message, nonce)
 ```
+
+## Tink
+
+[![Docs](https://img.shields.io/badge/Docs-blue)](https://developers.google.com/tink) ·
+[![Source](https://img.shields.io/badge/Source-black)](https://github.com/tink-crypto/tink-py) ·
+[![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/tink/)
+
