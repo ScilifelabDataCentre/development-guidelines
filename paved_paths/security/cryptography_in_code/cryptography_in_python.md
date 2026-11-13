@@ -48,7 +48,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [![Docs](https://img.shields.io/badge/Docs-blue)](https://cryptography.io/en/latest/) ·
 [![Source](https://img.shields.io/badge/Source-black)](https://github.com/pyca/cryptography) ·
 [![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/cryptography/) ·
-[![Why `cryptography`](https://img.shields.io/badge/Why_this_package-green)](https://cryptography.io/en/latest/faq/#why-use-cryptography)
+[![Why `cryptography`](https://img.shields.io/badge/Why_cryptography-green)](https://cryptography.io/en/latest/faq/#why-use-cryptography)
 
 <!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
 
