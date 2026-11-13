@@ -21,6 +21,8 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 | Nonce generated for you | ✅ High-level </br> ❌ Low-level | ✅ [^14] | ✅ | ✅ |
 | Streaming functionality provided | ✅ [^15] | ❌ | ❌ | ✅ |
 | Key rotation | ✅ [^16] | ❌ | ❌ | ✅ |
+| Maintainer | PyCA [^17] | Legrandin [^18] | PyCA [^17] | Google [^19] |
+| License | Apache-2.0 </br> OR </br> BSD-3-Clause [^20] | BSD-2-Clause </br> + </br> public domain [^20] | Apache-2.0 [^20] | Apache-2.0 [^20] |
 
 [^1]: [Docs](https://cryptography.io/en/latest/changelog/#v0-1)
 [^2]: [PyPI](https://pypi.org/project/cryptography/#history)
@@ -38,10 +40,15 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^14]: [You can choose whether or not you want to generate and provide it yourself, or let PyCryptodome handle it](https://www.pycryptodome.org/src/cipher/aes#Crypto.Cipher.AES.new)
 [^15]: [Encrypting large files through streaming possible via Cobblestone](https://cryptography.io/en/latest/cobblestone/), but [not Fernet](https://cryptography.io/en/latest/fernet/#limitations).
 [^16]: Key rotation functionality via [`MultiFernet`](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). No key rotation functionality documented for Cobblestone or hazmat-layer.
+[^17]: [Python Cryptographic Authority](https://github.com/pyca), a community project.
+[^18]: [Legrandin](https://github.com/Legrandin), GitHub user.
+[^19]: [Google maintains and designs, but there are external contributors as well.](https://github.com/tink-crypto/tink-py)
+[^20]: Permissive licenses. [Free to use](https://choosealicense.com/licenses/); include the license text only when redistributing the code (e.g. in a container image).
 
 ## `cryptography`
 
 https://cryptography.io/en/latest/
+https://cryptography.io/en/latest/faq/#why-use-cryptography
 
 - DDS uses (for key encryption)
     - AEAD -- AES-GCM 
@@ -108,8 +115,8 @@ b'a secret message'
 
 ## `Pycryptodome`
 
-**Initial release:** 
 https://www.pycryptodome.org/
+https://github.com/Legrandin/pycryptodome#why-pycryptodome
 
 - "Self-contained Python package of low-level cryptographic primitives"
     - Expects users to have a more solid understanding of cryptography and security engineering than with the others
