@@ -50,32 +50,44 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/cryptography/) ·
 [![Why `cryptography`](https://img.shields.io/badge/Why_cryptography-green)](https://cryptography.io/en/latest/faq/#why-use-cryptography)
 
+### Activity
+
+The `cryptography` package is actively maintained and [widely used](https://github.com/pyca/cryptography/network/dependents), e.g. by Ansible, Authlib, Oauthlib, Google-auth, jwcrypto, Flask, Django-allauth, Celery. 
+
+### Ease of use
+
+`cryptography` [has two levels](https://cryptography.io/en/latest/#layout) with very different requirements on cryptographic knowledge and configuration choices:
+
+- [High-level "Recipes" layer](#high-level-recipes-layer)
+- [Low-level "Hazmat" layer](#low-level-hazmat-layer)
+
+#### High-level "Recipes" layer
+
+> "[...] Require little to no configuration choices"
+>
+> "[...] Are safe and easy to use and don’t require developers to make many decisions."
+>
+> _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
+
+The Recipes layer contains two methods of implementing symmmetric encryption: Fernet and Cobblestone. [Fernet](https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption) requires the complete message to be available in memory, making it suitable for encrypting small amounts of data, not for encrypting e.g. large files [^21]. Cobblestone 
+
+[^21]: [Fernet limitations](https://cryptography.io/en/latest/fernet/#limitations)
+
+#### Low-level "Hazmat" layer
+
+> "[...] Low-level cryptographic primitives."
+>
+> "[...] Often dangerous and can be used incorrectly."
+>
+> "[...] Require making decisions and having in-depth knowledge of the cryptographic concepts at work."
+>
+> _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
+
+### Additional information
+
 <!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
 
-- Actively maintained
-- [Widely used](https://github.com/pyca/cryptography/network/dependents)
-    - (for some features)
-        - flask
-        - django-allauth
-        - celery
-    - (required)
-        - pyopenssl (same author)
-        - ansible
-        - authlib
-        - oauthlib
-        - google-auth (https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
-        - jwcrypto
-- Has 2 levels: https://cryptography.io/en/latest/#layout
-    - Recipes: "One with safe cryptographic recipes that require little to no configuration choices. These are safe and easy to use and don’t require developers to make many decisions." 
-    - "Hazmat": 
-        - "The other level is low-level cryptographic primitives. These are often dangerous and can be used incorrectly. They require making decisions and having an in-depth knowledge of the cryptographic concepts at work."
-        - "We recommend using the recipes layer whenever possible, and falling back to the hazmat layer only when necessary."
 - In recipes layer
-    - Fernet https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
-        - high level functionality
-        - easier to use
-        - complete message contents must be available in memory
-            - "Fernet is ideal for encrypting data that easily fits in memory. As a design feature it does not expose unauthenticated bytes. This means that the complete message contents must be available in memory, making Fernet generally unsuitable for very large files at this time." https://cryptography.io/en/latest/fernet/#limitations
         - AES CBC with 128 bit key using PKCS7 padding https://cryptography.io/en/latest/fernet/#implementation 
         - "also has support for implementing key rotation via MultiFernet" https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
     - Cobbelstone now also avaialble
