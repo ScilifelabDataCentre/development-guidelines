@@ -1,6 +1,6 @@
 # Cryptography in Python
 
-This file provides the reasoning behind the chosen paved path stated in the [README.md](./README.md). Three different Python packages with cryptographic functionalities were compared:
+This file provides the reasoning behind the chosen paved path stated in the [README.md](./README.md). Four different Python packages with cryptographic functionalities were compared:
 
 - [`cryptography`](https://cryptography.io/en/latest/)
 - [`PyCryptodome`](https://www.pycryptodome.org/)
@@ -10,6 +10,8 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 <!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
 
 ## Comparison
+
+**Legend:** ✅ yes, functionality provided / covered · ❌ no, functionality not covered
 
 | Criterion | `cryptography` | PyCryptodome | PyNaCl | Tink |
 | --- | --- | --- | --- | --- |
@@ -38,8 +40,6 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [^16]: Key rotation functionality via [`MultiFernet`](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). No key rotation functionality documented for Cobblestone or hazmat-layer.
 
 ## `cryptography`
-
-**Intial release:** 2014
 
 https://cryptography.io/en/latest/
 
