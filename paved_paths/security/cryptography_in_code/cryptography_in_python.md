@@ -77,22 +77,21 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 
 `cryptography` [has two levels](https://cryptography.io/en/latest/#layout) with different requirements on cryptographic knowledge and configuration choices:
 
-- [High-level "Recipes" layer](#high-level-recipes-layer)
-- [Low-level "Hazmat" layer](#low-level-hazmat-layer)
+- The high-level "Recipes" layer contains two methods of implementing symmetric encryption. They "require little to no configuration choices" and "are safe and easy to use and don't require developers to make many decisions" [^28].
+- The low-level "Hazmat" layer provides a range of different algorithms via low-level primitives [^27]. It "requires making decisions and having an in-depth knowledge of the cryptographic concepts at work" and "can be used incorrectly" [^28].
 
-#### High-level "Recipes" layer
+[^27]: [Low-level primitives in `cryptography`](https://cryptography.io/en/latest/hazmat/primitives/#primitives)
 
-> "[...] Require little to no configuration choices"
->
-> "[...] Are safe and easy to use and don’t require developers to make many decisions."
->
-> _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
+[^28]: [`cryptography` docs: Layout](https://cryptography.io/en/latest/#layout)
 
-The Recipes layer contains two methods of implementing symmmetric encryption: Fernet and Cobblestone.
-
-[Fernet](https://cryptography.io/en/latest/fernet/) requires the complete message to be available in memory, making it suitable for encrypting small amounts of data, not for encrypting e.g. large files [^21]. Key rotation functionality can also be implemented by using [MultiFernet](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). Fernet uses the encryption algorithm AES [^23], in CBC [^24] mode, with a 128 bit key and PKCS7 adding [^22].
-
-[Cobblestone](https://cryptography.io/en/latest/cobblestone/) (added in version 50.0.0) makes it possible to stream authenticated encryption of up to 4 PiB, allowing encryption of data that cannot be kept completely in memory, e.g. large files. It uses the encryption algorithm AES [^23], in GCM [^25] mode, with either 128 bit or 256 bit key (AES-128-GCM or AES-256-GCM [^26]). No key rotation helper is documented for Cobblestone.
+|                            | [Fernet](https://cryptography.io/en/latest/fernet/)                                               | [Cobblestone](https://cryptography.io/en/latest/cobblestone/) | Primitives             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------- |
+| Layer                      | High-level Recipes                                                                                | High-level Recipes                                            | Low-level Hazmat       |
+| Algorithm [^23]            | AES-128-CBC [^24] + HMAC-SHA256 [^22]                                                             | AES-128-GCM **or** AES-256-GCM [^25][^26]                     | You choose             |
+| Whole message in memory    | Yes                                                                                               | No (streaming, up to 4 PiB)                                   | You configure          |
+| Suitable for encryption of | Small amounts of data [^21]                                                                       | Any data, incl large files                                    | Any, but you configure |
+| Nonce generated for you    | Yes                                                                                               | Yes                                                           | No                     |
+| Key rotation               | Yes, via [MultiFernet](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet) | No                                                            | No                     |
 
 [^21]: [Fernet limitations](https://cryptography.io/en/latest/fernet/#limitations)
 
@@ -102,23 +101,9 @@ The Recipes layer contains two methods of implementing symmmetric encryption: Fe
 
 [^24]: CBC: Cipher Block Chaining.
 
-[^25]: GCM: Galois Counter mode. [NIST-recommended: SP 800-38D]( https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)
+[^25]: GCM: Galois Counter mode. [NIST-recommended: SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)
 
 [^26]: AES-256-GCM is a standard default choice. [RFC 5116](https://www.rfc-editor.org/info/rfc5116/).
-
-#### Low-level "Hazmat" layer
-
-> "[...] Low-level cryptographic primitives."
->
-> "[...] Often dangerous and can be used incorrectly."
->
-> "[...] Require making decisions and having in-depth knowledge of the cryptographic concepts at work."
->
-> _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
-
-The Hazmat layer provides a range of different algorithms via low-level primitives [^27].
-
-[^27]: [Low-level primitives in `cryptography`](https://cryptography.io/en/latest/hazmat/primitives/#primitives)
 
 ### Additional information
 
