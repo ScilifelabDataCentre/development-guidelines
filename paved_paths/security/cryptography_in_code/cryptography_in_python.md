@@ -75,7 +75,7 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 
 ### Ease of use
 
-`cryptography` [has two levels](https://cryptography.io/en/latest/#layout) with very different requirements on cryptographic knowledge and configuration choices:
+`cryptography` [has two levels](https://cryptography.io/en/latest/#layout) with different requirements on cryptographic knowledge and configuration choices:
 
 - [High-level "Recipes" layer](#high-level-recipes-layer)
 - [Low-level "Hazmat" layer](#low-level-hazmat-layer)
@@ -88,9 +88,23 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 >
 > _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
 
-The Recipes layer contains two methods of implementing symmmetric encryption: Fernet and Cobblestone. [Fernet](https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption) requires the complete message to be available in memory, making it suitable for encrypting small amounts of data, not for encrypting e.g. large files [^21]. Cobblestone
+The Recipes layer contains two methods of implementing symmmetric encryption: Fernet and Cobblestone.
+
+[Fernet](https://cryptography.io/en/latest/fernet/) requires the complete message to be available in memory, making it suitable for encrypting small amounts of data, not for encrypting e.g. large files [^21]. Key rotation functionality can also be implemented by using [MultiFernet](https://cryptography.io/en/latest/fernet/#cryptography.fernet.MultiFernet). Fernet uses the encryption algorithm AES [^23], in CBC [^24] mode, with a 128 bit key and PKCS7 adding [^22].
+
+[Cobblestone](https://cryptography.io/en/latest/cobblestone/) (added in version 50.0.0) makes it possible to stream authenticated encryption of up to 4 PiB, allowing encryption of data that cannot be kept completely in memory, e.g. large files. It uses the encryption algorithm AES [^23], in GCM [^25] mode, with either 128 bit or 256 bit key (AES-128-GCM or AES-256-GCM [^26]). No key rotation helper is documented for Cobblestone.
 
 [^21]: [Fernet limitations](https://cryptography.io/en/latest/fernet/#limitations)
+
+[^22]: [Fernet implementation](https://cryptography.io/en/latest/fernet/#implementation)
+
+[^23]: AES: Advanced Encrption Standard. Approved in [FIPS 197](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf).
+
+[^24]: CBC: Cipher Block Chaining.
+
+[^25]: GCM: Galois Counter mode. [NIST-recommended: SP 800-38D]( https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)
+
+[^26]: AES-256-GCM is a standard default choice. [RFC 5116](https://www.rfc-editor.org/info/rfc5116/).
 
 #### Low-level "Hazmat" layer
 
@@ -102,23 +116,15 @@ The Recipes layer contains two methods of implementing symmmetric encryption: Fe
 >
 > _[Source: `cryptography` docs](https://cryptography.io/en/latest/#layout)_
 
+The Hazmat layer provides a range of different algorithms via low-level primitives [^27].
+
+[^27]: [Low-level primitives in `cryptography`](https://cryptography.io/en/latest/hazmat/primitives/#primitives)
+
 ### Additional information
 
+`cryptography`'s own documentation states that is has not had an external audit of its code or documentation.
+
 <!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
-
-- In recipes layer - AES CBC with 128 bit key using PKCS7 padding https://cryptography.io/en/latest/fernet/#implementation - "also has support for implementing key rotation via MultiFernet" https://cryptography.io/en/latest/fernet/#fernet-symmetric-encryption
-  - Cobbelstone now also avaialble
-    - applicable for e.g. file encryption
-    - possible to stream authenticated encryption
-    - up to 4 PiB -- not in memory
-    - AES-128-GCM or AES-256-GCM -- advanced encrption standard with galois counter mode
-      - AES is approved in FIPS 197 https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
-      - GCM is a NIST-recommended mode https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf
-      - it's a standard default choice https://www.rfc-editor.org/info/rfc5116/
-    - no rotation helper for cobbelstone is documented
-- In hazmat layer: A range of different algorithms https://cryptography.io/en/latest/hazmat/primitives/#primitives
-
-- The project states it has not had an external audit of its code or documentation. https://cryptography.io/en/latest/
 
 ```python
 # Example with fernet -- high level recipe
