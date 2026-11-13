@@ -69,9 +69,7 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 [![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/cryptography/) ·
 [![Why `cryptography`](https://img.shields.io/badge/Why_cryptography-green)](https://cryptography.io/en/latest/faq/#why-use-cryptography)
 
-### Activity
-
-The `cryptography` package is actively maintained and [widely used](https://github.com/pyca/cryptography/network/dependents), e.g. by Ansible, Authlib, Oauthlib, Google-auth, jwcrypto, Flask, Django-allauth, Celery.
+The `cryptography` package is actively maintained and [widely used](https://github.com/pyca/cryptography/network/dependents), e.g. by Ansible, Authlib, Oauthlib, Google-auth, jwcrypto, Flask, Django-allauth, Celery. However, it's own documentation states that is has not had an external audit of its code or documentation.
 
 ### Ease of use
 
@@ -104,10 +102,6 @@ The `cryptography` package is actively maintained and [widely used](https://gith
 [^25]: GCM: Galois Counter mode. [NIST-recommended: SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)
 
 [^26]: AES-256-GCM is a standard default choice. [RFC 5116](https://www.rfc-editor.org/info/rfc5116/).
-
-### Additional information
-
-`cryptography`'s own documentation states that is has not had an external audit of its code or documentation.
 
 ## `Pycryptodome`
 
