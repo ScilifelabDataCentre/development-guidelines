@@ -117,8 +117,11 @@ b'a secret message'
 
 ## `Pycryptodome`
 
-https://www.pycryptodome.org/
-https://github.com/Legrandin/pycryptodome#why-pycryptodome
+[![Docs](https://img.shields.io/badge/Docs-blue)](https://www.pycryptodome.org/) ·
+[![Source](https://img.shields.io/badge/Source-black)](https://github.com/Legrandin/pycryptodome) ·
+[![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/pycryptodome/) ·
+[![Why `cryptography`](https://img.shields.io/badge/Why_PyCryptodome-green)](https://github.com/Legrandin/pycryptodome#why-pycryptodome)
+
 
 - "Self-contained Python package of low-level cryptographic primitives"
     - Expects users to have a more solid understanding of cryptography and security engineering than with the others
