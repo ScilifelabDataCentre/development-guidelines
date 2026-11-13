@@ -7,8 +7,6 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 - [`PyNaCl`](https://pynacl.readthedocs.io/en/latest/)
 - [`Tink`](https://developers.google.com/tink)
 
-<!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
-
 ## Comparison
 
 **Legend:** ✅ yes, functionality provided / covered · ❌ no, functionality not covered
@@ -47,11 +45,26 @@ This file provides the reasoning behind the chosen paved path stated in the [REA
 
 ## `cryptography`
 
-https://cryptography.io/en/latest/
-https://cryptography.io/en/latest/faq/#why-use-cryptography
+[![Docs](https://img.shields.io/badge/Docs-blue)](https://cryptography.io/en/latest/) ·
+[![Source](https://img.shields.io/badge/Source-black)](https://github.com/pyca/cryptography) ·
+[![PyPI](https://img.shields.io/badge/PyPI-orange)](https://pypi.org/project/cryptography/) ·
+[![Why `cryptography`](https://img.shields.io/badge/Why_this_package-green)](https://cryptography.io/en/latest/faq/#why-use-cryptography)
 
-- DDS uses (for key encryption)
-    - AEAD -- AES-GCM 
+<!-- -- all of them use / recommend the same nonce / IV method -- os.urandom. Except for cobbelstone in cryptography -- OpenSSL rand_bytes, based on NIST SP 800-90A Rev. 1. -->
+
+- Actively maintained
+- [Widely used](https://github.com/pyca/cryptography/network/dependents)
+    - (for some features)
+        - flask
+        - django-allauth
+        - celery
+    - (required)
+        - pyopenssl (same author)
+        - ansible
+        - authlib
+        - oauthlib
+        - google-auth (https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
+        - jwcrypto
 - Has 2 levels: https://cryptography.io/en/latest/#layout
     - Recipes: "One with safe cryptographic recipes that require little to no configuration choices. These are safe and easy to use and don’t require developers to make many decisions." 
     - "Hazmat": 
@@ -75,18 +88,7 @@ https://cryptography.io/en/latest/faq/#why-use-cryptography
             - it's a standard default choice https://www.rfc-editor.org/info/rfc5116/
         - no rotation helper for cobbelstone is documented 
 - In hazmat layer: A range of different algorithms https://cryptography.io/en/latest/hazmat/primitives/#primitives
-- used by 
-    - (for some features)
-        - flask
-        - django-allauth
-        - celery
-    - (required)
-        - pyopenssl (same author)
-        - ansible
-        - authlib
-        - oauthlib
-        - google-auth (https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
-        - jwcrypto
+
 - The project states it has not had an external audit of its code or documentation. https://cryptography.io/en/latest/
 
 ```python
