@@ -4,7 +4,7 @@
 # and for consistency between GitHub and local builds
 # better to have here rather than in the GitHub Action
 # cspell:ignore tlmgr fontaxes xkeyval updmap
-FROM pandoc/latex:3.11
+FROM pandoc/latex:3.14
 
 RUN tlmgr update --self && \
     tlmgr install cm-super fontaxes lato xkeyval && \
